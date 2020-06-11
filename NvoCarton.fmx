@@ -11,18 +11,14 @@ object FNvoCarton: TFNvoCarton
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop, iPhone, iPad]
   OnShow = FormShow
-  DesignerMobile = False
-  DesignerWidth = 0
-  DesignerHeight = 0
-  DesignerDeviceName = ''
-  DesignerOrientation = 0
-  DesignerOSVersion = ''
+  DesignerMasterStyle = 0
   object Label1: TLabel
-    Height = 17.000000000000000000
     Position.X = 48.000000000000000000
     Position.Y = 32.000000000000000000
+    Size.Width = 81.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
     Text = 'N'#176' de cart'#243'n:'
-    Width = 81.000000000000000000
   end
   object NBNumC: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -32,78 +28,84 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 144.000000000000000000
     Position.Y = 32.000000000000000000
-    Width = 57.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 57.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
-  object Button1: TButton
-    Height = 22.000000000000000000
+  object BConsultar: TButton
     Position.X = 240.000000000000000000
     Position.Y = 32.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
     TabOrder = 1
     Text = 'Consultar'
-    Width = 80.000000000000000000
-    OnClick = Button1Click
+    OnClick = BConsultarClick
   end
   object Label2: TLabel
     AutoSize = True
     StyledSettings = [Family, FontColor]
-    Height = 32.000000000000000000
     Position.X = 80.000000000000000000
     Position.Y = 88.000000000000000000
+    Size.Width = 16.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
     TextSettings.Font.Size = 24.000000000000000000
-    TextSettings.Font.Style = [fsBold]
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.WordWrap = False
     Text = 'B'
-    Width = 17.000000000000000000
   end
   object Label3: TLabel
     AutoSize = True
     StyledSettings = [Family, FontColor]
-    Height = 32.000000000000000000
     Position.X = 128.000000000000000000
     Position.Y = 88.000000000000000000
+    Size.Width = 8.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
     TextSettings.Font.Size = 24.000000000000000000
-    TextSettings.Font.Style = [fsBold]
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.WordWrap = False
     Text = 'I'
-    Width = 8.000000000000000000
   end
   object Label4: TLabel
     AutoSize = True
     StyledSettings = [Family, FontColor]
-    Height = 32.000000000000000000
     Position.X = 176.000000000000000000
     Position.Y = 88.000000000000000000
+    Size.Width = 19.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
     TextSettings.Font.Size = 24.000000000000000000
-    TextSettings.Font.Style = [fsBold]
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.WordWrap = False
     Text = 'N'
-    Width = 19.000000000000000000
   end
   object Label5: TLabel
     AutoSize = True
     StyledSettings = [Family, FontColor]
-    Height = 32.000000000000000000
     Position.X = 224.000000000000000000
     Position.Y = 88.000000000000000000
+    Size.Width = 18.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
     TextSettings.Font.Size = 24.000000000000000000
-    TextSettings.Font.Style = [fsBold]
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.WordWrap = False
     Text = 'G'
-    Width = 18.000000000000000000
   end
   object Label6: TLabel
     AutoSize = True
     StyledSettings = [Family, FontColor]
-    Height = 32.000000000000000000
     Position.X = 272.000000000000000000
     Position.Y = 88.000000000000000000
+    Size.Width = 19.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
     TextSettings.Font.Size = 24.000000000000000000
-    TextSettings.Font.Style = [fsBold]
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.WordWrap = False
     Text = 'O'
-    Width = 19.000000000000000000
   end
   object NB1: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -115,9 +117,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 72.000000000000000000
     Position.Y = 136.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB2: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -129,9 +131,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 72.000000000000000000
     Position.Y = 176.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB3: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -143,9 +145,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 72.000000000000000000
     Position.Y = 216.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB4: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -157,9 +159,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 72.000000000000000000
     Position.Y = 256.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB5: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -171,9 +173,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 72.000000000000000000
     Position.Y = 296.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB6: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -185,9 +187,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 116.000000000000000000
     Position.Y = 136.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB7: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -199,9 +201,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 116.000000000000000000
     Position.Y = 176.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB8: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -213,9 +215,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 116.000000000000000000
     Position.Y = 216.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB9: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -227,9 +229,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 116.000000000000000000
     Position.Y = 256.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB10: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -241,9 +243,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 116.000000000000000000
     Position.Y = 296.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB11: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -255,9 +257,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 168.000000000000000000
     Position.Y = 136.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB12: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -269,9 +271,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 168.000000000000000000
     Position.Y = 176.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB14: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -283,9 +285,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 168.000000000000000000
     Position.Y = 256.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB15: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -297,9 +299,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 168.000000000000000000
     Position.Y = 296.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB16: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -311,9 +313,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 212.000000000000000000
     Position.Y = 136.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB17: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -325,9 +327,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 212.000000000000000000
     Position.Y = 176.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB18: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -339,9 +341,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 212.000000000000000000
     Position.Y = 216.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB19: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -353,9 +355,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 212.000000000000000000
     Position.Y = 256.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB20: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -367,9 +369,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 212.000000000000000000
     Position.Y = 296.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB25: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -381,9 +383,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 260.000000000000000000
     Position.Y = 296.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB24: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -395,9 +397,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 260.000000000000000000
     Position.Y = 256.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB23: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -409,9 +411,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 260.000000000000000000
     Position.Y = 216.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB22: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -423,9 +425,9 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 260.000000000000000000
     Position.Y = 176.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object NB21: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -437,39 +439,51 @@ object FNvoCarton: TFNvoCarton
     Value = 1.000000000000000000
     Position.X = 260.000000000000000000
     Position.Y = 136.000000000000000000
-    Width = 33.000000000000000000
-    Height = 22.000000000000000000
-    VertIncrement = 5.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
   end
   object BGuardar: TButton
     Enabled = False
-    Height = 41.000000000000000000
     Position.X = 128.000000000000000000
     Position.Y = 352.000000000000000000
+    Size.Width = 113.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
     TabOrder = 26
     Text = 'Guardar'
-    Width = 113.000000000000000000
     OnClick = BGuardarClick
   end
   object BSalir: TButton
-    Height = 22.000000000000000000
+    Cancel = True
     Position.X = 144.000000000000000000
     Position.Y = 416.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
     TabOrder = 27
     Text = 'Salir'
-    Width = 80.000000000000000000
     OnClick = BSalirClick
   end
   object Label7: TLabel
     AutoSize = True
     StyledSettings = [Family, FontColor]
-    Height = 32.000000000000000000
     Position.X = 175.000000000000000000
     Position.Y = 209.000000000000000000
+    Size.Width = 14.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
     TextSettings.Font.Size = 24.000000000000000000
-    TextSettings.Font.Style = [fsBold]
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.WordWrap = False
     Text = 'x'
-    Width = 14.000000000000000000
+  end
+  object Query: TABSQuery
+    CurrentVersion = '7.80 '
+    DatabaseName = 'DB'
+    InMemory = False
+    ReadOnly = False
+    Left = 40
+    Top = 360
   end
 end

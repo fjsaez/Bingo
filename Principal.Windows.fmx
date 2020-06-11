@@ -1,0 +1,270 @@
+inherited FPrinc_Windows: TFPrinc_Windows
+  DesignerMasterStyle = 0
+  inherited Panel: TPanel
+    inherited CBt1: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt2: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt4: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt3: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt5: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Cbt10: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Cbt8: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Cbt9: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Cbt7: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Cbt6: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Cbt15: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Cbt13: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Cbt14: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Cbt12: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Cbt11: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt16: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt17: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt19: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt18: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt20: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt25: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt23: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt24: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt22: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt21: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt30: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt28: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt29: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt27: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt26: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt60: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt56: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt57: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt59: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt58: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt51: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt52: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt54: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt53: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt55: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt50: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt48: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt49: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt47: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt46: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt41: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt42: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt44: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt43: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt45: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt36: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt37: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt39: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt38: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt40: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt35: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt33: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt34: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt32: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt31: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt75: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt71: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt72: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt74: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt73: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt66: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt67: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt69: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt68: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt70: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt65: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt63: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt64: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt62: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited CBt61: TCornerButton
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Label1: TLabel
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Label2: TLabel
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Label3: TLabel
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Label4: TLabel
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+    inherited Label5: TLabel
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+  end
+  inherited Grid: TStringGrid
+    Viewport.Width = 545.000000000000000000
+    Viewport.Height = 377.000000000000000000
+    inherited SColNom: TStringColumn
+      Size.Width = 300.000000000000000000
+    end
+    inherited SColCart: TStringColumn
+      Size.Width = 200.000000000000000000
+    end
+  end
+  inherited ExpPatrones: TExpander
+    Position.Y = 56.000000000000000000
+    ContentSize = '200'
+  end
+  inherited ExpJugadores: TExpander
+    ContentSize = '0'
+    inherited LBDisp: TListBox
+      Viewport.Width = 65.000000000000000000
+      Viewport.Height = 73.000000000000000000
+    end
+    inherited LBAsig: TListBox
+      Viewport.Width = 65.000000000000000000
+      Viewport.Height = 73.000000000000000000
+    end
+  end
+end

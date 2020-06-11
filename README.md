@@ -1,21 +1,1 @@
-# Bingo
-
-## Descripción
-
-El juego del Bingo, donde se pueden registrar varios jugadores donde llenan los cartones y gana el que consiga completar determinadas figuras en los mismos. Los  cartones son configurables. Aún en fase de desarrollo.
-
-## Lenguaje/framework
-
-Desarrollado en Delphi, usando Firemokey.
-Se emplearon sólo componentes nativos.
-
-## Autor
-
-Ing. Francisco J. Sáez S.
-
-e-mail: **fjsaez@gmail.com**
-
-LinkedIn: **linkedin.com/francisco-josé-sáez-soto**
-
----
-Calabozo, enero de 2015.
+# Bingo![Bingo](/Imagen/icono_bingo2.png)---## DescripciónEl juego del Bingo (Bingo 75), donde se pueden registrar varios jugadores donde llenan los cartones y gana el que consiga completar determinados patrones en los mismos. Los  cartones son configurables. **Aún en fase de desarrollo.**---## Lenguaje/framework/base de datosDesarrollado en Delphi 1.2, usando Firemokey. Se emplearon sólo componentes nativos. Se usó Absolute Database edición personal como SGBD. ---## AutorIng. Francisco J. Sáez S.e-mail: **fjsaez@gmail.com**LinkedIn: **linkedin.com/francisco-josé-sáez-soto**---Calabozo, enero de 2015 / junio de 2020.

@@ -1,0 +1,83 @@
+object FAvisoBingo: TFAvisoBingo
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = Single
+  Caption = 'B I N G O'
+  ClientHeight = 289
+  ClientWidth = 640
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  DesignerMobile = False
+  DesignerWidth = 0
+  DesignerHeight = 0
+  DesignerDeviceName = ''
+  DesignerOrientation = 0
+  DesignerOSVersion = ''
+  object SGrid: TStringGrid
+    Height = 161.000000000000000000
+    Position.X = 48.000000000000000000
+    Position.Y = 56.000000000000000000
+    TabOrder = 1
+    Width = 537.000000000000000000
+    RowCount = 100
+    RowHeight = 21.000000000000000000
+    object SCol1: TStringColumn
+      Header = 'Nombre jugador'
+      Height = 147.000000000000000000
+      ReadOnly = True
+      TabOrder = 0
+      Width = 257.000000000000000000
+    end
+    object SCol2: TStringColumn
+      Header = 'Cart'#243'n'
+      Height = 147.000000000000000000
+      Position.X = 257.000000000000000000
+      ReadOnly = True
+      TabOrder = 1
+      Width = 48.000000000000000000
+    end
+    object SCol3: TStringColumn
+      Header = 'Patr'#243'n'
+      Height = 147.000000000000000000
+      Position.X = 305.000000000000000000
+      ReadOnly = True
+      TabOrder = 2
+      TabStop = False
+      Width = 208.000000000000000000
+    end
+  end
+  object BTerminar: TButton
+    Height = 22.000000000000000000
+    Position.X = 141.000000000000000000
+    Position.Y = 240.000000000000000000
+    TabOrder = 2
+    Text = 'Terminar partida'
+    Width = 153.000000000000000000
+    OnClick = BTerminarClick
+  end
+  object BContinuar: TButton
+    Height = 22.000000000000000000
+    Position.X = 328.000000000000000000
+    Position.Y = 240.000000000000000000
+    TabOrder = 3
+    Text = 'Continuar partida actual'
+    Width = 185.000000000000000000
+  end
+  object Label1: TLabel
+    AutoSize = True
+    StyledSettings = [Family, FontColor]
+    Height = 27.000000000000000000
+    Position.X = 257.000000000000000000
+    Position.Y = 16.000000000000000000
+    TextSettings.Font.Size = 20.000000000000000000
+    TextSettings.Font.Style = [fsBold]
+    TextSettings.WordWrap = False
+    Text = #161#161#161'B I N G O!!!'
+    Width = 126.000000000000000000
+  end
+end

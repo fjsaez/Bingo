@@ -1,0 +1,550 @@
+object FConsCarton: TFConsCarton
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = Single
+  Caption = 'Consulta de cart'#243'n'
+  ClientHeight = 494
+  ClientWidth = 366
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object BConsultar: TButton
+    StyledSettings = [Family, Size, FontColor]
+    Position.X = 240.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Consultar'
+    OnClick = BConsultarClick
+  end
+  object Label7: TLabel
+    AutoSize = True
+    StyledSettings = [Family]
+    Position.X = 175.000000000000000000
+    Position.Y = 273.000000000000000000
+    Size.Width = 14.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    TextSettings.FontColor = claRed
+    TextSettings.WordWrap = False
+    Text = 'x'
+  end
+  object BSalir: TButton
+    Cancel = True
+    Position.X = 144.000000000000000000
+    Position.Y = 432.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 29
+    Text = 'Salir'
+    OnClick = BSalirClick
+  end
+  object NB21: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 24
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 75.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 260.000000000000000000
+    Position.Y = 200.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB22: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 25
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 75.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 260.000000000000000000
+    Position.Y = 240.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB23: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 26
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 75.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 260.000000000000000000
+    Position.Y = 280.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB24: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 27
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 75.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 260.000000000000000000
+    Position.Y = 320.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB25: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 28
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 75.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 260.000000000000000000
+    Position.Y = 360.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB20: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 23
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 60.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 212.000000000000000000
+    Position.Y = 360.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB19: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 22
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 60.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 212.000000000000000000
+    Position.Y = 320.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB18: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 21
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 60.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 212.000000000000000000
+    Position.Y = 280.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB17: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 20
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 60.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 212.000000000000000000
+    Position.Y = 240.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB16: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 19
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 60.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 212.000000000000000000
+    Position.Y = 200.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB15: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 18
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 45.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 168.000000000000000000
+    Position.Y = 360.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB14: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 17
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 45.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 168.000000000000000000
+    Position.Y = 320.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB12: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 16
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 45.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 168.000000000000000000
+    Position.Y = 240.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB11: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 15
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 45.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 168.000000000000000000
+    Position.Y = 200.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB10: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 14
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 30.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 116.000000000000000000
+    Position.Y = 360.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB9: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 13
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 30.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 116.000000000000000000
+    Position.Y = 320.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB8: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 12
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 30.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 116.000000000000000000
+    Position.Y = 280.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB7: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 11
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 30.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 116.000000000000000000
+    Position.Y = 240.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB6: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 10
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 30.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 116.000000000000000000
+    Position.Y = 200.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB5: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 9
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 15.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 72.000000000000000000
+    Position.Y = 360.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB4: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 8
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 15.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 72.000000000000000000
+    Position.Y = 320.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB3: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 6
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 15.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 72.000000000000000000
+    Position.Y = 280.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB2: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 4
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 15.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 72.000000000000000000
+    Position.Y = 240.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object NB1: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 2
+    Cursor = crIBeam
+    DecimalDigits = 0
+    Min = 1.000000000000000000
+    Max = 15.000000000000000000
+    Value = 1.000000000000000000
+    ReadOnly = True
+    Position.X = 72.000000000000000000
+    Position.Y = 200.000000000000000000
+    Locked = True
+    Size.Width = 33.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family]
+  end
+  object Label6: TLabel
+    AutoSize = True
+    StyledSettings = [Family, FontColor]
+    Position.X = 272.000000000000000000
+    Position.Y = 152.000000000000000000
+    Size.Width = 19.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    TextSettings.WordWrap = False
+    Text = 'O'
+  end
+  object Label5: TLabel
+    AutoSize = True
+    StyledSettings = [Family, FontColor]
+    Position.X = 224.000000000000000000
+    Position.Y = 152.000000000000000000
+    Size.Width = 18.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    TextSettings.WordWrap = False
+    Text = 'G'
+  end
+  object Label4: TLabel
+    AutoSize = True
+    StyledSettings = [Family, FontColor]
+    Position.X = 176.000000000000000000
+    Position.Y = 152.000000000000000000
+    Size.Width = 19.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    TextSettings.WordWrap = False
+    Text = 'N'
+  end
+  object Label3: TLabel
+    AutoSize = True
+    StyledSettings = [Family, FontColor]
+    Position.X = 128.000000000000000000
+    Position.Y = 152.000000000000000000
+    Size.Width = 8.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    TextSettings.WordWrap = False
+    Text = 'I'
+  end
+  object Label2: TLabel
+    AutoSize = True
+    StyledSettings = [Family, FontColor]
+    Position.X = 80.000000000000000000
+    Position.Y = 152.000000000000000000
+    Size.Width = 16.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    TextSettings.WordWrap = False
+    Text = 'B'
+  end
+  object Label1: TLabel
+    Position.X = 48.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 81.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'N'#176' de cart'#243'n:'
+  end
+  object LJugador: TLabel
+    StyledSettings = [Family, Size, FontColor]
+    Position.X = 47.000000000000000000
+    Position.Y = 88.000000000000000000
+    Size.Width = 273.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    Text = 'Jugador:'
+  end
+  object CBNumC: TComboBox
+    Position.X = 136.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 65.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 32
+  end
+end
