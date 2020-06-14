@@ -252,11 +252,11 @@ inherited FPrinc_Windows: TFPrinc_Windows
       Size.Width = 200.000000000000000000
     end
   end
-  inherited ExpPatrones: TExpander
+  inherited Expander1: TExpander
     Position.Y = 56.000000000000000000
-    ContentSize = '200'
+    ContentSize = '0'
   end
-  inherited ExpJugadores: TExpander
+  inherited Expander2: TExpander
     ContentSize = '0'
     inherited LBDisp: TListBox
       Viewport.Width = 65.000000000000000000
@@ -266,5 +266,10 @@ inherited FPrinc_Windows: TFPrinc_Windows
       Viewport.Width = 65.000000000000000000
       Viewport.Height = 73.000000000000000000
     end
+  end
+  inherited Expander3: TExpander
+    IsExpanded = False
+    Size.Width = 297.000000000000000000
+    ContentSize = '144'
   end
 end

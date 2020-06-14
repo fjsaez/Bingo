@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  System.Rtti, FMX.Grid, FMX.Layouts;
+  System.Rtti, FMX.Grid, FMX.Layouts, FMX.Grid.Style, FMX.Controls.Presentation,
+  FMX.ScrollBox;
 
 type
   TFAvisoBingo = class(TForm)

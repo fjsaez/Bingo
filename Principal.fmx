@@ -24,7 +24,8 @@ object FPrinc: TFPrinc
   Visible = True
   FormFactor.Width = 320
   FormFactor.Height = 480
-  FormFactor.Devices = [Desktop, iPhone, iPad]
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   OnCloseQuery = FormCloseQuery
   OnShow = FormShow
   DesignerMasterStyle = 0
@@ -35,7 +36,7 @@ object FPrinc: TFPrinc
     Size.Width = 241.000000000000000000
     Size.Height = 497.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 3
+    TabOrder = 2
     object CBt1: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
@@ -1462,7 +1463,7 @@ object FPrinc: TFPrinc
     Size.Width = 113.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 5
+    TabOrder = 4
     Text = 'Agregar cart'#243'n'
     Visible = False
     XRadius = 3.000000000000000000
@@ -1475,19 +1476,20 @@ object FPrinc: TFPrinc
     Size.Width = 105.000000000000000000
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 12
+    TabOrder = 10
     Text = 'Iniciar juego!!!'
     OnClick = BIniciarClick
   end
   object Grid: TStringGrid
     CanFocus = True
     ClipChildren = True
+    PopupMenu = PpMenuJug
     Position.X = 24.000000000000000000
     Position.Y = 128.000000000000000000
     Size.Width = 545.000000000000000000
     Size.Height = 377.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 20
+    TabOrder = 17
     RowHeight = 21.000000000000000000
     RowCount = 0
     Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
@@ -1504,61 +1506,31 @@ object FPrinc: TFPrinc
     object SColAct: TStringColumn
     end
   end
-  object ExpPatrones: TExpander
-    IsExpanded = False
+  object BConsC: TButton
+    Action = Action1
+    Enabled = False
+    ImageIndex = -1
+    Position.X = 640.000000000000000000
+    Position.Y = 584.000000000000000000
+    Size.Width = 129.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 23
+    Text = 'Consultar cart'#243'n'
+  end
+  object Expander1: TExpander
     Position.X = 8.000000000000000000
-    Position.Y = 40.000000000000000000
+    Position.Y = 56.000000000000000000
     ShowCheck = False
-    Size.Width = 337.000000000000000000
-    Size.Height = 25.000000000000000000
+    Size.Width = 340.000000000000000000
+    Size.Height = 225.000000000000000000
     Size.PlatformDefault = False
     Text = 'Patrones'
-    TabOrder = 11
-    TabStop = False
+    TabOrder = 30
     ContentSize = '200'
-    object ChBCrPq: TCheckBox
-      IsChecked = True
-      Position.X = 24.000000000000000000
-      Position.Y = 8.000000000000000000
-      Size.Width = 120.000000000000000000
-      Size.Height = 19.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 8
-      Text = 'Cruz peque'#241'a'
-    end
-    object ChBCrGr: TCheckBox
-      IsChecked = True
-      Position.X = 24.000000000000000000
-      Position.Y = 32.000000000000000000
-      Size.Width = 120.000000000000000000
-      Size.Height = 19.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 9
-      Text = 'Cruz grande'
-    end
-    object ChBCdPq: TCheckBox
-      IsChecked = True
-      Position.X = 24.000000000000000000
-      Position.Y = 56.000000000000000000
-      Size.Width = 120.000000000000000000
-      Size.Height = 19.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 4
-      Text = 'Cuadro peque'#241'o'
-    end
-    object ChBCdGr: TCheckBox
-      IsChecked = True
-      Position.X = 24.000000000000000000
-      Position.Y = 80.000000000000000000
-      Size.Width = 120.000000000000000000
-      Size.Height = 19.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 5
-      Text = 'Cuadro grande'
-    end
     object ChBLnVt: TCheckBox
       IsChecked = True
-      Position.X = 176.000000000000000000
+      Position.X = 184.000000000000000000
       Position.Y = 8.000000000000000000
       Size.Width = 120.000000000000000000
       Size.Height = 19.000000000000000000
@@ -1568,7 +1540,7 @@ object FPrinc: TFPrinc
     end
     object ChBLnHz: TCheckBox
       IsChecked = True
-      Position.X = 176.000000000000000000
+      Position.X = 184.000000000000000000
       Position.Y = 32.000000000000000000
       Size.Width = 120.000000000000000000
       Size.Height = 19.000000000000000000
@@ -1578,7 +1550,7 @@ object FPrinc: TFPrinc
     end
     object ChBDgNr: TCheckBox
       IsChecked = True
-      Position.X = 176.000000000000000000
+      Position.X = 184.000000000000000000
       Position.Y = 56.000000000000000000
       Size.Width = 120.000000000000000000
       Size.Height = 19.000000000000000000
@@ -1588,7 +1560,7 @@ object FPrinc: TFPrinc
     end
     object ChBDgIn: TCheckBox
       IsChecked = True
-      Position.X = 176.000000000000000000
+      Position.X = 184.000000000000000000
       Position.Y = 80.000000000000000000
       Size.Width = 120.000000000000000000
       Size.Height = 19.000000000000000000
@@ -1596,18 +1568,8 @@ object FPrinc: TFPrinc
       TabOrder = 3
       Text = 'Diagonal inversa'
     end
-    object ChB4Esq: TCheckBox
-      IsChecked = True
-      Position.X = 24.000000000000000000
-      Position.Y = 104.000000000000000000
-      Size.Width = 120.000000000000000000
-      Size.Height = 19.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 2
-      Text = 'Cuatro esquinas'
-    end
     object ChTodo: TCheckBox
-      Position.X = 24.000000000000000000
+      Position.X = 32.000000000000000000
       Position.Y = 152.000000000000000000
       Size.Width = 120.000000000000000000
       Size.Height = 19.000000000000000000
@@ -1616,27 +1578,160 @@ object FPrinc: TFPrinc
       Text = 'Todo el cart'#243'n'
       OnChange = ChTodoChange
     end
+    object ChB4Esq: TCheckBox
+      IsChecked = True
+      Position.X = 32.000000000000000000
+      Position.Y = 104.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Cuatro esquinas'
+    end
+    object ChBCdGr: TCheckBox
+      IsChecked = True
+      Position.X = 32.000000000000000000
+      Position.Y = 80.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Text = 'Cuadro grande'
+    end
+    object ChBCdPq: TCheckBox
+      IsChecked = True
+      Position.X = 32.000000000000000000
+      Position.Y = 56.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      Text = 'Cuadro peque'#241'o'
+    end
+    object ChBCrGr: TCheckBox
+      IsChecked = True
+      Position.X = 32.000000000000000000
+      Position.Y = 32.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 9
+      Text = 'Cruz grande'
+    end
+    object ChBCrPq: TCheckBox
+      IsChecked = True
+      Position.X = 32.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 8
+      Text = 'Cruz peque'#241'a'
+    end
     object Line1: TLine
       Locked = True
       LineType = Top
-      Position.X = 47.000000000000000000
+      Position.X = 51.000000000000000000
       Position.Y = 137.000000000000000000
       Size.Width = 235.000000000000000000
       Size.Height = 4.000000000000000000
       Size.PlatformDefault = False
     end
   end
-  object ExpJugadores: TExpander
-    IsExpanded = False
+  object Expander2: TExpander
     Position.X = 8.000000000000000000
-    Position.Y = 8.000000000000000000
+    Position.Y = 16.000000000000000000
     ShowCheck = False
-    Size.Width = 337.000000000000000000
-    Size.Height = 25.000000000000000000
+    Size.Width = 340.000000000000000000
+    Size.Height = 273.000000000000000000
     Size.PlatformDefault = False
     Text = 'Jugadores'
-    TabOrder = 16
-    ContentSize = '200'
+    TabOrder = 31
+    ContentSize = '248'
+    object LBDisp: TListBox
+      Enabled = False
+      Position.X = 72.000000000000000000
+      Position.Y = 96.000000000000000000
+      Size.Width = 65.000000000000000000
+      Size.Height = 73.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 29
+      DisableFocusEffect = True
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      ShowCheckboxes = True
+      Sorted = True
+      Viewport.Width = 61.000000000000000000
+      Viewport.Height = 69.000000000000000000
+    end
+    object SBAsig: TSpeedButton
+      Enabled = False
+      Position.X = 155.000000000000000000
+      Position.Y = 109.000000000000000000
+      Size.Width = 25.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      Text = '->'
+      OnClick = SBAsigClick
+    end
+    object SBNoAsig: TSpeedButton
+      Enabled = False
+      Position.X = 155.000000000000000000
+      Position.Y = 133.000000000000000000
+      Size.Width = 25.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      Text = '<-'
+      OnClick = SBNoAsigClick
+    end
+    object BAgregar: TButton
+      Enabled = False
+      Position.X = 106.000000000000000000
+      Position.Y = 192.000000000000000000
+      Size.Width = 129.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 46
+      Text = 'Agregar jugador'
+      OnClick = BAgregarClick
+    end
+    object LBAsig: TListBox
+      Enabled = False
+      Position.X = 200.000000000000000000
+      Position.Y = 96.000000000000000000
+      Size.Width = 65.000000000000000000
+      Size.Height = 73.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 28
+      DisableFocusEffect = True
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      ShowCheckboxes = True
+      Sorted = True
+      Viewport.Width = 61.000000000000000000
+      Viewport.Height = 69.000000000000000000
+    end
+    object Label8: TLabel
+      AutoSize = True
+      Position.X = 203.000000000000000000
+      Position.Y = 62.000000000000000000
+      Size.Width = 58.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Cartones asignados:'
+      TabOrder = 30
+    end
+    object Label7: TLabel
+      Position.X = 72.000000000000000000
+      Position.Y = 62.000000000000000000
+      Size.Width = 65.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Cartones disponibles:'
+      TabOrder = 2
+    end
     object Label6: TLabel
       AutoSize = True
       Position.X = 24.000000000000000000
@@ -1647,91 +1742,6 @@ object FPrinc: TFPrinc
       TextSettings.WordWrap = False
       Text = 'Nombre:'
       TabOrder = 1
-    end
-    object Label7: TLabel
-      AutoSize = True
-      Position.X = 97.000000000000000000
-      Position.Y = 57.000000000000000000
-      Size.Width = 65.000000000000000000
-      Size.Height = 16.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.WordWrap = False
-      Text = 'Disponibles:'
-      TabOrder = 2
-    end
-    object LBDisp: TListBox
-      Enabled = False
-      Position.X = 97.000000000000000000
-      Position.Y = 80.000000000000000000
-      Size.Width = 65.000000000000000000
-      Size.Height = 73.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 29
-      DisableFocusEffect = True
-      DefaultItemStyles.ItemStyle = ''
-      DefaultItemStyles.GroupHeaderStyle = ''
-      DefaultItemStyles.GroupFooterStyle = ''
-      ShowCheckboxes = True
-      Viewport.Width = 61.000000000000000000
-      Viewport.Height = 69.000000000000000000
-    end
-    object Label8: TLabel
-      AutoSize = True
-      Position.X = 228.000000000000000000
-      Position.Y = 57.000000000000000000
-      Size.Width = 58.000000000000000000
-      Size.Height = 16.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.WordWrap = False
-      Text = 'Asignados:'
-      TabOrder = 30
-    end
-    object LBAsig: TListBox
-      Enabled = False
-      Position.X = 225.000000000000000000
-      Position.Y = 80.000000000000000000
-      Size.Width = 65.000000000000000000
-      Size.Height = 73.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 28
-      DisableFocusEffect = True
-      DefaultItemStyles.ItemStyle = ''
-      DefaultItemStyles.GroupHeaderStyle = ''
-      DefaultItemStyles.GroupFooterStyle = ''
-      ShowCheckboxes = True
-      Viewport.Width = 61.000000000000000000
-      Viewport.Height = 69.000000000000000000
-    end
-    object SBAsig: TSpeedButton
-      Enabled = False
-      Position.X = 180.000000000000000000
-      Position.Y = 93.000000000000000000
-      Size.Width = 25.000000000000000000
-      Size.Height = 22.000000000000000000
-      Size.PlatformDefault = False
-      Text = '->'
-      OnClick = SBAsigClick
-    end
-    object SBNoAsig: TSpeedButton
-      Enabled = False
-      Position.X = 180.000000000000000000
-      Position.Y = 117.000000000000000000
-      Size.Width = 25.000000000000000000
-      Size.Height = 22.000000000000000000
-      Size.PlatformDefault = False
-      Text = '<-'
-      OnClick = SBNoAsigClick
-    end
-    object BAgregar: TButton
-      Enabled = False
-      Position.X = 131.000000000000000000
-      Position.Y = 176.000000000000000000
-      Size.Width = 129.000000000000000000
-      Size.Height = 22.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 33
-      Text = 'Agregar jugador'
-      OnClick = BAgregarClick
     end
     object ENombre: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -1744,26 +1754,32 @@ object FPrinc: TFPrinc
       OnChangeTracking = ENombreChangeTracking
     end
   end
-  object BConsC: TButton
-    Action = Action1
-    Enabled = False
-    ImageIndex = -1
-    Position.X = 640.000000000000000000
-    Position.Y = 584.000000000000000000
-    Size.Width = 129.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 26
-    Text = 'Consultar cart'#243'n'
+  object PpMenuJug: TPopupMenu
+    Left = 384
+    Top = 224
+    object MIModificar: TMenuItem
+      Text = 'Modificar jugador...'
+      OnClick = MIModificarClick
+    end
+    object MenuItem2: TMenuItem
+      Text = '-'
+    end
+    object MIEliminar: TMenuItem
+      Text = 'Eliminar jugador'
+      OnClick = MIEliminarClick
+    end
   end
-  object SBar: TStatusBar
+  object EStBar: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Align = Bottom
+    TabOrder = 39
+    TabStop = False
+    CanFocus = False
+    ReadOnly = True
     Position.Y = 619.000000000000000000
-    ShowSizeGrip = False
     Size.Width = 834.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    StyleLookup = 'SBarStyle1'
-    TabOrder = 31
   end
   object ActLst: TActionList
     Left = 656

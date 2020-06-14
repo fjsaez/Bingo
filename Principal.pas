@@ -1,3 +1,8 @@
+{  POR HACER:
+- la primera modificación la hace, pero la segunda en el mismo jugador
+modificado no.
+- en esa segunda modificación no carga los cartones escogidos
+}
 unit Principal;
 
 interface
@@ -7,7 +12,7 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Edit, FMX.Layouts, FMX.Memo, System.Actions, FMX.ActnList, System.Rtti,
   FMX.Grid, FMX.ExtCtrls, FMX.ListBox, Data.DB, ABSMain, FMX.Objects, FMX.Header,
-  FMX.Grid.Style, FMX.ScrollBox, FMX.Controls.Presentation;
+  FMX.Grid.Style, FMX.ScrollBox, FMX.Controls.Presentation, FMX.Menus;
 
 type
   TNumero = record
@@ -115,37 +120,41 @@ type
     Action1: TAction;
     CornerButton2: TCornerButton;
     Action2: TAction;
-    ExpPatrones: TExpander;
-    ChBCrPq: TCheckBox;
-    ChBCrGr: TCheckBox;
-    ChBCdPq: TCheckBox;
-    ChBCdGr: TCheckBox;
-    ChBLnVt: TCheckBox;
-    ChBLnHz: TCheckBox;
-    ChBDgNr: TCheckBox;
-    ChBDgIn: TCheckBox;
-    ChB4Esq: TCheckBox;
     BIniciar: TButton;
-    ExpJugadores: TExpander;
-    ENombre: TEdit;
-    Label6: TLabel;
-    Label7: TLabel;
-    LBDisp: TListBox;
-    Label8: TLabel;
-    LBAsig: TListBox;
-    SBAsig: TSpeedButton;
-    SBNoAsig: TSpeedButton;
-    BAgregar: TButton;
     Grid: TStringGrid;
     SColNom: TStringColumn;
     SColCart: TStringColumn;
     Query: TABSQuery;
     BConsC: TButton;
-    ChTodo: TCheckBox;
-    Line1: TLine;
-    SBar: TStatusBar;
     Action3: TAction;
     SColAct: TStringColumn;
+    Expander1: TExpander;
+    ChBLnVt: TCheckBox;
+    ChBLnHz: TCheckBox;
+    ChBDgNr: TCheckBox;
+    ChBDgIn: TCheckBox;
+    ChTodo: TCheckBox;
+    ChB4Esq: TCheckBox;
+    ChBCdGr: TCheckBox;
+    ChBCdPq: TCheckBox;
+    ChBCrGr: TCheckBox;
+    ChBCrPq: TCheckBox;
+    Line1: TLine;
+    Expander2: TExpander;
+    LBDisp: TListBox;
+    SBAsig: TSpeedButton;
+    SBNoAsig: TSpeedButton;
+    BAgregar: TButton;
+    LBAsig: TListBox;
+    Label8: TLabel;
+    Label7: TLabel;
+    ENombre: TEdit;
+    Label6: TLabel;
+    PpMenuJug: TPopupMenu;
+    MIModificar: TMenuItem;
+    MenuItem2: TMenuItem;
+    MIEliminar: TMenuItem;
+    EStBar: TEdit;
     procedure FormShow(Sender: TObject);
     procedure CBt1Click(Sender: TObject);
     procedure Action1Execute(Sender: TObject);
@@ -158,6 +167,9 @@ type
     procedure ENombreChangeTracking(Sender: TObject);
     procedure ChTodoChange(Sender: TObject);
     procedure Action3Execute(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure MIModificarClick(Sender: TObject);
+    procedure MIEliminarClick(Sender: TObject);
   private
     { Private declarations }
     procedure ValInicial;
@@ -178,27 +190,41 @@ type
     var
       CartJuego: array of TCartJuego;       //<-- los cartones ya escogidos;
       Ganador: array of TGanador;           //<-- el/los ganador(es) de partida
-    procedure MostrarVentana(AClass: TFmxObjectClass);
+    //procedure MostrarVentana(AClass: TFmxObjectClass);
+    procedure MensajesSBar;
+    procedure EliminarCartJuego(const Nombre: string);
   end;
+
+
 
 var
   FPrinc: TFPrinc;
   Cartones: array of TCarton;               //<-- todos los cartones del archivo
-  EsBingo: boolean;
+  EsNuevo,EsBingo: boolean;
 
 implementation
 
 {$R *.fmx}
-{$R *.Windows.fmx MSWINDOWS}
 
 uses DataMod, NvoCarton, ConsCarton, AvisoBingo;
 
-procedure TFPrinc.MostrarVentana(AClass: TFmxObjectClass {TFormClass});
+{Elimina los cartones asignados en el array CartJuego}
+procedure TFPrinc.EliminarCartJuego(const Nombre: string);
+var
+  I,Ind: integer;
+  Nvo: array of TCartJuego;
 begin
-  with AClass.Create(Application) do
-    try ShowModal
-    finally Free
-  end;
+  Ind:=0;
+  for I:=0 to Length(CartJuego)-1 do
+    if CartJuego[I].Nombre<>Nombre then
+    begin
+      Ind:=Ind+1;
+      SetLength(Nvo,Ind);
+      Nvo[Ind-1]:=CartJuego[I];
+    end;
+  SetLength(CartJuego,Length(Nvo));
+  for I:=0 to Length(Nvo)-1 do CartJuego[I]:=Nvo[I];
+  SetLength(Nvo,0);
 end;
 
 procedure TFPrinc.ValInicial;
@@ -206,12 +232,14 @@ var
   I: byte;
   CBt: TComponent;
 begin
+  EsNuevo:=true;
+  Expander1.Enabled:=true;
+  Expander2.Enabled:=true;
+  Expander1.IsExpanded:=false;
+  Expander2.IsExpanded:=false;
   BAgregar.Enabled:=false;
   BConsC.Enabled:=false;
   BIniciar.Enabled:=Grid.RowCount>1;
-  Expander2.IsExpanded:=false;
-  Expander1.Enabled:=true;
-  Expander2.Enabled:=true;
   //pone los botones del cartón general a sus valores iniciales
   for I:=1 to 75 do
   begin
@@ -231,6 +259,66 @@ begin
       for Y:=1 to 5 do
         if Num=CartJuego[I].Carton[X,Y].Num then
           CartJuego[I].Carton[X,Y].Activo:=Activo;
+end;
+
+{Muestra mensajes en un TEdit con efectos de StatusBar}
+procedure TFPrinc.MensajesSBar;
+begin
+  EStBar.Text:=' Total cartones en juego: '+Length(CartJuego).ToString+' -- '+
+    ' Total cartones disponibles: '+LBDisp.Count.ToString;
+end;
+
+{Modificar jugador}
+procedure TFPrinc.MIModificarClick(Sender: TObject);
+var
+  I: integer;
+begin
+  Expander2.IsExpanded:=true;
+  LBAsig.Clear;
+  ENombre.Text:=Grid.Cells[0,Grid.row];
+  ENombre.SetFocus;
+  for I:=0 to Length(CartJuego)-1 do
+    if CartJuego[I].Nombre=ENombre.Text then
+      if CartJuego[I].NumCarton<10 then
+        LBAsig.Items.Add('0'+CartJuego[I].NumCarton.ToString)
+      else LBAsig.Items.Add(CartJuego[I].NumCarton.ToString);
+  EsNuevo:=false;
+end;
+
+{Eliminar jugador}
+procedure TFPrinc.MIEliminarClick(Sender: TObject);
+type
+  TLista = record
+    Nombre,Cartones: string;
+  end;
+var
+  I,Indice: integer;
+  Lista: array of TLista;
+begin
+  EliminarCartJuego(Grid.Cells[0,Grid.Row]);
+  //se crea y carga el array
+  if Grid.Row>-1 then
+  begin
+    Indice:=0;
+    SetLength(Lista,Grid.RowCount-1);
+    for I:=0 to Grid.RowCount-1 do
+      if I<>Grid.Row then
+      begin
+        Lista[Indice].Nombre:=Grid.Cells[0,I];
+        Lista[Indice].Cartones:=Grid.Cells[1,I];
+        Indice:=Indice+1;
+      end;
+    Grid.RowCount:=0;   //se borra el grid
+    //se carga el grid con el array
+    for I:=0 to Length(Lista)-1 do
+    begin
+      Grid.RowCount:=Grid.RowCount+1;
+      Grid.Cells[0,I]:=Lista[I].Nombre;
+      Grid.Cells[1,I]:=Lista[I].Cartones;
+    end;
+    SetLength(Lista,0);
+  end;
+  MensajesSBar;
 end;
 
 procedure TFPrinc.AvisoBingo(Patron: string; Ind: byte);
@@ -362,14 +450,17 @@ begin
       J:=J+1;
       SetLength(CartJuego,J);
       CartJuego[J-1].Nombre:=ENombre.Text;
-      CartJuego[J-1].NumCarton:=StrToInt(LBDisp.Items[I]);
+      CartJuego[J-1].NumCarton:=LBDisp.Items[I].ToInteger;
       //se carga el arreglo con los datos del cartón:
       for K:=0 to Length(Cartones)-1 do
         if Cartones[K].NumCarton=CartJuego[J-1].NumCarton then
         begin
           for X:=1 to 5 do
             for Y:=1 to 5 do
+            begin
               CartJuego[J-1].Carton[X,Y].Num:=Cartones[K].Numero[X,Y].Num;
+              CartJuego[J-1].Carton[X,Y].Activo:=Cartones[K].Numero[X,Y].Activo;
+            end;
           Break;
         end;
       LBDisp.Items.Delete(I);
@@ -378,7 +469,8 @@ begin
     else I:=I+1;
   end;
   LBDisp.ItemIndex:=0;
-  BAgregar.Enabled:=(Length(Trim(ENombre.Text))>0) and (LBAsig.Items.Count>0);
+  BAgregar.Enabled:=(Length(ENombre.Text.Trim)>0) and (LBAsig.Items.Count>0);
+  MensajesSBar;
 end;
 
 procedure TFPrinc.SBNoAsigClick(Sender: TObject);
@@ -394,14 +486,16 @@ begin
     begin
       LBDisp.Items.Add(LBAsig.Items[I]);
       //se carga el arreglo con los datos del jugador:
-      J:=J-1;
+      EliminarCartJuego(ENombre.Text);
+      {J:=J-1;
       SetLength(CartJuego,J);
-      LBAsig.Items.Delete(I);
+      LBAsig.Items.Delete(I);}
       I:=0;
     end
     else I:=I+1;
   end;
-  BAgregar.Enabled:=(Length(Trim(ENombre.Text))>0) and (LBAsig.Items.Count>0);
+  BAgregar.Enabled:=(Length(ENombre.Text.Trim)>0) and (LBAsig.Items.Count>0);
+  MensajesSBar;
 end;
 
 procedure TFPrinc.ENombreChangeTracking(Sender: TObject);
@@ -445,14 +539,23 @@ var
 begin
   ListaCarts:='';
   for I:=0 to LBAsig.Count-1 do ListaCarts:=ListaCarts+LBAsig.Items[I]+' - ';
-  Grid.RowCount:=Grid.RowCount+1;
-  Grid.Cells[0,Grid.RowCount-1]:=ENombre.Text;
-  Grid.Cells[1,Grid.RowCount-1]:=ListaCarts;
+  if EsNuevo then
+  begin
+    Grid.RowCount:=Grid.RowCount+1;
+    Grid.Cells[0,Grid.RowCount-1]:=ENombre.Text;
+    Grid.Cells[1,Grid.RowCount-1]:=ListaCarts
+  end
+  else
+  begin
+    Grid.Cells[0,Grid.Row]:=ENombre.Text;
+    Grid.Cells[1,Grid.Row]:=ListaCarts
+  end;
   BIniciar.Enabled:=Grid.RowCount>1;
   BConsC.Visible:=Grid.RowCount>1;
   LBAsig.Clear;
   ENombre.Text:='';
   ENombre.SetFocus;
+  EsNuevo:=true;
 end;
 
 procedure TFPrinc.BIniciarClick(Sender: TObject);
@@ -460,8 +563,6 @@ var
   I,X,Y: byte;
 begin
   ValInicial;
-  Expander1.IsExpanded:=false;
-  Expander2.IsExpanded:=false;
   Expander1.Enabled:=false;
   Expander2.Enabled:=false;
   //se 'quitan' las fichas del cartón:
@@ -469,7 +570,6 @@ begin
     for X:=1 to 5 do
       for Y:=1 to 5 do CartJuego[I].Carton[X,Y].Activo:=(X=3) and (Y=3);
   ShowMessage('Total jugadores: '+IntToStr(Grid.RowCount));
-  SBar.Index:=0;
   Panel.Enabled:=true;
   BIniciar.Enabled:=false;
   BConsC.Enabled:=true;
@@ -548,12 +648,17 @@ begin
   CanClose:=not DMod.AbsDB.Connected;
 end;
 
+procedure TFPrinc.FormCreate(Sender: TObject);
+begin
+  ValInicial;
+end;
+
 procedure TFPrinc.FormShow(Sender: TObject);
 var
   I,J,X,Y: byte;
   CBt: TComponent;
 begin
-  //se colocan los números de cada botón:
+//se colocan los números de cada botón:
   for I:=1 to 75 do
   begin
     CBt:=FindComponent('CBt'+IntToStr(I));
@@ -568,20 +673,34 @@ begin
   Query.First;
   while not Query.Eof do
   begin
-    LBDisp.Items.Add(IntToStr(Query['NumCart']));
-    Cartones[I].NumCarton:=Query['NumCart'];
+    //carga del listbox:
+    if Query['NumCart']>=10 then
+      LBDisp.Items.Add(Query.FieldByName('NumCart').AsString)
+    else LBDisp.Items.Add('0'+Query.FieldByName('NumCart').AsString);
+    //carga del array:
+    Cartones[I].NumCarton:=Query.FieldByName('NumCart').AsInteger;
     J:=0;
     for X:=1 to 5 do
       for Y:=1 to 5 do
       begin
         J:=J+1;
         Cartones[I].Numero[X,Y].Num:=Query['N'+IntToStr(J)];
-        Cartones[I].Numero[X,Y].Activo:=J=13;
+        Cartones[I].Numero[X,Y].Activo:=J=13;     //se activa el "libre"
       end;
     I:=I+1;
     Query.Next;
   end;
-  ValInicial;
+  MensajesSBar;
 end;
 
 end.
+
+
+(*
+procedure TFPrinc.MostrarVentana(AClass: TFmxObjectClass {TFormClass});
+begin
+  with AClass.Create(Application) do
+    try ShowModal
+    finally Free
+  end;
+end; }   *)
