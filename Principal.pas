@@ -1,8 +1,3 @@
-{  POR HACER:
-- la primera modificación la hace, pero la segunda en el mismo jugador
-modificado no.
-- en esa segunda modificación no carga los cartones escogidos
-}
 unit Principal;
 
 interface
@@ -155,6 +150,7 @@ type
     MenuItem2: TMenuItem;
     MIEliminar: TMenuItem;
     EStBar: TEdit;
+    BReiniciarTodo: TButton;
     procedure FormShow(Sender: TObject);
     procedure CBt1Click(Sender: TObject);
     procedure Action1Execute(Sender: TObject);
@@ -170,6 +166,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure MIModificarClick(Sender: TObject);
     procedure MIEliminarClick(Sender: TObject);
+    procedure BReiniciarTodoClick(Sender: TObject);
   private
     { Private declarations }
     procedure ValInicial;
@@ -192,10 +189,10 @@ type
       Ganador: array of TGanador;           //<-- el/los ganador(es) de partida
     //procedure MostrarVentana(AClass: TFmxObjectClass);
     procedure MensajesSBar;
-    procedure EliminarCartJuego(const Nombre: string);
+    procedure EliminarCartJuego(const Nombre: string); overload;
+    procedure EliminarCartJuego(const NumCarton: integer); overload;
+    procedure ActualizaDisponibles(Indice: integer);
   end;
-
-
 
 var
   FPrinc: TFPrinc;
@@ -208,7 +205,7 @@ implementation
 
 uses DataMod, NvoCarton, ConsCarton, AvisoBingo;
 
-{Elimina los cartones asignados en el array CartJuego}
+{Elimina los cartones asignados en el array CartJuego a partir del nombre}
 procedure TFPrinc.EliminarCartJuego(const Nombre: string);
 var
   I,Ind: integer;
@@ -221,10 +218,40 @@ begin
       Ind:=Ind+1;
       SetLength(Nvo,Ind);
       Nvo[Ind-1]:=CartJuego[I];
-    end;
+    end
+    else ActualizaDisponibles(I);
+  LBDisp.Repaint;
   SetLength(CartJuego,Length(Nvo));
   for I:=0 to Length(Nvo)-1 do CartJuego[I]:=Nvo[I];
   SetLength(Nvo,0);
+end;
+
+{Elimina los cartones asignados en el array CartJuego a partir del nombre}
+procedure TFPrinc.EliminarCartJuego(const NumCarton: integer);
+var
+  I,Ind: integer;
+  Nvo: array of TCartJuego;
+begin
+  Ind:=0;
+  for I:=0 to Length(CartJuego)-1 do
+    if CartJuego[I].NumCarton<>NumCarton then
+    begin
+      Ind:=Ind+1;
+      SetLength(Nvo,Ind);
+      Nvo[Ind-1]:=CartJuego[I];
+    end
+    else ActualizaDisponibles(I);
+  LBDisp.Repaint;
+  SetLength(CartJuego,Length(Nvo));
+  for I:=0 to Length(Nvo)-1 do CartJuego[I]:=Nvo[I];
+  SetLength(Nvo,0);
+end;
+
+procedure TFPrinc.ActualizaDisponibles(Indice: integer);
+begin
+  if CartJuego[Indice].NumCarton<10 then
+    LBDisp.Items.Add('0'+CartJuego[Indice].NumCarton.ToString)
+  else LBDisp.Items.Add(CartJuego[Indice].NumCarton.ToString);
 end;
 
 procedure TFPrinc.ValInicial;
@@ -283,6 +310,8 @@ begin
         LBAsig.Items.Add('0'+CartJuego[I].NumCarton.ToString)
       else LBAsig.Items.Add(CartJuego[I].NumCarton.ToString);
   EsNuevo:=false;
+  if EsNuevo then BAgregar.Text:='Agregar jugador'
+             else BAgregar.Text:='Modificar jugador';
 end;
 
 {Eliminar jugador}
@@ -475,21 +504,17 @@ end;
 
 procedure TFPrinc.SBNoAsigClick(Sender: TObject);
 var
-  I,J: byte;
+  I: byte;
 begin
   I:=0;
-  J:=High(CartJuego);
   while LBAsig.Count>I do
   begin
     LBAsig.ItemIndex:=I;
     if LBAsig.ListItems[I].IsChecked then
     begin
-      LBDisp.Items.Add(LBAsig.Items[I]);
       //se carga el arreglo con los datos del jugador:
-      EliminarCartJuego(ENombre.Text);
-      {J:=J-1;
-      SetLength(CartJuego,J);
-      LBAsig.Items.Delete(I);}
+      EliminarCartJuego(LBAsig.ListItems[I].Text.ToInteger);
+      LBAsig.Items.Delete(I);
       I:=0;
     end
     else I:=I+1;
@@ -556,6 +581,8 @@ begin
   ENombre.Text:='';
   ENombre.SetFocus;
   EsNuevo:=true;
+  BAgregar.Text:='Agregar jugador';
+  MensajesSBar;
 end;
 
 procedure TFPrinc.BIniciarClick(Sender: TObject);
@@ -574,6 +601,17 @@ begin
   BIniciar.Enabled:=false;
   BConsC.Enabled:=true;
   EsBingo:=false;
+end;
+
+procedure TFPrinc.BReiniciarTodoClick(Sender: TObject);
+var
+  I: integer;
+begin
+  for I:=0 to Length(CartJuego)-1 do ActualizaDisponibles(I);
+  ValInicial;
+  Grid.RowCount:=0;
+  SetLength(CartJuego,0);
+  MensajesSBar;
 end;
 
 procedure TFPrinc.CBt1Click(Sender: TObject);
@@ -658,14 +696,13 @@ var
   I,J,X,Y: byte;
   CBt: TComponent;
 begin
-//se colocan los números de cada botón:
+  //se colocan los números de cada botón:
   for I:=1 to 75 do
   begin
     CBt:=FindComponent('CBt'+IntToStr(I));
     TCornerButton(CBt).Text:=IntToStr(I);
   end;
-  //se cargan todos los cartones guardados en la BD y
-  //el listbox con los cartones disponibles:
+  //se cargan todos los cartones guardados en BD y el listbox con los disponibles:
   Query.SQL.Text:='select * from Carton order by NumCart';
   Query.Open;
   I:=0;

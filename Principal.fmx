@@ -1781,6 +1781,16 @@ object FPrinc: TFPrinc
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
   end
+  object BReiniciarTodo: TButton
+    Position.X = 24.000000000000000000
+    Position.Y = 576.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 40
+    Text = 'Reiniciar todo!'
+    OnClick = BReiniciarTodoClick
+  end
   object ActLst: TActionList
     Left = 656
     Top = 520
