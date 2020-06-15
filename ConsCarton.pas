@@ -6,12 +6,11 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Edit, Data.DB, ABSMain, FMX.ListBox, FMX.NumberBox, FMX.EditBox,
-  FMX.Controls.Presentation;
+  FMX.Controls.Presentation, FMX.Layouts, FMX.ExtCtrls;
 
 type
   TFConsCarton = class(TForm)
     BConsultar: TButton;
-    Label7: TLabel;
     BSalir: TButton;
     NB21: TNumberBox;
     NB22: TNumberBox;
@@ -37,14 +36,10 @@ type
     NB3: TNumberBox;
     NB2: TNumberBox;
     NB1: TNumberBox;
-    Label6: TLabel;
-    Label5: TLabel;
-    Label4: TLabel;
-    Label3: TLabel;
-    Label2: TLabel;
     Label1: TLabel;
     LJugador: TLabel;
     CBNumC: TComboBox;
+    ImageViewer1: TImageViewer;
     procedure FormShow(Sender: TObject);
     procedure BConsultarClick(Sender: TObject);
     procedure BSalirClick(Sender: TObject);

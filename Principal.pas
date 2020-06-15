@@ -151,6 +151,7 @@ type
     MIEliminar: TMenuItem;
     EStBar: TEdit;
     BReiniciarTodo: TButton;
+    ImageViewer1: TImageViewer;
     procedure FormShow(Sender: TObject);
     procedure CBt1Click(Sender: TObject);
     procedure Action1Execute(Sender: TObject);
@@ -167,6 +168,7 @@ type
     procedure MIModificarClick(Sender: TObject);
     procedure MIEliminarClick(Sender: TObject);
     procedure BReiniciarTodoClick(Sender: TObject);
+    procedure ENombreEnter(Sender: TObject);
   private
     { Private declarations }
     procedure ValInicial;
@@ -198,6 +200,7 @@ var
   FPrinc: TFPrinc;
   Cartones: array of TCarton;               //<-- todos los cartones del archivo
   EsNuevo,EsBingo: boolean;
+  NombreAnterior: string;
 
 implementation
 
@@ -223,7 +226,7 @@ begin
   LBDisp.Repaint;
   SetLength(CartJuego,Length(Nvo));
   for I:=0 to Length(Nvo)-1 do CartJuego[I]:=Nvo[I];
-  SetLength(Nvo,0);
+  Nvo:=nil;
 end;
 
 {Elimina los cartones asignados en el array CartJuego a partir del nombre}
@@ -244,7 +247,7 @@ begin
   LBDisp.Repaint;
   SetLength(CartJuego,Length(Nvo));
   for I:=0 to Length(Nvo)-1 do CartJuego[I]:=Nvo[I];
-  SetLength(Nvo,0);
+  Nvo:=nil;
 end;
 
 procedure TFPrinc.ActualizaDisponibles(Indice: integer);
@@ -270,7 +273,7 @@ begin
   //pone los botones del cartón general a sus valores iniciales
   for I:=1 to 75 do
   begin
-    CBt:=FindComponent('CBt'+IntToStr(I));
+    CBt:=FindComponent('CBt'+I.ToString);
     TCornerButton(CBt).IsPressed:=false;
     TCornerButton(CBt).TextSettings.FontColor:=4278190080;
   end;
@@ -300,18 +303,21 @@ procedure TFPrinc.MIModificarClick(Sender: TObject);
 var
   I: integer;
 begin
-  Expander2.IsExpanded:=true;
-  LBAsig.Clear;
-  ENombre.Text:=Grid.Cells[0,Grid.row];
-  ENombre.SetFocus;
-  for I:=0 to Length(CartJuego)-1 do
-    if CartJuego[I].Nombre=ENombre.Text then
-      if CartJuego[I].NumCarton<10 then
-        LBAsig.Items.Add('0'+CartJuego[I].NumCarton.ToString)
-      else LBAsig.Items.Add(CartJuego[I].NumCarton.ToString);
-  EsNuevo:=false;
-  if EsNuevo then BAgregar.Text:='Agregar jugador'
-             else BAgregar.Text:='Modificar jugador';
+  if Grid.RowCount>0 then
+  begin
+    Expander2.IsExpanded:=true;
+    LBAsig.Clear;
+    ENombre.Text:=Grid.Cells[0,Grid.row];
+    ENombre.SetFocus;
+    for I:=0 to Length(CartJuego)-1 do
+      if CartJuego[I].Nombre=ENombre.Text then
+        if CartJuego[I].NumCarton<10 then
+          LBAsig.Items.Add('0'+CartJuego[I].NumCarton.ToString)
+        else LBAsig.Items.Add(CartJuego[I].NumCarton.ToString);
+    EsNuevo:=false;
+    if EsNuevo then BAgregar.Text:='Agregar jugador'
+               else BAgregar.Text:='Modificar jugador';
+  end;
 end;
 
 {Eliminar jugador}
@@ -324,30 +330,33 @@ var
   I,Indice: integer;
   Lista: array of TLista;
 begin
-  EliminarCartJuego(Grid.Cells[0,Grid.Row]);
-  //se crea y carga el array
-  if Grid.Row>-1 then
+  if Grid.RowCount>0 then
   begin
-    Indice:=0;
-    SetLength(Lista,Grid.RowCount-1);
-    for I:=0 to Grid.RowCount-1 do
-      if I<>Grid.Row then
-      begin
-        Lista[Indice].Nombre:=Grid.Cells[0,I];
-        Lista[Indice].Cartones:=Grid.Cells[1,I];
-        Indice:=Indice+1;
-      end;
-    Grid.RowCount:=0;   //se borra el grid
-    //se carga el grid con el array
-    for I:=0 to Length(Lista)-1 do
+    EliminarCartJuego(Grid.Cells[0,Grid.Row]);
+    //se crea y carga el array
+    if Grid.Row>-1 then
     begin
-      Grid.RowCount:=Grid.RowCount+1;
-      Grid.Cells[0,I]:=Lista[I].Nombre;
-      Grid.Cells[1,I]:=Lista[I].Cartones;
+      Indice:=0;
+      SetLength(Lista,Grid.RowCount-1);
+      for I:=0 to Grid.RowCount-1 do
+        if I<>Grid.Row then
+        begin
+          Lista[Indice].Nombre:=Grid.Cells[0,I];
+          Lista[Indice].Cartones:=Grid.Cells[1,I];
+          Indice:=Indice+1;
+        end;
+      Grid.RowCount:=0;   //se borra el grid
+      //se carga el grid con el array
+      for I:=0 to Length(Lista)-1 do
+      begin
+        Grid.RowCount:=Grid.RowCount+1;
+        Grid.Cells[0,I]:=Lista[I].Nombre;
+        Grid.Cells[1,I]:=Lista[I].Cartones;
+      end;
+      Lista:=nil;
     end;
-    SetLength(Lista,0);
+    MensajesSBar;
   end;
-  MensajesSBar;
 end;
 
 procedure TFPrinc.AvisoBingo(Patron: string; Ind: byte);
@@ -357,7 +366,7 @@ begin
   SetLength(Ganador,Length(Ganador)+1);
   Tamano:=Length(Ganador)-1;
   Ganador[Tamano].Jugador:=CartJuego[Ind].Nombre;
-  Ganador[Tamano].NumCarton:=IntToStr(CartJuego[Ind].NumCarton);
+  Ganador[Tamano].NumCarton:=CartJuego[Ind].NumCarton.ToString;
   Ganador[Tamano].Patron:=Patron;
   EsBingo:=true;
 end;
@@ -527,12 +536,17 @@ procedure TFPrinc.ENombreChangeTracking(Sender: TObject);
 var
   Estado: boolean;
 begin
-  BAgregar.Enabled:=(Length(Trim(ENombre.Text))>0) and (LBAsig.Items.Count>0);
-  Estado:=Trim(ENombre.Text)<>'';
+  BAgregar.Enabled:=(Length(ENombre.Text.Trim)>0) and (LBAsig.Items.Count>0);
+  Estado:=ENombre.Text.Trim<>'';
   LBDisp.Enabled:=Estado;
   SBAsig.Enabled:=Estado;
   SBNoAsig.Enabled:=Estado;
   LBAsig.Enabled:=Estado;
+end;
+
+procedure TFPrinc.ENombreEnter(Sender: TObject);
+begin
+  NombreAnterior:=ENombre.Text;
 end;
 
 procedure TFPrinc.Action1Execute(Sender: TObject);
@@ -573,11 +587,17 @@ begin
   else
   begin
     Grid.Cells[0,Grid.Row]:=ENombre.Text;
-    Grid.Cells[1,Grid.Row]:=ListaCarts
+    Grid.Cells[1,Grid.Row]:=ListaCarts;
+    //se sustituye el nombre anterior por el nuevo en array CartJuego:
+    if ENombre.Text<>NombreAnterior then
+      for I:=0 to High(CartJuego) do
+        if CartJuego[I].Nombre=NombreAnterior then
+          CartJuego[I].Nombre:=ENombre.Text;
   end;
   BIniciar.Enabled:=Grid.RowCount>1;
   BConsC.Visible:=Grid.RowCount>1;
   LBAsig.Clear;
+  NombreAnterior:='';
   ENombre.Text:='';
   ENombre.SetFocus;
   EsNuevo:=true;
@@ -596,7 +616,7 @@ begin
   for I:=0 to Length(CartJuego)-1 do
     for X:=1 to 5 do
       for Y:=1 to 5 do CartJuego[I].Carton[X,Y].Activo:=(X=3) and (Y=3);
-  ShowMessage('Total jugadores: '+IntToStr(Grid.RowCount));
+  ShowMessage('Total jugadores: '+Grid.RowCount.ToString);
   Panel.Enabled:=true;
   BIniciar.Enabled:=false;
   BConsC.Enabled:=true;
@@ -610,7 +630,7 @@ begin
   for I:=0 to Length(CartJuego)-1 do ActualizaDisponibles(I);
   ValInicial;
   Grid.RowCount:=0;
-  SetLength(CartJuego,0);
+  CartJuego:=nil;
   MensajesSBar;
 end;
 
@@ -624,7 +644,7 @@ begin
   //tiene valor nil, lo que genera un error. con ActiveControl sería más fácil:
   for I:=1 to 75 do
   begin
-    CBt:=FindComponent('CBt'+IntToStr(I));
+    CBt:=FindComponent('CBt'+I.ToString);
     if TCornerButton(CBt).IsFocused then
     begin
       Num:=I;
@@ -699,8 +719,8 @@ begin
   //se colocan los números de cada botón:
   for I:=1 to 75 do
   begin
-    CBt:=FindComponent('CBt'+IntToStr(I));
-    TCornerButton(CBt).Text:=IntToStr(I);
+    CBt:=FindComponent('CBt'+I.ToString);
+    TCornerButton(CBt).Text:=I.ToString;
   end;
   //se cargan todos los cartones guardados en BD y el listbox con los disponibles:
   Query.SQL.Text:='select * from Carton order by NumCart';
@@ -721,7 +741,7 @@ begin
       for Y:=1 to 5 do
       begin
         J:=J+1;
-        Cartones[I].Numero[X,Y].Num:=Query['N'+IntToStr(J)];
+        Cartones[I].Numero[X,Y].Num:=Query['N'+J.ToString];
         Cartones[I].Numero[X,Y].Activo:=J=13;     //se activa el "libre"
       end;
     I:=I+1;

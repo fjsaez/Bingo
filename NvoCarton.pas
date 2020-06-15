@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, Data.DB, ABSMain, FMX.EditBox, FMX.NumberBox, FMX.Controls.Presentation;
+  FMX.Edit, Data.DB, ABSMain, FMX.EditBox, FMX.NumberBox, FMX.Controls.Presentation,
+  FMX.Layouts, FMX.ExtCtrls;
 
 type
   TNumero = record
@@ -20,11 +21,6 @@ type
     Label1: TLabel;
     NBNumC: TNumberBox;
     BConsultar: TButton;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
     NB1: TNumberBox;
     NB2: TNumberBox;
     NB3: TNumberBox;
@@ -51,8 +47,8 @@ type
     NB25: TNumberBox;
     BGuardar: TButton;
     BSalir: TButton;
-    Label7: TLabel;
     Query: TABSQuery;
+    ImageViewer1: TImageViewer;
     procedure FormShow(Sender: TObject);
     procedure BSalirClick(Sender: TObject);
     procedure BGuardarClick(Sender: TObject);
