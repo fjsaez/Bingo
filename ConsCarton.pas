@@ -12,34 +12,34 @@ type
   TFConsCarton = class(TForm)
     BConsultar: TButton;
     BSalir: TButton;
-    NB21: TNumberBox;
-    NB22: TNumberBox;
-    NB23: TNumberBox;
-    NB24: TNumberBox;
-    NB25: TNumberBox;
-    NB20: TNumberBox;
-    NB19: TNumberBox;
-    NB18: TNumberBox;
-    NB17: TNumberBox;
-    NB16: TNumberBox;
-    NB15: TNumberBox;
-    NB14: TNumberBox;
-    NB12: TNumberBox;
-    NB11: TNumberBox;
-    NB10: TNumberBox;
-    NB9: TNumberBox;
-    NB8: TNumberBox;
-    NB7: TNumberBox;
-    NB6: TNumberBox;
-    NB5: TNumberBox;
-    NB4: TNumberBox;
-    NB3: TNumberBox;
-    NB2: TNumberBox;
-    NB1: TNumberBox;
     Label1: TLabel;
     LJugador: TLabel;
     CBNumC: TComboBox;
     ImageViewer1: TImageViewer;
+    L1: TLabel;
+    L2: TLabel;
+    L3: TLabel;
+    L5: TLabel;
+    L4: TLabel;
+    L10: TLabel;
+    L9: TLabel;
+    L8: TLabel;
+    L7: TLabel;
+    L6: TLabel;
+    L15: TLabel;
+    L14: TLabel;
+    L12: TLabel;
+    L11: TLabel;
+    L22: TLabel;
+    L23: TLabel;
+    L24: TLabel;
+    L25: TLabel;
+    L20: TLabel;
+    L19: TLabel;
+    L18: TLabel;
+    L17: TLabel;
+    L21: TLabel;
+    L16: TLabel;
     procedure FormShow(Sender: TObject);
     procedure BConsultarClick(Sender: TObject);
     procedure BSalirClick(Sender: TObject);
@@ -58,6 +58,51 @@ implementation
 
 uses Principal;
 
+procedure TFConsCarton.BConsultarClick(Sender: TObject);
+var
+  Lbl: TComponent;
+  I,X,Y: byte;
+begin
+  I:=0;
+  for X:=1 to 5 do
+    for Y:=1 to 5 do
+    begin
+      I:=I+1;
+      if I<>13 then
+      begin
+        Lbl:=FindComponent('L'+I.ToString);
+        TLabel(Lbl).Text:=FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Num.ToString;
+        if FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Activo then
+        begin
+          TLabel(Lbl).TextSettings.FontColor:=$FFFF0000; //4294901760;
+          TLabel(Lbl).TextSettings.Font.Style:=[TFontStyle.fsBold]
+        end
+        else
+        begin
+          TLabel(Lbl).TextSettings.FontColor:=4278190080;
+          TLabel(Lbl).TextSettings.Font.Style:=[]
+        end;
+      end;
+    end;
+  LJUgador.Text:='Jugador: '+FPrinc.CartJuego[CBNumC.ItemIndex].Nombre;
+end;
+
+procedure TFConsCarton.BSalirClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFConsCarton.FormShow(Sender: TObject);
+var
+  I: byte;
+begin
+  for I:=0 to Length(FPrinc.CartJuego)-1 do
+    CBNumC.Items.Add(FPrinc.CartJuego[I].NumCarton.ToString);
+end;
+
+end.
+
+(*
 procedure TFConsCarton.BConsultarClick(Sender: TObject);
 var
   NBx: TComponent;
@@ -86,18 +131,4 @@ begin
     end;
   LJUgador.Text:='Jugador: '+FPrinc.CartJuego[CBNumC.ItemIndex].Nombre;
 end;
-
-procedure TFConsCarton.BSalirClick(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TFConsCarton.FormShow(Sender: TObject);
-var
-  I: byte;
-begin
-  for I:=0 to Length(FPrinc.CartJuego)-1 do
-    CBNumC.Items.Add(IntToStr(FPrinc.CartJuego[I].NumCarton));
-end;
-
-end.
+*)

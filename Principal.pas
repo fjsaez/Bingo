@@ -7,7 +7,8 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Edit, FMX.Layouts, FMX.Memo, System.Actions, FMX.ActnList, System.Rtti,
   FMX.Grid, FMX.ExtCtrls, FMX.ListBox, Data.DB, ABSMain, FMX.Objects, FMX.Header,
-  FMX.Grid.Style, FMX.ScrollBox, FMX.Controls.Presentation, FMX.Menus;
+  FMX.Grid.Style, FMX.ScrollBox, FMX.Controls.Presentation, FMX.Menus,
+  System.ImageList, FMX.ImgList;
 
 type
   TNumero = record
@@ -150,8 +151,11 @@ type
     MenuItem2: TMenuItem;
     MIEliminar: TMenuItem;
     EStBar: TEdit;
-    BReiniciarTodo: TButton;
     ImageViewer1: TImageViewer;
+    ImageList: TImageList;
+    Expander3: TExpander;
+    BReiniciarTodo: TButton;
+    BAgrCarton: TButton;
     procedure FormShow(Sender: TObject);
     procedure CBt1Click(Sender: TObject);
     procedure Action1Execute(Sender: TObject);
@@ -265,8 +269,10 @@ begin
   EsNuevo:=true;
   Expander1.Enabled:=true;
   Expander2.Enabled:=true;
+  Expander3.Enabled:=true;
   Expander1.IsExpanded:=false;
   Expander2.IsExpanded:=false;
+  Expander3.IsExpanded:=false;
   BAgregar.Enabled:=false;
   BConsC.Enabled:=false;
   BIniciar.Enabled:=Grid.RowCount>1;
@@ -708,6 +714,12 @@ end;
 
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
+  Expander3.IsExpanded:=true;
+  Expander2.IsExpanded:=true;
+  Expander1.IsExpanded:=true;
+  Expander3.Height:=130;
+  Expander2.Height:=275;
+  Expander1.Height:=225;
   ValInicial;
 end;
 

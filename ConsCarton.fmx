@@ -13,12 +13,12 @@ object FConsCarton: TFConsCarton
   OnShow = FormShow
   DesignerMasterStyle = 0
   object ImageViewer1: TImageViewer
-    Position.X = 57.000000000000000000
+    Position.X = 62.000000000000000000
     Position.Y = 120.000000000000000000
     Size.Width = 242.000000000000000000
     Size.Height = 302.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 30
+    TabOrder = 6
     Bitmap.PNG = {
       89504E470D0A1A0A0000000D49484452000000F00000012C0806000000FDDE3E
       72000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
@@ -735,7 +735,7 @@ object FConsCarton: TFConsCarton
     Size.Width = 80.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 29
+    TabOrder = 5
     Text = 'Salir'
     OnClick = BSalirClick
   end
@@ -763,438 +763,342 @@ object FConsCarton: TFConsCarton
     Size.Width = 65.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 32
-  end
-  object NB1: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 2
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 15.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 70.000000000000000000
-    Position.Y = 200.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB10: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 14
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 30.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 116.000000000000000000
-    Position.Y = 383.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB11: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 15
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 45.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 163.000000000000000000
-    Position.Y = 200.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB12: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 16
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 45.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 163.000000000000000000
-    Position.Y = 245.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB14: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 17
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 45.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 163.000000000000000000
-    Position.Y = 338.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB15: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 18
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 45.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 163.000000000000000000
-    Position.Y = 383.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB16: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 19
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 60.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 209.000000000000000000
-    Position.Y = 200.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB17: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 20
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 60.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 209.000000000000000000
-    Position.Y = 245.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB18: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 21
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 60.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 209.000000000000000000
-    Position.Y = 291.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB19: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 22
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 60.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 209.000000000000000000
-    Position.Y = 338.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB2: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 4
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 15.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 70.000000000000000000
-    Position.Y = 245.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB20: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 23
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 60.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 209.000000000000000000
-    Position.Y = 383.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB21: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 24
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 75.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 255.000000000000000000
-    Position.Y = 200.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB22: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 25
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 75.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 255.000000000000000000
-    Position.Y = 245.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB23: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 26
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 75.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 255.000000000000000000
-    Position.Y = 291.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB24: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 27
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 75.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 255.000000000000000000
-    Position.Y = 338.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB25: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 28
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 75.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 255.000000000000000000
-    Position.Y = 383.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB3: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 6
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 15.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 70.000000000000000000
-    Position.Y = 291.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
-  end
-  object NB4: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 8
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 15.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 70.000000000000000000
-    Position.Y = 338.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
   end
-  object NB5: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
+  object L1: TLabel
+    StyledSettings = [Family]
+    Position.X = 76.000000000000000000
+    Position.Y = 194.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 32
+    TabStop = False
+  end
+  object L2: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 76.000000000000000000
+    Position.Y = 241.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 31
+    TabStop = False
+  end
+  object L3: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 76.000000000000000000
+    Position.Y = 287.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 30
+    TabStop = False
+  end
+  object L5: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 76.000000000000000000
+    Position.Y = 378.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 28
+    TabStop = False
+  end
+  object L4: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 76.000000000000000000
+    Position.Y = 332.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 29
+    TabStop = False
+  end
+  object L10: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 122.000000000000000000
+    Position.Y = 378.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 14
+    TabStop = False
+  end
+  object L9: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 122.000000000000000000
+    Position.Y = 332.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 16
+    TabStop = False
+  end
+  object L8: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 122.000000000000000000
+    Position.Y = 287.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 24
+    TabStop = False
+  end
+  object L7: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 122.000000000000000000
+    Position.Y = 241.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 26
+    TabStop = False
+  end
+  object L6: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 122.000000000000000000
+    Position.Y = 194.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 27
+    TabStop = False
+  end
+  object L15: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 169.000000000000000000
+    Position.Y = 378.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
     TabOrder = 9
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 15.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 70.000000000000000000
-    Position.Y = 383.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
+    TabStop = False
   end
-  object NB6: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
+  object L14: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 169.000000000000000000
+    Position.Y = 332.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
     TabOrder = 10
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 30.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 116.000000000000000000
-    Position.Y = 200.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
+    TabStop = False
   end
-  object NB7: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
+  object L12: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 169.000000000000000000
+    Position.Y = 241.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
     TabOrder = 11
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 30.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 116.000000000000000000
-    Position.Y = 245.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
+    TabStop = False
   end
-  object NB8: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
+  object L11: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 169.000000000000000000
+    Position.Y = 194.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
     TabOrder = 12
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 30.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 116.000000000000000000
-    Position.Y = 291.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
-    Size.PlatformDefault = False
-    StyledSettings = [Family]
+    TabStop = False
   end
-  object NB9: TNumberBox
-    Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 13
-    Cursor = crIBeam
-    DecimalDigits = 0
-    Min = 1.000000000000000000
-    Max = 30.000000000000000000
-    Value = 1.000000000000000000
-    ReadOnly = True
-    TextSettings.HorzAlign = Center
-    Position.X = 116.000000000000000000
-    Position.Y = 338.000000000000000000
-    Locked = True
-    Size.Width = 33.000000000000000000
-    Size.Height = 22.000000000000000000
+  object L22: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 261.000000000000000000
+    Position.Y = 241.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
-    StyledSettings = [Family]
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 25
+    TabStop = False
+  end
+  object L23: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 261.000000000000000000
+    Position.Y = 287.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 18
+    TabStop = False
+  end
+  object L24: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 261.000000000000000000
+    Position.Y = 332.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 15
+    TabStop = False
+  end
+  object L25: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 261.000000000000000000
+    Position.Y = 378.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 13
+    TabStop = False
+  end
+  object L20: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 215.000000000000000000
+    Position.Y = 378.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 19
+    TabStop = False
+  end
+  object L19: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 215.000000000000000000
+    Position.Y = 332.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 20
+    TabStop = False
+  end
+  object L18: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 215.000000000000000000
+    Position.Y = 287.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 21
+    TabStop = False
+  end
+  object L17: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 215.000000000000000000
+    Position.Y = 241.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 23
+    TabStop = False
+  end
+  object L21: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 261.000000000000000000
+    Position.Y = 194.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 17
+    TabStop = False
+  end
+  object L16: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 215.000000000000000000
+    Position.Y = 194.000000000000000000
+    Size.Width = 30.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 25.000000000000000000
+    TextSettings.Font.StyleExt = {00090000000000000004000000}
+    TextSettings.HorzAlign = Center
+    Text = '75'
+    TabOrder = 22
+    TabStop = False
   end
 end

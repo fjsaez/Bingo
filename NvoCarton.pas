@@ -75,7 +75,7 @@ var
 begin
   for I:=1 to 25 do
   begin
-    if I<>13 then NBx:=FindComponent('NB'+IntToStr(I));
+    if I<>13 then NBx:=FindComponent('NB'+I.ToString);
     TNumberBox(NBx).Value:=1;
   end;
   ActivaNumeros(false);
@@ -107,8 +107,8 @@ begin
         I:=I+1;
         if I<>13 then
         begin
-          NBx:=FindComponent('NB'+IntToStr(I));
-          TNumberBox(NBx).Value:=Query['N'+IntToStr(I)];
+          NBx:=FindComponent('NB'+I.ToString);
+          TNumberBox(NBx).Value:=Query['N'+I.ToString];
         end;
       end;
   end
@@ -122,7 +122,7 @@ begin
         I:=I+1;
         if I<>13 then
         begin
-          NBx:=FindComponent('NB'+IntToStr(I));
+          NBx:=FindComponent('NB'+I.ToString);
           TNumberBox(NBx).Value:=1;
         end;
       end;
@@ -145,10 +145,10 @@ begin
     Campos:='';  Valores:='';
     for I:=1 to 25 do
     begin
-      NBx:=FindComponent('NB'+IntToStr(I));
+      NBx:=FindComponent('NB'+I.ToString);
       if I<>13 then Valores:=Valores+','+TNumberBox(NBx).Text
                else Valores:=Valores+',0';
-      Campos:=Campos+',N'+IntToStr(I);
+      Campos:=Campos+',N'+I.ToString;
     end;
     Query.SQL.Text:='insert into Carton (NumCart'+Campos+') values (:nc'+Valores+')';
     Query.ParamByName('nc').AsInteger:=StrToInt(NBNumC.Text);
@@ -172,7 +172,7 @@ begin
   //se (des)habilitan los numberboxes:
   for I:=1 to 25 do
   begin
-    if I<>13 then NBx:=FindComponent('NB'+IntToStr(I));
+    if I<>13 then NBx:=FindComponent('NB'+I.ToString);
     TNumberBox(NBx).Enabled:=Opcion;
   end;
 end;
