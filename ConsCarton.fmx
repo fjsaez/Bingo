@@ -720,7 +720,7 @@ object FConsCarton: TFConsCarton
   object BConsultar: TButton
     StyledSettings = [Family, Size, FontColor]
     Position.X = 240.000000000000000000
-    Position.Y = 32.000000000000000000
+    Position.Y = 26.000000000000000000
     Size.Width = 80.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
@@ -741,7 +741,7 @@ object FConsCarton: TFConsCarton
   end
   object Label1: TLabel
     Position.X = 48.000000000000000000
-    Position.Y = 32.000000000000000000
+    Position.Y = 26.000000000000000000
     Size.Width = 81.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
@@ -750,7 +750,7 @@ object FConsCarton: TFConsCarton
   object LJugador: TLabel
     StyledSettings = [Family, Size, FontColor]
     Position.X = 47.000000000000000000
-    Position.Y = 72.000000000000000000
+    Position.Y = 66.000000000000000000
     Size.Width = 273.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
@@ -759,7 +759,7 @@ object FConsCarton: TFConsCarton
   end
   object CBNumC: TComboBox
     Position.X = 136.000000000000000000
-    Position.Y = 32.000000000000000000
+    Position.Y = 26.000000000000000000
     Size.Width = 65.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
@@ -780,7 +780,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L2: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 76.000000000000000000
     Position.Y = 241.000000000000000000
     Size.Width = 30.000000000000000000
@@ -794,7 +794,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L3: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 76.000000000000000000
     Position.Y = 287.000000000000000000
     Size.Width = 30.000000000000000000
@@ -808,7 +808,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L5: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 76.000000000000000000
     Position.Y = 378.000000000000000000
     Size.Width = 30.000000000000000000
@@ -822,7 +822,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L4: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 76.000000000000000000
     Position.Y = 332.000000000000000000
     Size.Width = 30.000000000000000000
@@ -836,7 +836,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L10: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 122.000000000000000000
     Position.Y = 378.000000000000000000
     Size.Width = 30.000000000000000000
@@ -850,7 +850,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L9: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 122.000000000000000000
     Position.Y = 332.000000000000000000
     Size.Width = 30.000000000000000000
@@ -864,7 +864,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L8: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 122.000000000000000000
     Position.Y = 287.000000000000000000
     Size.Width = 30.000000000000000000
@@ -878,7 +878,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L7: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 122.000000000000000000
     Position.Y = 241.000000000000000000
     Size.Width = 30.000000000000000000
@@ -892,7 +892,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L6: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 122.000000000000000000
     Position.Y = 194.000000000000000000
     Size.Width = 30.000000000000000000
@@ -906,7 +906,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L15: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 169.000000000000000000
     Position.Y = 378.000000000000000000
     Size.Width = 30.000000000000000000
@@ -920,7 +920,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L14: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 169.000000000000000000
     Position.Y = 332.000000000000000000
     Size.Width = 30.000000000000000000
@@ -934,7 +934,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L12: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 169.000000000000000000
     Position.Y = 241.000000000000000000
     Size.Width = 30.000000000000000000
@@ -948,7 +948,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L11: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 169.000000000000000000
     Position.Y = 194.000000000000000000
     Size.Width = 30.000000000000000000
@@ -962,7 +962,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L22: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 261.000000000000000000
     Position.Y = 241.000000000000000000
     Size.Width = 30.000000000000000000
@@ -976,7 +976,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L23: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 261.000000000000000000
     Position.Y = 287.000000000000000000
     Size.Width = 30.000000000000000000
@@ -990,7 +990,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L24: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 261.000000000000000000
     Position.Y = 332.000000000000000000
     Size.Width = 30.000000000000000000
@@ -1004,7 +1004,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L25: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 261.000000000000000000
     Position.Y = 378.000000000000000000
     Size.Width = 30.000000000000000000
@@ -1018,7 +1018,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L20: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 215.000000000000000000
     Position.Y = 378.000000000000000000
     Size.Width = 30.000000000000000000
@@ -1032,7 +1032,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L19: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 215.000000000000000000
     Position.Y = 332.000000000000000000
     Size.Width = 30.000000000000000000
@@ -1046,7 +1046,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L18: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 215.000000000000000000
     Position.Y = 287.000000000000000000
     Size.Width = 30.000000000000000000
@@ -1060,7 +1060,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L17: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 215.000000000000000000
     Position.Y = 241.000000000000000000
     Size.Width = 30.000000000000000000
@@ -1074,7 +1074,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L21: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 261.000000000000000000
     Position.Y = 194.000000000000000000
     Size.Width = 30.000000000000000000
@@ -1088,7 +1088,7 @@ object FConsCarton: TFConsCarton
     TabStop = False
   end
   object L16: TLabel
-    StyledSettings = [Family, FontColor]
+    StyledSettings = [Family]
     Position.X = 215.000000000000000000
     Position.Y = 194.000000000000000000
     Size.Width = 30.000000000000000000
@@ -1100,5 +1100,16 @@ object FConsCarton: TFConsCarton
     Text = '75'
     TabOrder = 22
     TabStop = False
+  end
+  object LPatron: TLabel
+    StyledSettings = [Family, Size, FontColor]
+    Position.X = 47.000000000000000000
+    Position.Y = 90.000000000000000000
+    Size.Width = 273.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    Text = 'Patr'#243'n:'
+    TabOrder = 33
   end
 end

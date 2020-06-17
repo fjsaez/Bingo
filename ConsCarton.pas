@@ -40,6 +40,7 @@ type
     L17: TLabel;
     L21: TLabel;
     L16: TLabel;
+    LPatron: TLabel;
     procedure FormShow(Sender: TObject);
     procedure BConsultarClick(Sender: TObject);
     procedure BSalirClick(Sender: TObject);
@@ -71,10 +72,10 @@ begin
       if I<>13 then
       begin
         Lbl:=FindComponent('L'+I.ToString);
-        TLabel(Lbl).Text:=FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Num.ToString;
+        //TLabel(Lbl).Text:=FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Num.ToString;
         if FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Activo then
         begin
-          TLabel(Lbl).TextSettings.FontColor:=$FFFF0000; //4294901760;
+          TLabel(Lbl).TextSettings.FontColor:=4294901760;
           TLabel(Lbl).TextSettings.Font.Style:=[TFontStyle.fsBold]
         end
         else
@@ -82,9 +83,11 @@ begin
           TLabel(Lbl).TextSettings.FontColor:=4278190080;
           TLabel(Lbl).TextSettings.Font.Style:=[]
         end;
+        TLabel(Lbl).Text:=FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Num.ToString;
       end;
     end;
   LJUgador.Text:='Jugador: '+FPrinc.CartJuego[CBNumC.ItemIndex].Nombre;
+  //LPatron.Text:='Patrón: '+FPrinc.Ganador[];
 end;
 
 procedure TFConsCarton.BSalirClick(Sender: TObject);
