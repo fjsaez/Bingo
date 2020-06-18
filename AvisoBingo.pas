@@ -38,12 +38,13 @@ uses Principal;
 procedure TFAvisoBingo.BTerminarClick(Sender: TObject);
 begin
   FPrinc.Panel.Enabled:=false;
+  FPrinc.PanelAuto.Enabled:=false;
   Close;
 end;
 
 procedure TFAvisoBingo.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FPrinc.Ganador:=nil;
+  //FPrinc.Ganador:=nil;
 end;
 
 procedure TFAvisoBingo.FormCreate(Sender: TObject);

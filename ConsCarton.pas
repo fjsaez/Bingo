@@ -59,11 +59,17 @@ implementation
 
 uses Principal;
 
+//HACER DE ESTE MÓDULO UTILIZABLE PARA CONSULTAS DE CARTÓN CONVENCIONALES Y
+//CONSULTAS DE CARTONES GANADORES.
+
 procedure TFConsCarton.BConsultarClick(Sender: TObject);
 var
   Lbl: TComponent;
-  I,X,Y: byte;
+  Ind,I,X,Y: byte;
 begin
+  Ind:=0;
+  while CBNumC.Selected.Text.ToInteger<>FPrinc.CartJuego[Ind].NumCarton do
+    Ind:=Ind+1;
   I:=0;
   for X:=1 to 5 do
     for Y:=1 to 5 do
@@ -72,8 +78,7 @@ begin
       if I<>13 then
       begin
         Lbl:=FindComponent('L'+I.ToString);
-        //TLabel(Lbl).Text:=FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Num.ToString;
-        if FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Activo then
+        if FPrinc.CartJuego[Ind].Carton[X,Y].Activo then
         begin
           TLabel(Lbl).TextSettings.FontColor:=4294901760;
           TLabel(Lbl).TextSettings.Font.Style:=[TFontStyle.fsBold]
@@ -83,11 +88,11 @@ begin
           TLabel(Lbl).TextSettings.FontColor:=4278190080;
           TLabel(Lbl).TextSettings.Font.Style:=[]
         end;
-        TLabel(Lbl).Text:=FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Num.ToString;
+        TLabel(Lbl).Text:=FPrinc.CartJuego[Ind].Carton[X,Y].Num.ToString;
       end;
     end;
-  LJUgador.Text:='Jugador: '+FPrinc.CartJuego[CBNumC.ItemIndex].Nombre;
-  //LPatron.Text:='Patrón: '+FPrinc.Ganador[];
+  LJUgador.Text:='Jugador: '+FPrinc.Ganador[CBNumC.ItemIndex].Jugador;
+  LPatron.Text:='Patrón: '+FPrinc.Ganador[CBNumC.ItemIndex].Patron;
 end;
 
 procedure TFConsCarton.BSalirClick(Sender: TObject);
@@ -99,8 +104,8 @@ procedure TFConsCarton.FormShow(Sender: TObject);
 var
   I: byte;
 begin
-  for I:=0 to Length(FPrinc.CartJuego)-1 do
-    CBNumC.Items.Add(FPrinc.CartJuego[I].NumCarton.ToString);
+  for I:=0 to Length(FPrinc.Ganador)-1 do
+    CBNumC.Items.Add(FPrinc.Ganador[I].NumCarton);
 end;
 
 end.
@@ -133,5 +138,40 @@ begin
       end;
     end;
   LJUgador.Text:='Jugador: '+FPrinc.CartJuego[CBNumC.ItemIndex].Nombre;
+end;
+
+procedure TFConsCarton.BConsultarClick(Sender: TObject);
+var
+  Lbl: TComponent;
+  Ind,I,X,Y: byte;
+begin
+  Ind:=0;
+  while CBNumC.Selected.Text.ToInteger<>FPrinc.CartJuego[Ind].NumCarton do
+    Ind:=Ind+1;
+  I:=0;
+  for X:=1 to 5 do
+    for Y:=1 to 5 do
+    begin
+      I:=I+1;
+      if I<>13 then
+      begin
+        Lbl:=FindComponent('L'+I.ToString);
+        //TLabel(Lbl).Text:=FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Num.ToString;
+        if FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Activo then
+        begin
+          TLabel(Lbl).TextSettings.FontColor:=4294901760;
+          TLabel(Lbl).TextSettings.Font.Style:=[TFontStyle.fsBold]
+        end
+        else
+        begin
+          TLabel(Lbl).TextSettings.FontColor:=4278190080;
+          TLabel(Lbl).TextSettings.Font.Style:=[]
+        end;
+        TLabel(Lbl).Text:=FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Num.ToString;
+      end;
+    end;
+  //LJUgador.Text:='Jugador: '+FPrinc.CartJuego[CBNumC.ItemIndex].Nombre;
+  LJUgador.Text:='Jugador: '+FPrinc.Ganador[CBNumC.ItemIndex].Jugador;
+  LPatron.Text:='Patrón: '+FPrinc.Ganador[CBNumC.ItemIndex].Patron;
 end;
 *)
