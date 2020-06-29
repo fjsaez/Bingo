@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Edit, Data.DB, ABSMain, FMX.ListBox, FMX.NumberBox, FMX.EditBox,
-  FMX.Controls.Presentation, FMX.Layouts, FMX.ExtCtrls;
+  FMX.Controls.Presentation, FMX.Layouts, FMX.ExtCtrls, UtilesBingo;
 
 type
   TFConsCarton = class(TForm)
@@ -52,6 +52,7 @@ type
 
 var
   FConsCarton: TFConsCarton;
+  Indice: byte;
 
 implementation
 
@@ -62,8 +63,11 @@ uses Principal;
 procedure TFConsCarton.BConsultarClick(Sender: TObject);
 var
   Lbl: TComponent;
-  I,X,Y: byte;
+  Ind,I,X,Y: byte;
 begin
+  if Bingo.EsConsCrtGanador then
+    Ind:=Ganador[CBNumC.ItemIndex].Indice
+  else Ind:=CBNumC.ItemIndex;
   I:=0;
   for X:=1 to 5 do
     for Y:=1 to 5 do
@@ -72,8 +76,7 @@ begin
       if I<>13 then
       begin
         Lbl:=FindComponent('L'+I.ToString);
-        //TLabel(Lbl).Text:=FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Num.ToString;
-        if FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Activo then
+        if CartJuego[Ind].Carton[X,Y].Activo then
         begin
           TLabel(Lbl).TextSettings.FontColor:=4294901760;
           TLabel(Lbl).TextSettings.Font.Style:=[TFontStyle.fsBold]
@@ -83,11 +86,15 @@ begin
           TLabel(Lbl).TextSettings.FontColor:=4278190080;
           TLabel(Lbl).TextSettings.Font.Style:=[]
         end;
-        TLabel(Lbl).Text:=FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Num.ToString;
+        TLabel(Lbl).Text:=CartJuego[Ind].Carton[X,Y].Num.ToString;
       end;
     end;
-  LJUgador.Text:='Jugador: '+FPrinc.CartJuego[CBNumC.ItemIndex].Nombre;
-  //LPatron.Text:='Patrón: '+FPrinc.Ganador[];
+  if Bingo.EsConsCrtGanador then
+  begin
+    LJUgador.Text:='Jugador: '+Ganador[CBNumC.ItemIndex].Jugador;
+    LPatron.Text:='Patrón: '+Ganador[CBNumC.ItemIndex].Patron
+  end
+  else LJUgador.Text:='Jugador: '+CartJuego[CBNumC.ItemIndex].Nombre;
 end;
 
 procedure TFConsCarton.BSalirClick(Sender: TObject);
@@ -99,8 +106,16 @@ procedure TFConsCarton.FormShow(Sender: TObject);
 var
   I: byte;
 begin
-  for I:=0 to Length(FPrinc.CartJuego)-1 do
-    CBNumC.Items.Add(FPrinc.CartJuego[I].NumCarton.ToString);
+  LPatron.Visible:=Bingo.EsConsCrtGanador;
+  //crea la lista de los cartones...
+  if Bingo.EsConsCrtGanador then   //... ganadores:
+    for I:=0 to Length(Ganador)-1 do
+      CBNumC.Items.Add(Ganador[I].NumCarton)
+  else
+    if Length(CartJuego)>0 then    //... en juego:
+      for I:=0 to Length(CartJuego)-1 do
+        CBNumC.Items.Add(CartJuego[I].NumCarton.ToString);
+  BConsultar.Enabled:=CBNumC.Count>0;
 end;
 
 end.
@@ -133,5 +148,40 @@ begin
       end;
     end;
   LJUgador.Text:='Jugador: '+FPrinc.CartJuego[CBNumC.ItemIndex].Nombre;
+end;
+
+procedure TFConsCarton.BConsultarClick(Sender: TObject);
+var
+  Lbl: TComponent;
+  Ind,I,X,Y: byte;
+begin
+  Ind:=0;
+  while CBNumC.Selected.Text.ToInteger<>FPrinc.CartJuego[Ind].NumCarton do
+    Ind:=Ind+1;
+  I:=0;
+  for X:=1 to 5 do
+    for Y:=1 to 5 do
+    begin
+      I:=I+1;
+      if I<>13 then
+      begin
+        Lbl:=FindComponent('L'+I.ToString);
+        //TLabel(Lbl).Text:=FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Num.ToString;
+        if FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Activo then
+        begin
+          TLabel(Lbl).TextSettings.FontColor:=4294901760;
+          TLabel(Lbl).TextSettings.Font.Style:=[TFontStyle.fsBold]
+        end
+        else
+        begin
+          TLabel(Lbl).TextSettings.FontColor:=4278190080;
+          TLabel(Lbl).TextSettings.Font.Style:=[]
+        end;
+        TLabel(Lbl).Text:=FPrinc.CartJuego[CBNumC.ItemIndex].Carton[X,Y].Num.ToString;
+      end;
+    end;
+  //LJUgador.Text:='Jugador: '+FPrinc.CartJuego[CBNumC.ItemIndex].Nombre;
+  LJUgador.Text:='Jugador: '+FPrinc.Ganador[CBNumC.ItemIndex].Jugador;
+  LPatron.Text:='Patrón: '+FPrinc.Ganador[CBNumC.ItemIndex].Patron;
 end;
 *)

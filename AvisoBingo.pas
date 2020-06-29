@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   System.Rtti, FMX.Grid, FMX.Layouts, FMX.Grid.Style, FMX.Controls.Presentation,
-  FMX.ScrollBox;
+  FMX.ScrollBox, FMX.Media, FMX.ExtCtrls;
 
 type
   TFAvisoBingo = class(TForm)
@@ -15,11 +15,11 @@ type
     SCol2: TStringColumn;
     SCol3: TStringColumn;
     BTerminar: TButton;
-    BContinuar: TButton;
-    Label1: TLabel;
+    MPlayer: TMediaPlayer;
+    ImageViewer1: TImageViewer;
     procedure FormCreate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BTerminarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,29 +33,30 @@ implementation
 
 {$R *.fmx}
 
-uses Principal;
+uses Principal,UtilesBingo;
 
 procedure TFAvisoBingo.BTerminarClick(Sender: TObject);
 begin
   FPrinc.Panel.Enabled:=false;
+  FPrinc.PanelAuto.Enabled:=false;
   Close;
-end;
-
-procedure TFAvisoBingo.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  FPrinc.Ganador:=nil;
 end;
 
 procedure TFAvisoBingo.FormCreate(Sender: TObject);
 var
   I: byte;
 begin
-  for I:=0 to Length(FPrinc.Ganador)-1 do
+  for I:=0 to Length(Ganador)-1 do
   begin
-    SGrid.Cells[0,I]:=FPrinc.Ganador[I].Jugador;
-    SGrid.Cells[1,I]:=FPrinc.Ganador[I].NumCarton;
-    SGrid.Cells[2,I]:=FPrinc.Ganador[I].Patron;
+    SGrid.Cells[0,I]:=Ganador[I].Jugador;
+    SGrid.Cells[1,I]:=Ganador[I].NumCarton;
+    SGrid.Cells[2,I]:=Ganador[I].Patron;
   end;
+end;
+
+procedure TFAvisoBingo.FormShow(Sender: TObject);
+begin
+  if Sonidos.AudioActivo then Sonido(MPlayer,Sonidos.Ganador,0.7);
 end;
 
 end.

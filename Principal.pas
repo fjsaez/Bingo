@@ -8,28 +8,10 @@ uses
   FMX.Edit, FMX.Layouts, FMX.Memo, System.Actions, FMX.ActnList, System.Rtti,
   FMX.Grid, FMX.ExtCtrls, FMX.ListBox, Data.DB, ABSMain, FMX.Objects, FMX.Header,
   FMX.Grid.Style, FMX.ScrollBox, FMX.Controls.Presentation, FMX.Menus,
-  System.ImageList, FMX.ImgList;
+  System.ImageList, FMX.ImgList, FMX.Media, UtilesBingo;
 
 type
-  TNumero = record
-    Num: byte;                            //indica un número en el cartón
-    Activo: boolean;                      //indica si está activo o ya 'cantado'
-  end;
-  //registro de los cartones en el archivo.
-  TCarton = record
-    Numero: array [1..5,1..5] of TNumero; //matriz con los 25 nros del cartón
-    NumCarton: byte;                      //indica el nro. del cartón
-  end;
-  //registro con los cartones en juego.
-  TCartJuego = record
-    Nombre: string;                       //el nombre del jugador
-    Carton: array [1..5,1..5] of TNumero; //matriz con los 25 nros del cartón
-    NumCarton: byte;                      //indica el nro. del cartón
-  end;
-  //registro del ganador de la partida.
-  TGanador = record
-    Patron,NumCarton,Jugador: string;
-  end;
+  
   TFPrinc = class(TForm)
     Panel: TPanel;
     CBt1: TCornerButton;
@@ -114,16 +96,35 @@ type
     Label5: TLabel;
     ActLst: TActionList;
     Action1: TAction;
-    CornerButton2: TCornerButton;
     Action2: TAction;
     BIniciar: TButton;
     Grid: TStringGrid;
     SColNom: TStringColumn;
     SColCart: TStringColumn;
     Query: TABSQuery;
-    BConsC: TButton;
+    BConsCarton: TButton;
     Action3: TAction;
-    SColAct: TStringColumn;
+    PpMenuJug: TPopupMenu;
+    MIModificar: TMenuItem;
+    MenuItem2: TMenuItem;
+    MIEliminar: TMenuItem;
+    EStBar: TEdit;
+    ImageViewer1: TImageViewer;
+    ImageList: TImageList;
+    Circle1: TCircle;
+    TxNumero: TText;
+    Timer: TTimer;
+    TrackBar: TTrackBar;
+    PanelAuto: TPanel;
+    LIntervalo: TLabel;
+    CirclePlay: TCircle;
+    BReiniciarTodo: TButton;
+    LCantadas: TLabel;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    Expander3: TExpander;
+    RBManual: TRadioButton;
+    RBAutomatico: TRadioButton;
     Expander1: TExpander;
     ChBLnVt: TCheckBox;
     ChBLnHz: TCheckBox;
@@ -144,27 +145,20 @@ type
     LBAsig: TListBox;
     Label8: TLabel;
     Label7: TLabel;
-    ENombre: TEdit;
     Label6: TLabel;
-    PpMenuJug: TPopupMenu;
-    MIModificar: TMenuItem;
-    MenuItem2: TMenuItem;
-    MIEliminar: TMenuItem;
-    EStBar: TEdit;
-    ImageViewer1: TImageViewer;
-    ImageList: TImageList;
-    Expander3: TExpander;
-    Circle1: TCircle;
-    TxNumero: TText;
-    Timer: TTimer;
-    TrackBar: TTrackBar;
-    PanelAuto: TPanel;
-    LIntervalo: TLabel;
-    RBManual: TRadioButton;
-    RBAutomatico: TRadioButton;
-    CirclePlay: TCircle;
-    BReiniciarTodo: TButton;
+    ENombre: TEdit;
+    BConsGanador: TButton;
+    LTotJug: TLabel;
+    LTotCartJuego: TLabel;
+    LModoCantado: TLabel;
+    LLetra: TLabel;
+    MPlayer: TMediaPlayer;
+    MPlayer2: TMediaPlayer;
+    SwAudio: TSwitch;
+    LAudio: TLabel;
+    ExpCartones: TExpander;
     BAgrCarton: TButton;
+    BElmCarton: TButton;
     procedure FormShow(Sender: TObject);
     procedure CBt1Click(Sender: TObject);
     procedure Action1Execute(Sender: TObject);
@@ -186,46 +180,49 @@ type
     procedure TrackBarChange(Sender: TObject);
     procedure RBManualChange(Sender: TObject);
     procedure CirclePlayClick(Sender: TObject);
+    procedure BConsGanadorClick(Sender: TObject);
+    procedure SwAudioClick(Sender: TObject);
+    procedure BElmCartonClick(Sender: TObject);
+    procedure BAgrCartonClick(Sender: TObject);
+    procedure BModCartonClick(Sender: TObject);
   private
     { Private declarations }
     procedure ValInicial;
-    procedure MarcaNumeros(Num: byte; Activo: boolean);
-    procedure AvisoBingo(Patron: string; Ind: byte);
-    procedure CuatroEsquinas(I: byte);
-    procedure CuadroGrande(I: byte);
-    procedure CuadroChiquito(I: byte);
-    procedure CruzGrande(I: byte);
-    procedure CruzChiquita(I: byte);
-    procedure LineaVert(I: byte);
-    procedure LineaHoriz(I: byte);
-    procedure DiagNormal(I: byte);
-    procedure DiagInversa(I: byte);
-    procedure TodoCarton(I: byte);
-  public
-    { Public declarations }
-    var
-      CartJuego: array of TCartJuego;       //<-- los cartones ya escogidos;
-      Ganador: array of TGanador;           //<-- el/los ganador(es) de partida
-    //procedure MostrarVentana(AClass: TFmxObjectClass);
     procedure ChequearPatrones;
     procedure MensajesSBar;
     procedure EliminarCartJuego(const Nombre: string); overload;
     procedure EliminarCartJuego(const NumCarton: integer); overload;
     procedure ActualizaDisponibles(Indice: integer);
+  public
+    { Public declarations }
+    //procedure MostrarVentana(AClass: TFmxObjectClass);
+    procedure InicializarDatosBingo;
   end;
 
 var
   FPrinc: TFPrinc;
-  Cartones: array of TCarton;               //<-- todos los cartones del archivo
-  EsNuevo,EsBingo,EsPlay: boolean;
   NombreAnterior: string;
-  TotalCantados: byte;
 
 implementation
 
 {$R *.fmx}
 
 uses DataMod, NvoCarton, ConsCarton, AvisoBingo;
+
+//// Utilidades ////
+
+{Inicializa todos los valores del registro Bingo a sus valores predeterminados}
+procedure TFPrinc.InicializarDatosBingo;
+begin
+  Bingo.EsNuevo:=true;
+  Bingo.EsBingo:=false;
+  Bingo.EsPlay:=false;
+  Bingo.TotalCantados:=0;
+  Bingo.TotalCartones:=Length(Cartones);
+  Bingo.TotalGanadores:=0;
+  Bingo.TotalJugadores:=Grid.RowCount;
+  Bingo.TotalCartEnJuego:=Length(CartJuego);
+end;
 
 {Elimina los cartones asignados en el array CartJuego a partir del nombre}
 procedure TFPrinc.EliminarCartJuego(const Nombre: string);
@@ -248,7 +245,7 @@ begin
   Nvo:=nil;
 end;
 
-{Elimina los cartones asignados en el array CartJuego a partir del nombre}
+{Elimina los cartones asignados en el array CartJuego a partir del núm cartón}
 procedure TFPrinc.EliminarCartJuego(const NumCarton: integer);
 var
   I,Ind: integer;
@@ -269,6 +266,7 @@ begin
   Nvo:=nil;
 end;
 
+{Actualiza el listbox con los cartones disponibles}
 procedure TFPrinc.ActualizaDisponibles(Indice: integer);
 begin
   if CartJuego[Indice].NumCarton<10 then
@@ -281,37 +279,28 @@ var
   I: byte;
   CBt: TComponent;
 begin
-  EsNuevo:=true;
+  Bingo.EsNuevo:=true;
   Expander1.Enabled:=true;
   Expander2.Enabled:=true;
   Expander3.Enabled:=true;
+  ExpCartones.Enabled:=true;
   Expander1.IsExpanded:=false;
   Expander2.IsExpanded:=false;
   Expander3.IsExpanded:=false;
+  ExpCartones.IsExpanded:=false;
   BAgregar.Enabled:=false;
-  BConsC.Enabled:=false;
+  BConsGanador.Enabled:=false;
   BIniciar.Enabled:=Grid.RowCount>1;
   //pone los botones del cartón general a sus valores iniciales
   for I:=1 to 75 do
   begin
     CBt:=FindComponent('CBt'+I.ToString);
     TCornerButton(CBt).IsPressed:=false;
-    TCornerButton(CBt).TextSettings.FontColor:=4278190080;
+    TCornerButton(CBt).TextSettings.FontColor:=4278190080;  //color negro
   end;
 end;
 
-{'pone' una ficha al número existente en el cartón}
-procedure TFPrinc.MarcaNumeros(Num: byte; Activo: boolean);
-var
-  X,Y,I: byte;
-begin
-  for I:=0 to Length(CartJuego)-1 do
-    for X:=1 to 5 do
-      for Y:=1 to 5 do
-        if Num=CartJuego[I].Carton[X,Y].Num then
-          CartJuego[I].Carton[X,Y].Activo:=Activo;
-end;
-
+{Chequea los patrones en todos los cartones en juego para determinar un ganador}
 procedure TFPrinc.ChequearPatrones;
 var
   I: byte;
@@ -332,145 +321,38 @@ begin
       if ChBDgIn.IsChecked then DiagInversa(I);
     end;
   end;
-  BIniciar.Enabled:=EsBingo;
-  Expander1.Enabled:=EsBingo;
-  Expander2.Enabled:=EsBingo;
-  Timer.Enabled:=not EsBingo and RBAutomatico.IsChecked;
-  if EsBingo then
+  BIniciar.Enabled:=Bingo.EsBingo;
+  BConsGanador.Enabled:=Bingo.EsBingo;
+  Expander1.Enabled:=Bingo.EsBingo;
+  Expander2.Enabled:=Bingo.EsBingo;
+  Expander3.Enabled:=Bingo.EsBingo;
+  Timer.Enabled:=not Bingo.EsBingo and RBAutomatico.IsChecked;
+  if Bingo.EsBingo then
+  begin
     with TFAvisoBingo.Create(Self) do
       try ShowModal;
       finally Free
     end;
+  end;
 end;
 
 {Muestra mensajes en un TEdit con efectos de StatusBar}
 procedure TFPrinc.MensajesSBar;
 begin
-  EStBar.Text:=' Total cartones en juego: '+Length(CartJuego).ToString+' -- '+
-    ' Total cartones disponibles: '+LBDisp.Count.ToString;
+  with Bingo do
+    EStBar.Text:=' Total cartones en juego: '+TotalCartEnJuego.ToString+' -- '+
+    'Total cartones disponibles: '+(TotalCartones-TotalCartEnJuego).ToString;
 end;
 
-procedure TFPrinc.AvisoBingo(Patron: string; Ind: byte);
-var
-  Tamano: byte;
-begin
-  SetLength(Ganador,Length(Ganador)+1);
-  Tamano:=Length(Ganador)-1;
-  Ganador[Tamano].Jugador:=CartJuego[Ind].Nombre;
-  Ganador[Tamano].NumCarton:=CartJuego[Ind].NumCarton.ToString;
-  Ganador[Tamano].Patron:=Patron;
-  EsBingo:=true;
-end;
-
-/// los patrones: ////
-
-procedure TFPrinc.CuatroEsquinas(I: byte);
-begin
-  if CartJuego[I].Carton[1,1].Activo and CartJuego[I].Carton[1,5].Activo and
-     CartJuego[I].Carton[5,1].Activo and CartJuego[I].Carton[5,5].Activo then
-       AvisoBingo('Cuatro Esquinas',I);
-end;
-
-procedure TFPrinc.CuadroGrande(I: byte);
-var
-  X,Y: Integer;
-begin
-  for X:=1 to 3 do
-    for Y:=1 to 3 do
-      if CartJuego[I].Carton[X,Y].Activo and
-         CartJuego[I].Carton[X+2,Y].Activo and
-         CartJuego[I].Carton[X,Y+2].Activo and
-         CartJuego[I].Carton[X+2,Y+2].Activo then AvisoBingo('Cuadro Grande',I);
-end;
-
-procedure TFPrinc.CuadroChiquito(I: byte);
-var
-  X,Y: Integer;
-begin
-  for X:=1 to 4 do
-    for Y:=1 to 4 do
-      if CartJuego[I].Carton[X,Y].Activo and
-         CartJuego[I].Carton[X+1,Y].Activo and
-         CartJuego[I].Carton[X,Y+1].Activo and
-         CartJuego[I].Carton[X+1,Y+1].Activo then
-           AvisoBingo('Cuadro Chiquito',I);
-end;
-
-procedure TFPrinc.CruzGrande(I: byte);
-begin
-  if CartJuego[I].Carton[3,1].Activo and CartJuego[I].Carton[3,5].Activo and
-     CartJuego[I].Carton[1,3].Activo and CartJuego[I].Carton[5,3].Activo then
-       AvisoBingo('Cruz Grande',I);
-end;
-
-procedure TFPrinc.CruzChiquita(I: byte);
-var
-  X,Y: Integer;
-begin
-  for X:=1 to 2 do
-    for Y:=1 to 2 do
-      if CartJuego[I].Carton[X+1,Y].Activo and
-         CartJuego[I].Carton[X+1,Y+2].Activo and
-         CartJuego[I].Carton[X,Y+1].Activo and
-         CartJuego[I].Carton[X+2,Y+1].Activo then AvisoBingo('Cruz Chiquita',I);
-end;
-
-procedure TFPrinc.LineaVert(I: byte);
-var
-  X: byte;
-begin
-  for X:=1 to 5 do
-    if CartJuego[I].Carton[X,1].Activo and CartJuego[I].Carton[X,2].Activo and
-       CartJuego[I].Carton[X,3].Activo and CartJuego[I].Carton[X,4].Activo and
-       CartJuego[I].Carton[X,5].Activo then AvisoBingo('Linea Vertical',I);
-end;
-
-procedure TFPrinc.LineaHoriz(I: byte);
-var
-  Y: byte;
-begin
-  for Y:=1 to 5 do
-    if CartJuego[I].Carton[1,Y].Activo and CartJuego[I].Carton[2,Y].Activo and
-       CartJuego[I].Carton[3,Y].Activo and CartJuego[I].Carton[4,Y].Activo and
-       CartJuego[I].Carton[5,Y].Activo then AvisoBingo('Linea Horizontal',I);
-end;
-
-procedure TFPrinc.DiagNormal(I: byte);
-begin
-  if CartJuego[I].Carton[1,1].Activo and CartJuego[I].Carton[2,2].Activo and
-     CartJuego[I].Carton[4,4].Activo and CartJuego[I].Carton[5,5].Activo then
-       AvisoBingo('Macheteao derecho',I);
-end;
-
-procedure TFPrinc.DiagInversa(I: byte);
-begin
-  if CartJuego[I].Carton[5,1].Activo and CartJuego[I].Carton[4,2].Activo and
-     CartJuego[I].Carton[2,4].Activo and CartJuego[I].Carton[1,5].Activo then
-       AvisoBingo('Macheteao al revés',I);
-end;
-
-procedure TFPrinc.TodoCarton(I: byte);
-var
-  X,Y,Cont: byte;
-begin
-  Cont:=0;
-  for X:=1 to 5 do
-    for Y:=1 to 5 do
-      if CartJuego[I].Carton[X,Y].Activo then Inc(Cont,1)
-      else Break;
-  if Cont=25 then AvisoBingo('Cartón FULL',I);
-end;
-
-/// fin patrones ///
-
-/// Sorteo automático ///////
+//// Sorteo automático ////
 
 procedure TFPrinc.CirclePlayClick(Sender: TObject);
 begin
-  EsPlay:=not EsPlay;
-  Timer.Enabled:=EsPlay;
-  if EsPlay then CirclePlay.Fill.Bitmap.Bitmap.LoadFromFile('pausa.png')
-  else CirclePlay.Fill.Bitmap.Bitmap.LoadFromFile('play.png');
+  Bingo.EsPlay:=not Bingo.EsPlay;
+  Timer.Enabled:=Bingo.EsPlay;
+  if Bingo.EsPlay then
+    CirclePlay.Fill.Bitmap.Bitmap.LoadFromFile('Imagen\pausa.png')
+  else CirclePlay.Fill.Bitmap.Bitmap.LoadFromFile('Imagen\play.png');
 end;
 
 procedure TFPrinc.TimerTimer(Sender: TObject);
@@ -478,21 +360,39 @@ var
   Cbt: TComponent;
   Num: byte;
 begin
-  Num:=Random(75)+1;
-  TxNumero.Text:=Num.ToString;
-  //se marcan las bolas cantadas en el tablero general:
-  CBt:=FindComponent('CBt'+TxNumero.Text);
-  TCornerButton(CBt).SetFocus;
-  TCornerButton(CBt).IsPressed:=true;
-  TCornerButton(CBt).TextSettings.FontColor:=4294901760;
-  //se 'coloca ficha' el número cantado en todos los cartones (donde estuviere):
-  MarcaNumeros(Num,true);
-  //se chequean todos los cartones para ver si coinciden con los patrones:
-  ChequearPatrones;
-  //sólo habrán 75 bolas posibles:
-  TotalCantados:=TotalCantados+1;
-  if (TotalCantados=75) or EsBingo then
-    if TotalCantados=75 then ShowMessage('Ha terminado el cantado de bolas');
+  Num:=Random(75)+1;   //se obtiene el número de la bola obtenido aleatoriamente
+  CBt:=FindComponent('CBt'+Num.ToString);
+  //se filtra para que los números repetidos no se cuenten:
+  if not TCornerButton(CBt).IsPressed then
+  begin
+    case Num of
+      01..15: LLetra.Text:='B';
+      16..30: LLetra.Text:='I';
+      31..45: LLetra.Text:='N';
+      46..60: LLetra.Text:='G';
+      61..75: LLetra.Text:='O';
+    end;
+    TxNumero.Text:=Num.ToString;
+    Bingo.TotalCantados:=Bingo.TotalCantados+1;
+    LCantadas.Text:='Cantadas: '+Bingo.TotalCantados.ToString;
+    //se marcan las bolas cantadas en el tablero general:
+    TCornerButton(CBt).SetFocus;
+    TCornerButton(CBt).IsPressed:=true;
+    TCornerButton(CBt).TextSettings.FontColor:=4294901760;
+    //los audios:
+    if Sonidos.AudioActivo then
+    begin
+      Sonido(MPlayer2,Sonidos.Punto,0.6);
+      if Num<10 then
+        Sonido(MPlayer,'Audio\'+LLetra.Text+'-0'+Num.ToString+'.mp3',1)
+      else Sonido(MPlayer,'Audio\'+LLetra.Text+'-'+Num.ToString+'.mp3',1);
+    end;
+    //se 'ficha' el número cantado en los cartones y se chequean patrones:
+    MarcaNumeros(Num,true);
+    ChequearPatrones;
+    Timer.Interval:=Trunc(TrackBar.Value)*1000;
+  end
+  else Timer.Interval:=1;
 end;
 
 procedure TFPrinc.TrackBarChange(Sender: TObject);
@@ -501,7 +401,148 @@ begin
   LIntervalo.Text:='Intervalo: '+Trunc(TrackBar.Value).ToString+' seg.';
 end;
 
-/////// fin de sorteo automático ///////
+//// Botones ////
+
+procedure TFPrinc.BAgregarClick(Sender: TObject);
+var
+  I: byte;
+  ListaCarts: string;
+begin
+  ListaCarts:='';
+  for I:=0 to LBAsig.Count-1 do ListaCarts:=ListaCarts+LBAsig.Items[I]+' - ';
+  if Bingo.EsNuevo then
+  begin
+    Grid.RowCount:=Grid.RowCount+1;
+    Grid.Cells[0,Grid.RowCount-1]:=ENombre.Text;
+    Grid.Cells[1,Grid.RowCount-1]:=ListaCarts
+  end
+  else
+  begin
+    Grid.Cells[0,Grid.Row]:=ENombre.Text;
+    Grid.Cells[1,Grid.Row]:=ListaCarts;
+    //se sustituye el nombre anterior por el nuevo en array CartJuego:
+    if ENombre.Text<>NombreAnterior then
+      for I:=0 to High(CartJuego) do
+        if CartJuego[I].Nombre=NombreAnterior then
+          CartJuego[I].Nombre:=ENombre.Text;
+  end;
+  BIniciar.Enabled:=Grid.RowCount>1;
+  BConsGanador.Visible:=Grid.RowCount>1;
+  LBAsig.Clear;
+  NombreAnterior:='';
+  ENombre.Text:='';
+  ENombre.SetFocus;
+  Bingo.EsNuevo:=true;
+  BAgregar.Text:='Agregar jugador';
+  MensajesSBar;
+end;
+
+procedure TFPrinc.BConsGanadorClick(Sender: TObject);
+begin
+  Bingo.EsConsCrtGanador:=TButton(Sender).Text='Consultar ganadores...';
+  Action1Execute(Self);
+end;
+
+procedure TFPrinc.BIniciarClick(Sender: TObject);
+var
+  I,X,Y: byte;
+  ModoCantado: string;
+  CBt: TComponent;
+begin
+  Ganador:=nil;
+  ValInicial;
+  Expander1.Enabled:=false;
+  Expander2.Enabled:=false;
+  Expander3.Enabled:=false;
+  //se 'quitan' las fichas del cartón:
+  for I:=0 to Length(CartJuego)-1 do
+    for X:=1 to 5 do
+      for Y:=1 to 5 do CartJuego[I].Carton[X,Y].Activo:=(X=3) and (Y=3);
+  LTotJug.Text:='Total jugadores: '+Grid.RowCount.ToString;
+  LTotCartJuego.Text:='Total cartones en juego: '+Bingo.TotalCartEnJuego.ToString;
+  LModoCantado.Text:='Modo de cantado: '+Bingo.ModoDeCantado;
+  //los controles correspondientes:
+  Panel.Enabled:=true;
+  PanelAuto.Enabled:=RBAutomatico.IsChecked;
+  BIniciar.Enabled:=false;
+  BConsGanador.Enabled:=false;
+  Bingo.EsBingo:=false;
+  Bingo.EsPlay:=false;
+  for I:=1 to 75 do
+  begin
+    CBt:=FindComponent('CBt'+I.ToString);
+    TCornerButton(CBt).Enabled:=RBManual.IsChecked;
+  end;
+  if RBAutomatico.IsChecked then
+  begin
+    LLetra.Text:='X';
+    TxNumero.Text:='0';
+    if FileExists('Imagen\play.png') then
+      CirclePlay.Fill.Bitmap.Bitmap.LoadFromFile('Imagen\play.png');
+    Randomize;
+  end;
+  InicializarDatosBingo;
+  MensajesSBar;
+end;
+
+procedure TFPrinc.BAgrCartonClick(Sender: TObject);
+begin
+//
+end;
+
+procedure TFPrinc.BModCartonClick(Sender: TObject);
+begin
+//
+end;
+
+procedure TFPrinc.BElmCartonClick(Sender: TObject);
+begin
+  if MessageDlg('Tenga en cuenta que este paso es irreversible. ¿Realmente '+
+    'desea eliminar todos los cartones? ',TMsgDlgType.mtConfirmation,
+    [TMsgDlgBtn.mbYes,TMsgDlgBtn.mbNo],0)=mrYes then
+  begin
+    Query.SQL.Text:='truncate table Carton';
+    Query.ExecSQL;
+    InicializarDatosBingo;
+    MensajesSBar;
+    ShowMessage('Todas las tablas fueron eliminadas. Deberá cargar otras nuevas');
+  end;
+end;
+
+procedure TFPrinc.BReiniciarTodoClick(Sender: TObject);
+var
+  I: integer;
+begin
+  for I:=0 to Length(CartJuego)-1 do ActualizaDisponibles(I);
+  ValInicial;
+  Grid.RowCount:=0;
+  CartJuego:=nil;
+  MensajesSBar;
+end;
+
+procedure TFPrinc.CBt1Click(Sender: TObject);
+var
+  I,Num: byte;
+  Activo: boolean;
+  Cbt: TComponent;
+begin
+  Num:=TCornerButton(Sender).Text.ToInteger;
+  Activo:=TCornerButton(Sender).IsPressed;
+  if Activo then
+  begin
+    TCornerButton(Sender).TextSettings.FontColor:=4294901760;  //rojo
+    Bingo.TotalCantados:=Bingo.TotalCantados+1;
+  end
+  else
+  begin
+    TCornerButton(Sender).TextSettings.FontColor:=4278190080; //negro
+    Bingo.TotalCantados:=Bingo.TotalCantados-1;
+  end;
+  Sonido(MPlayer,Sonidos.Punto,0.6);
+  LCantadas.Text:='Cantadas: '+Bingo.TotalCantados.ToString;
+  MarcaNumeros(Num,Activo); //se 'ficha' el número cantado en los cartones
+  ChequearPatrones;
+end;
 
 procedure TFPrinc.SBAsigClick(Sender: TObject);
 var
@@ -539,6 +580,7 @@ begin
   end;
   LBDisp.ItemIndex:=0;
   BAgregar.Enabled:=(Length(ENombre.Text.Trim)>0) and (LBAsig.Items.Count>0);
+  Bingo.TotalCartEnJuego:=Length(CartJuego);
   MensajesSBar;
 end;
 
@@ -560,8 +602,11 @@ begin
     else I:=I+1;
   end;
   BAgregar.Enabled:=(Length(ENombre.Text.Trim)>0) and (LBAsig.Items.Count>0);
+  Bingo.TotalCartEnJuego:=Length(CartJuego);
   MensajesSBar;
 end;
+
+//// PopUp Menú ////
 
 {Modificar jugador}
 procedure TFPrinc.MIModificarClick(Sender: TObject);
@@ -579,23 +624,10 @@ begin
         if CartJuego[I].NumCarton<10 then
           LBAsig.Items.Add('0'+CartJuego[I].NumCarton.ToString)
         else LBAsig.Items.Add(CartJuego[I].NumCarton.ToString);
-    EsNuevo:=false;
-    if EsNuevo then BAgregar.Text:='Agregar jugador'
-               else BAgregar.Text:='Modificar jugador';
+    Bingo.EsNuevo:=false;
+    if Bingo.EsNuevo then BAgregar.Text:='Agregar jugador'
+                     else BAgregar.Text:='Modificar jugador';
   end;
-end;
-
-procedure TFPrinc.RBManualChange(Sender: TObject);
-var
-  I: byte;
-  CBt: TComponent;
-begin
-  {for I:=1 to 75 do
-  begin
-    CBt:=FindComponent('CBt'+I.ToString);
-    TCornerButton(CBt).CanFocus:=RBManual.IsChecked;
-  end;
-  PanelAuto.Enabled:=RBAutomatico.IsChecked;}
 end;
 
 {Eliminar jugador}
@@ -637,6 +669,14 @@ begin
   end;
 end;
 
+//// Lo demás... ////
+
+procedure TFPrinc.RBManualChange(Sender: TObject);
+begin
+  if RBManual.IsChecked then Bingo.ModoDeCantado:='manual'
+                        else Bingo.ModoDeCantado:='automático';
+end;
+
 procedure TFPrinc.ENombreChangeTracking(Sender: TObject);
 var
   Estado: boolean;
@@ -660,7 +700,6 @@ begin
     try ShowModal;
     finally Free
   end;
-  //MostrarVentana(FConsCarton);
 end;
 
 procedure TFPrinc.Action2Execute(Sender: TObject);
@@ -676,103 +715,11 @@ begin
 //
 end;
 
-procedure TFPrinc.BAgregarClick(Sender: TObject);
-var
-  I: byte;
-  ListaCarts: string;
+procedure TFPrinc.SwAudioClick(Sender: TObject);
 begin
-  ListaCarts:='';
-  for I:=0 to LBAsig.Count-1 do ListaCarts:=ListaCarts+LBAsig.Items[I]+' - ';
-  if EsNuevo then
-  begin
-    Grid.RowCount:=Grid.RowCount+1;
-    Grid.Cells[0,Grid.RowCount-1]:=ENombre.Text;
-    Grid.Cells[1,Grid.RowCount-1]:=ListaCarts
-  end
-  else
-  begin
-    Grid.Cells[0,Grid.Row]:=ENombre.Text;
-    Grid.Cells[1,Grid.Row]:=ListaCarts;
-    //se sustituye el nombre anterior por el nuevo en array CartJuego:
-    if ENombre.Text<>NombreAnterior then
-      for I:=0 to High(CartJuego) do
-        if CartJuego[I].Nombre=NombreAnterior then
-          CartJuego[I].Nombre:=ENombre.Text;
-  end;
-  BIniciar.Enabled:=Grid.RowCount>1;
-  BConsC.Visible:=Grid.RowCount>1;
-  LBAsig.Clear;
-  NombreAnterior:='';
-  ENombre.Text:='';
-  ENombre.SetFocus;
-  EsNuevo:=true;
-  BAgregar.Text:='Agregar jugador';
-  MensajesSBar;
-end;
-
-procedure TFPrinc.BIniciarClick(Sender: TObject);
-var
-  I,X,Y: byte;
-  ModoCantado: string;
-  CBt: TComponent;
-begin
-  ValInicial;
-  Expander1.Enabled:=false;
-  Expander2.Enabled:=false;
-  Expander3.Enabled:=false;
-  if RBManual.IsChecked then ModoCantado:='manual'
-                        else ModoCantado:='automático';
-  //se 'quitan' las fichas del cartón:
-  for I:=0 to Length(CartJuego)-1 do
-    for X:=1 to 5 do
-      for Y:=1 to 5 do CartJuego[I].Carton[X,Y].Activo:=(X=3) and (Y=3);
-  ShowMessage('Total jugadores: '+Grid.RowCount.ToString+#10+
-              'Total cartones en juego: '+Length(CartJuego).ToString+#10+
-              'Modo de cantado: '+ModoCantado);
-  Panel.Enabled:=true;
-  PanelAuto.Enabled:=RBAutomatico.IsChecked;
-  BIniciar.Enabled:=false;
-  BConsC.Enabled:=true;
-  EsBingo:=false;
-  EsPlay:=false;
-  for I:=1 to 75 do
-  begin
-    CBt:=FindComponent('CBt'+I.ToString);
-    TCornerButton(CBt).CanFocus:=RBManual.IsChecked;
-  end;
-  if RBAutomatico.IsChecked then
-  begin
-    TotalCantados:=0;
-    Randomize;
-  end;
-end;
-
-procedure TFPrinc.BReiniciarTodoClick(Sender: TObject);
-var
-  I: integer;
-begin
-  for I:=0 to Length(CartJuego)-1 do ActualizaDisponibles(I);
-  ValInicial;
-  Grid.RowCount:=0;
-  CartJuego:=nil;
-  MensajesSBar;
-end;
-
-procedure TFPrinc.CBt1Click(Sender: TObject);
-var
-  I,Num: byte;
-  Activo: boolean;
-  Cbt: TComponent;
-begin
-  Num:=TCornerButton(Sender).Text.ToInteger;
-  Activo:=TCornerButton(Sender).IsPressed;
-  if Activo then
-    TCornerButton(Sender).TextSettings.FontColor:=4294901760  //rojo
-  else TCornerButton(Sender).TextSettings.FontColor:=4278190080; //negro
-  //se 'coloca ficha' el número cantado en todas los cartones (donde estuviere):
-  MarcaNumeros(Num,Activo);
-  //se chequean todos los cartones para ver si coinciden con los patrones:
-  ChequearPatrones;
+  if SwAudio.IsChecked then LAudio.Text:='Audio SÍ'
+                       else LAudio.Text:='Audio NO';
+  Sonidos.AudioActivo:=SwAudio.IsChecked;
 end;
 
 procedure TFPrinc.ChTodoChange(Sender: TObject);
@@ -798,12 +745,15 @@ end;
 
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
+  Sonidos.AudioActivo:=SwAudio.IsChecked;
   Expander3.IsExpanded:=true;
   Expander2.IsExpanded:=true;
   Expander1.IsExpanded:=true;
+  ExpCartones.IsExpanded:=true;
   Expander3.Height:=90;
   Expander2.Height:=275;
   Expander1.Height:=225;
+  ExpCartones.Height:=135;
   RBManualChange(Self);
   ValInicial;
 end;
@@ -844,10 +794,11 @@ begin
     I:=I+1;
     Query.Next;
   end;
+  InicializarDatosBingo;
   MensajesSBar;
 end;
 
-end.
+end.      //922    782
 
 
 (*

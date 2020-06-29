@@ -67,3 +67,9 @@ __recovery/
 
 # Boss dependency manager vendor folder https://github.com/HashLoad/boss
 modules/
+
+# Archivos de texto plano
+*.txt
+
+# Generación de ejecutables
+Win32/Release

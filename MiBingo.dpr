@@ -6,7 +6,8 @@ uses
   NvoCarton in 'NvoCarton.pas' {FNvoCarton},
   DataMod in 'DataMod.pas' {DMod: TDataModule},
   ConsCarton in 'ConsCarton.pas' {FConsCarton},
-  AvisoBingo in 'AvisoBingo.pas' {FAvisoBingo};
+  AvisoBingo in 'AvisoBingo.pas' {FAvisoBingo},
+  UtilesBingo in 'UtilesBingo.pas';
 
 {$R *.res}
 

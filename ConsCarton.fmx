@@ -6,6 +6,20 @@ object FConsCarton: TFConsCarton
   Caption = 'Consulta de cart'#243'n'
   ClientHeight = 494
   ClientWidth = 366
+  Fill.Kind = Gradient
+  Fill.Gradient.Points = <
+    item
+      Color = xFF8DE499
+      Offset = 0.000000000000000000
+    end
+    item
+      Color = claWhite
+      Offset = 1.000000000000000000
+    end>
+  Fill.Gradient.StartPosition.X = 0.500000000000000000
+  Fill.Gradient.StartPosition.Y = 1.000000000000000000
+  Fill.Gradient.StopPosition.X = 0.499999970197677600
+  Fill.Gradient.StopPosition.Y = 0.000000000000000000
   Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -775,7 +789,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 32
     TabStop = False
   end
@@ -789,7 +803,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 31
     TabStop = False
   end
@@ -803,7 +817,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 30
     TabStop = False
   end
@@ -817,7 +831,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 28
     TabStop = False
   end
@@ -831,7 +845,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 29
     TabStop = False
   end
@@ -845,7 +859,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 14
     TabStop = False
   end
@@ -859,7 +873,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 16
     TabStop = False
   end
@@ -873,7 +887,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 24
     TabStop = False
   end
@@ -887,7 +901,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 26
     TabStop = False
   end
@@ -901,7 +915,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 27
     TabStop = False
   end
@@ -915,7 +929,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 9
     TabStop = False
   end
@@ -929,7 +943,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 10
     TabStop = False
   end
@@ -943,7 +957,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 11
     TabStop = False
   end
@@ -957,7 +971,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 12
     TabStop = False
   end
@@ -971,7 +985,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 25
     TabStop = False
   end
@@ -985,7 +999,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 18
     TabStop = False
   end
@@ -999,7 +1013,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 15
     TabStop = False
   end
@@ -1013,7 +1027,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 13
     TabStop = False
   end
@@ -1027,7 +1041,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 19
     TabStop = False
   end
@@ -1041,7 +1055,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 20
     TabStop = False
   end
@@ -1055,7 +1069,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 21
     TabStop = False
   end
@@ -1069,7 +1083,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 23
     TabStop = False
   end
@@ -1083,7 +1097,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 17
     TabStop = False
   end
@@ -1097,7 +1111,7 @@ object FConsCarton: TFConsCarton
     TextSettings.Font.Size = 25.000000000000000000
     TextSettings.Font.StyleExt = {00090000000000000004000000}
     TextSettings.HorzAlign = Center
-    Text = '75'
+    Text = '0'
     TabOrder = 22
     TabStop = False
   end

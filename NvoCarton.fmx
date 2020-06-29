@@ -4,8 +4,22 @@ object FNvoCarton: TFNvoCarton
   BorderIcons = [biSystemMenu]
   BorderStyle = Single
   Caption = 'Agregar cart'#243'n'
-  ClientHeight = 480
+  ClientHeight = 554
   ClientWidth = 366
+  Fill.Kind = Gradient
+  Fill.Gradient.Points = <
+    item
+      Color = xFF8DE499
+      Offset = 0.000000000000000000
+    end
+    item
+      Color = claWhite
+      Offset = 1.000000000000000000
+    end>
+  Fill.Gradient.StartPosition.X = 0.500000000000000000
+  Fill.Gradient.StartPosition.Y = 1.000000000000000000
+  Fill.Gradient.StopPosition.X = 0.499999970197677600
+  Fill.Gradient.StopPosition.Y = 0.000000000000000000
   Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -14,7 +28,7 @@ object FNvoCarton: TFNvoCarton
   DesignerMasterStyle = 0
   object ImageViewer1: TImageViewer
     Position.X = 62.000000000000000000
-    Position.Y = 56.000000000000000000
+    Position.Y = 120.000000000000000000
     Size.Width = 242.000000000000000000
     Size.Height = 302.000000000000000000
     Size.PlatformDefault = False
@@ -718,8 +732,8 @@ object FNvoCarton: TFNvoCarton
     Viewport.Height = 298.000000000000000000
   end
   object Label1: TLabel
-    Position.X = 48.000000000000000000
-    Position.Y = 24.000000000000000000
+    Position.X = 64.000000000000000000
+    Position.Y = 31.000000000000000000
     Size.Width = 81.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
@@ -731,17 +745,17 @@ object FNvoCarton: TFNvoCarton
     Cursor = crIBeam
     Min = 1.000000000000000000
     Value = 1.000000000000000000
-    Position.X = 144.000000000000000000
-    Position.Y = 24.000000000000000000
+    Position.X = 150.000000000000000000
+    Position.Y = 29.000000000000000000
     Size.Width = 57.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
   end
   object BConsultar: TButton
-    Position.X = 240.000000000000000000
+    Position.X = 223.000000000000000000
     Position.Y = 24.000000000000000000
     Size.Width = 80.000000000000000000
-    Size.Height = 22.000000000000000000
+    Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
     Text = 'Consultar'
@@ -759,11 +773,13 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 74.000000000000000000
-    Position.Y = 131.000000000000000000
+    Position.Y = 195.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
+    OnChangeTracking = NB1ChangeTracking
   end
   object NB2: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -777,11 +793,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 74.000000000000000000
-    Position.Y = 177.000000000000000000
+    Position.Y = 241.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB3: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -795,11 +812,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 74.000000000000000000
-    Position.Y = 223.000000000000000000
+    Position.Y = 287.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB4: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -813,11 +831,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 74.000000000000000000
-    Position.Y = 269.000000000000000000
+    Position.Y = 333.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB5: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -831,11 +850,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 74.000000000000000000
-    Position.Y = 315.000000000000000000
+    Position.Y = 379.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB6: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -849,11 +869,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 120.000000000000000000
-    Position.Y = 131.000000000000000000
+    Position.Y = 195.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB7: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -867,11 +888,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 120.000000000000000000
-    Position.Y = 177.000000000000000000
+    Position.Y = 241.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB8: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -885,11 +907,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 120.000000000000000000
-    Position.Y = 223.000000000000000000
+    Position.Y = 287.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB9: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -903,11 +926,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 120.000000000000000000
-    Position.Y = 269.000000000000000000
+    Position.Y = 333.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB10: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -921,11 +945,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 120.000000000000000000
-    Position.Y = 315.000000000000000000
+    Position.Y = 379.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB11: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -939,11 +964,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 167.000000000000000000
-    Position.Y = 131.000000000000000000
+    Position.Y = 195.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB12: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -957,11 +983,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 167.000000000000000000
-    Position.Y = 177.000000000000000000
+    Position.Y = 241.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB14: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -975,11 +1002,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 167.000000000000000000
-    Position.Y = 269.000000000000000000
+    Position.Y = 333.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB15: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -993,11 +1021,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 167.000000000000000000
-    Position.Y = 315.000000000000000000
+    Position.Y = 379.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB16: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -1011,11 +1040,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 213.000000000000000000
-    Position.Y = 131.000000000000000000
+    Position.Y = 195.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB17: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -1029,11 +1059,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 213.000000000000000000
-    Position.Y = 177.000000000000000000
+    Position.Y = 241.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB18: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -1047,11 +1078,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 213.000000000000000000
-    Position.Y = 223.000000000000000000
+    Position.Y = 287.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB19: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -1065,11 +1097,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 213.000000000000000000
-    Position.Y = 269.000000000000000000
+    Position.Y = 333.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB20: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -1083,11 +1116,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 213.000000000000000000
-    Position.Y = 315.000000000000000000
+    Position.Y = 379.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB25: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -1101,11 +1135,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 259.000000000000000000
-    Position.Y = 315.000000000000000000
+    Position.Y = 379.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB24: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -1119,11 +1154,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 259.000000000000000000
-    Position.Y = 269.000000000000000000
+    Position.Y = 333.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB23: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -1137,11 +1173,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 259.000000000000000000
-    Position.Y = 223.000000000000000000
+    Position.Y = 287.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB22: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -1155,11 +1192,12 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 259.000000000000000000
-    Position.Y = 177.000000000000000000
+    Position.Y = 241.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object NB21: TNumberBox
     Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -1173,16 +1211,16 @@ object FNvoCarton: TFNvoCarton
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.HorzAlign = Center
     Position.X = 259.000000000000000000
-    Position.Y = 131.000000000000000000
+    Position.Y = 195.000000000000000000
     Size.Width = 35.000000000000000000
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     StyledSettings = [Family, FontColor]
+    OnChange = NB1ChangeTracking
   end
   object BGuardar: TButton
-    Enabled = False
     Position.X = 127.000000000000000000
-    Position.Y = 376.000000000000000000
+    Position.Y = 440.000000000000000000
     Size.Width = 113.000000000000000000
     Size.Height = 41.000000000000000000
     Size.PlatformDefault = False
@@ -1193,7 +1231,7 @@ object FNvoCarton: TFNvoCarton
   object BSalir: TButton
     Cancel = True
     Position.X = 143.000000000000000000
-    Position.Y = 440.000000000000000000
+    Position.Y = 504.000000000000000000
     Size.Width = 80.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
@@ -1201,12 +1239,33 @@ object FNvoCarton: TFNvoCarton
     Text = 'Salir'
     OnClick = BSalirClick
   end
+  object RBModificar: TRadioButton
+    IsChecked = True
+    Position.X = 73.000000000000000000
+    Position.Y = 80.000000000000000000
+    Size.Width = 100.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 32
+    Text = 'Modificar'
+    OnClick = RBModificarClick
+  end
+  object RBEliminar: TRadioButton
+    Position.X = 193.000000000000000000
+    Position.Y = 80.000000000000000000
+    Size.Width = 100.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 33
+    Text = 'Eliminar'
+    OnClick = RBEliminarClick
+  end
   object Query: TABSQuery
     CurrentVersion = '7.80 '
     DatabaseName = 'DB'
     InMemory = False
     ReadOnly = False
     Left = 40
-    Top = 400
+    Top = 464
   end
 end
