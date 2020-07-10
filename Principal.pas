@@ -13,7 +13,7 @@ uses
 type
   
   TFPrinc = class(TForm)
-    Panel: TPanel;
+    PanelTablero: TPanel;
     CBt1: TCornerButton;
     CBt2: TCornerButton;
     CBt4: TCornerButton;
@@ -97,12 +97,7 @@ type
     ActLst: TActionList;
     Action1: TAction;
     Action2: TAction;
-    BIniciar: TButton;
-    Grid: TStringGrid;
-    SColNom: TStringColumn;
-    SColCart: TStringColumn;
     Query: TABSQuery;
-    BConsCarton: TButton;
     Action3: TAction;
     PpMenuJug: TPopupMenu;
     MIModificar: TMenuItem;
@@ -114,13 +109,21 @@ type
     Circle1: TCircle;
     TxNumero: TText;
     Timer: TTimer;
-    TrackBar: TTrackBar;
     PanelAuto: TPanel;
-    LIntervalo: TLabel;
     CirclePlay: TCircle;
-    BReiniciarTodo: TButton;
     LCantadas: TLabel;
-    GroupBox1: TGroupBox;
+    LLetra: TLabel;
+    MPlayer: TMediaPlayer;
+    MPlayer2: TMediaPlayer;
+    PanelPrincipal: TPanel;
+    ImageViewer2: TImageViewer;
+    BCrear: TButton;
+    BConfig: TButton;
+    PanelCnfBingo: TPanel;
+    BCerrarConf: TButton;
+    PanelConfPartida: TPanel;
+    BConsGanador: TButton;
+    BIniciar: TButton;
     GroupBox2: TGroupBox;
     Expander3: TExpander;
     RBManual: TRadioButton;
@@ -147,18 +150,30 @@ type
     Label7: TLabel;
     Label6: TLabel;
     ENombre: TEdit;
-    BConsGanador: TButton;
+    Grid: TStringGrid;
+    SColNom: TStringColumn;
+    SColCart: TStringColumn;
+    GroupBox1: TGroupBox;
     LTotJug: TLabel;
     LTotCartJuego: TLabel;
     LModoCantado: TLabel;
-    LLetra: TLabel;
-    MPlayer: TMediaPlayer;
-    MPlayer2: TMediaPlayer;
-    SwAudio: TSwitch;
+    BReiniciarTodo: TButton;
+    BConsCarton: TButton;
+    BCerrarCnfPart: TButton;
+    GroupBox3: TGroupBox;
     LAudio: TLabel;
-    ExpCartones: TExpander;
-    BAgrCarton: TButton;
+    SwAudio: TSwitch;
+    TrkBarInterv: TTrackBar;
+    LIntervalo: TLabel;
+    StyleBook1: TStyleBook;
+    GroupBox4: TGroupBox;
     BElmCarton: TButton;
+    BAgrCarton: TButton;
+    BSalir: TButton;
+    BSalirSistema: TButton;
+    ImageViewer3: TImageViewer;
+    LPatrones: TLabel;
+    LInterv: TLabel;
     procedure FormShow(Sender: TObject);
     procedure CBt1Click(Sender: TObject);
     procedure Action1Execute(Sender: TObject);
@@ -177,26 +192,31 @@ type
     procedure BReiniciarTodoClick(Sender: TObject);
     procedure ENombreEnter(Sender: TObject);
     procedure TimerTimer(Sender: TObject);
-    procedure TrackBarChange(Sender: TObject);
+    procedure TrkBarIntervChange(Sender: TObject);
     procedure RBManualChange(Sender: TObject);
     procedure CirclePlayClick(Sender: TObject);
     procedure BConsGanadorClick(Sender: TObject);
     procedure SwAudioClick(Sender: TObject);
     procedure BElmCartonClick(Sender: TObject);
-    procedure BAgrCartonClick(Sender: TObject);
-    procedure BModCartonClick(Sender: TObject);
+    procedure BCrearClick(Sender: TObject);
+    procedure BConfigClick(Sender: TObject);
+    procedure BCerrarConfClick(Sender: TObject);
+    procedure BCerrarCnfPartClick(Sender: TObject);
+    procedure BSalirClick(Sender: TObject);
+    procedure BSalirSistemaClick(Sender: TObject);
   private
     { Private declarations }
     procedure ValInicial;
     procedure ChequearPatrones;
-    procedure MensajesSBar;
     procedure EliminarCartJuego(const Nombre: string); overload;
     procedure EliminarCartJuego(const NumCarton: integer); overload;
     procedure ActualizaDisponibles(Indice: integer);
+    procedure ReiniciarTodo;
   public
     { Public declarations }
     //procedure MostrarVentana(AClass: TFmxObjectClass);
     procedure InicializarDatosBingo;
+    procedure MensajesSBar;
   end;
 
 var
@@ -213,6 +233,19 @@ uses DataMod, NvoCarton, ConsCarton, AvisoBingo;
 
 {Inicializa todos los valores del registro Bingo a sus valores predeterminados}
 procedure TFPrinc.InicializarDatosBingo;
+var
+  Patron: array of string;
+  I,Cont: byte;
+
+  procedure ActualizaPatrones(ChB: TCheckBox);
+  begin
+    if ChB.IsChecked then
+    begin
+      SetLength(Patron,Length(Patron)+1);
+      Patron[High(Patron)]:=ChB.Text;
+    end;
+  end;
+
 begin
   Bingo.EsNuevo:=true;
   Bingo.EsBingo:=false;
@@ -222,6 +255,27 @@ begin
   Bingo.TotalGanadores:=0;
   Bingo.TotalJugadores:=Grid.RowCount;
   Bingo.TotalCartEnJuego:=Length(CartJuego);
+  Bingo.Patrones:='';
+  Bingo.TotalPatronesSel:=1;
+  if ChTodo.IsChecked then Bingo.Patrones:=ChTodo.Text
+  else
+  begin
+    Patron:=nil;
+    ActualizaPatrones(ChB4Esq);
+    ActualizaPatrones(ChBCdGr);
+    ActualizaPatrones(ChBCdPq);
+    ActualizaPatrones(ChBCrGr);
+    ActualizaPatrones(ChBCrPq);
+    ActualizaPatrones(ChBLnVt);
+    ActualizaPatrones(ChBLnHz);
+    ActualizaPatrones(ChBDgNr);
+    ActualizaPatrones(ChBDgIn);
+    Bingo.TotalPatronesSel:=Length(Patron);
+    for I:=Low(Patron) to High(Patron) do
+      if I<Bingo.TotalPatronesSel-1 then
+        Bingo.Patrones:=Bingo.Patrones+Patron[I]+', '
+      else Bingo.Patrones:=Bingo.Patrones+Patron[I];
+  end;
 end;
 
 {Elimina los cartones asignados en el array CartJuego a partir del nombre}
@@ -283,14 +337,14 @@ begin
   Expander1.Enabled:=true;
   Expander2.Enabled:=true;
   Expander3.Enabled:=true;
-  ExpCartones.Enabled:=true;
+  //ExpCartones.Enabled:=true;
   Expander1.IsExpanded:=false;
   Expander2.IsExpanded:=false;
   Expander3.IsExpanded:=false;
-  ExpCartones.IsExpanded:=false;
+  //ExpCartones.IsExpanded:=false;
   BAgregar.Enabled:=false;
   BConsGanador.Enabled:=false;
-  BIniciar.Enabled:=Grid.RowCount>1;
+  BIniciar.Enabled:=(Grid.RowCount>1) and (Bingo.TotalPatronesSel>0);
   //pone los botones del cartón general a sus valores iniciales
   for I:=1 to 75 do
   begin
@@ -344,6 +398,17 @@ begin
     'Total cartones disponibles: '+(TotalCartones-TotalCartEnJuego).ToString;
 end;
 
+procedure TFPrinc.ReiniciarTodo;
+var
+  I: integer;
+begin
+  for I:=0 to Length(CartJuego)-1 do ActualizaDisponibles(I);
+  ValInicial;
+  Grid.RowCount:=0;
+  CartJuego:=nil;
+  MensajesSBar;
+end;
+
 //// Sorteo automático ////
 
 procedure TFPrinc.CirclePlayClick(Sender: TObject);
@@ -380,9 +445,9 @@ begin
     TCornerButton(CBt).IsPressed:=true;
     TCornerButton(CBt).TextSettings.FontColor:=4294901760;
     //los audios:
-    if Sonidos.AudioActivo then
+    if Sistema.SonidoActivo then
     begin
-      Sonido(MPlayer2,Sonidos.Punto,0.6);
+      Sonido(MPlayer2,Sistema.Sonido.Punto,0.6);
       if Num<10 then
         Sonido(MPlayer,'Audio\'+LLetra.Text+'-0'+Num.ToString+'.mp3',1)
       else Sonido(MPlayer,'Audio\'+LLetra.Text+'-'+Num.ToString+'.mp3',1);
@@ -390,18 +455,53 @@ begin
     //se 'ficha' el número cantado en los cartones y se chequean patrones:
     MarcaNumeros(Num,true);
     ChequearPatrones;
-    Timer.Interval:=Trunc(TrackBar.Value)*1000;
+    Timer.Interval:=Trunc(TrkBarInterv.Value)*1000;
   end
   else Timer.Interval:=1;
 end;
 
-procedure TFPrinc.TrackBarChange(Sender: TObject);
+procedure TFPrinc.TrkBarIntervChange(Sender: TObject);
 begin
-  Timer.Interval:=Trunc(TrackBar.Value)*1000;
-  LIntervalo.Text:='Intervalo: '+Trunc(TrackBar.Value).ToString+' seg.';
+  Timer.Interval:=Trunc(TrkBarInterv.Value)*1000;
+  LIntervalo.Text:='Intervalo entre cada bola: '+
+          Trunc(TrkBarInterv.Value).ToString+' seg.';
+  Sistema.IntervSonido:=Trunc(TrkBarInterv.Value);
+  LInterv.Text:='Intervalo: '+Sistema.IntervSonido.ToString+' seg.';
+  GuardarConfig(Query);
 end;
 
 //// Botones ////
+
+procedure TFPrinc.BCrearClick(Sender: TObject);
+begin
+  PanelPrincipal.Visible:=false;
+  PanelTablero.Visible:=true;
+  PanelAuto.Visible:=true;
+  PanelConfPartida.Visible:=true;
+  ReiniciarTodo;
+end;
+
+procedure TFPrinc.BCerrarCnfPartClick(Sender: TObject);
+begin
+  PanelConfPartida.Visible:=false;
+  PanelTablero.Visible:=false;
+  PanelAuto.Visible:=false;
+  PanelPrincipal.Visible:=true;
+end;
+
+procedure TFPrinc.BCerrarConfClick(Sender: TObject);
+begin
+  PanelCnfBingo.Visible:=false;
+  PanelPrincipal.Visible:=true;
+end;
+
+procedure TFPrinc.BConfigClick(Sender: TObject);
+begin
+  PanelPrincipal.Visible:=false;
+  PanelAuto.Visible:=false;
+  PanelTablero.Visible:=false;
+  PanelCnfBingo.Visible:=true;
+end;
 
 procedure TFPrinc.BAgregarClick(Sender: TObject);
 var
@@ -426,7 +526,7 @@ begin
         if CartJuego[I].Nombre=NombreAnterior then
           CartJuego[I].Nombre:=ENombre.Text;
   end;
-  BIniciar.Enabled:=Grid.RowCount>1;
+  BIniciar.Enabled:=(Grid.RowCount>1) and (Bingo.TotalPatronesSel>0);
   BConsGanador.Visible:=Grid.RowCount>1;
   LBAsig.Clear;
   NombreAnterior:='';
@@ -458,11 +558,8 @@ begin
   for I:=0 to Length(CartJuego)-1 do
     for X:=1 to 5 do
       for Y:=1 to 5 do CartJuego[I].Carton[X,Y].Activo:=(X=3) and (Y=3);
-  LTotJug.Text:='Total jugadores: '+Grid.RowCount.ToString;
-  LTotCartJuego.Text:='Total cartones en juego: '+Bingo.TotalCartEnJuego.ToString;
-  LModoCantado.Text:='Modo de cantado: '+Bingo.ModoDeCantado;
   //los controles correspondientes:
-  Panel.Enabled:=true;
+  PanelTablero.Enabled:=true;
   PanelAuto.Enabled:=RBAutomatico.IsChecked;
   BIniciar.Enabled:=false;
   BConsGanador.Enabled:=false;
@@ -482,17 +579,11 @@ begin
     Randomize;
   end;
   InicializarDatosBingo;
+  LTotJug.Text:='Total jugadores: '+Grid.RowCount.ToString;
+  LTotCartJuego.Text:='Total cartones en juego: '+Bingo.TotalCartEnJuego.ToString;
+  LModoCantado.Text:='Modo de cantado: '+Bingo.ModoDeCantado;
+  LPatrones.Text:='Patrones: '+Bingo.Patrones;
   MensajesSBar;
-end;
-
-procedure TFPrinc.BAgrCartonClick(Sender: TObject);
-begin
-//
-end;
-
-procedure TFPrinc.BModCartonClick(Sender: TObject);
-begin
-//
 end;
 
 procedure TFPrinc.BElmCartonClick(Sender: TObject);
@@ -510,14 +601,21 @@ begin
 end;
 
 procedure TFPrinc.BReiniciarTodoClick(Sender: TObject);
-var
-  I: integer;
 begin
-  for I:=0 to Length(CartJuego)-1 do ActualizaDisponibles(I);
-  ValInicial;
-  Grid.RowCount:=0;
-  CartJuego:=nil;
-  MensajesSBar;
+  if MessageDlg('Esto borrará TODOS los datos de esta partida (nombres de '+
+     'jugadores y cartones seleccionados). ¿Realmente desea hacerlo?',
+     TMsgDlgType.mtConfirmation,[TMsgDlgBtn.mbYes,TMsgDlgBtn.mbNo],0)=mrYes then
+       ReiniciarTodo;
+end;
+
+procedure TFPrinc.BSalirClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFPrinc.BSalirSistemaClick(Sender: TObject);
+begin
+  Close;
 end;
 
 procedure TFPrinc.CBt1Click(Sender: TObject);
@@ -538,7 +636,7 @@ begin
     TCornerButton(Sender).TextSettings.FontColor:=4278190080; //negro
     Bingo.TotalCantados:=Bingo.TotalCantados-1;
   end;
-  Sonido(MPlayer,Sonidos.Punto,0.6);
+  Sonido(MPlayer,Sistema.Sonido.Punto,0.6);
   LCantadas.Text:='Cantadas: '+Bingo.TotalCantados.ToString;
   MarcaNumeros(Num,Activo); //se 'ficha' el número cantado en los cartones
   ChequearPatrones;
@@ -719,7 +817,8 @@ procedure TFPrinc.SwAudioClick(Sender: TObject);
 begin
   if SwAudio.IsChecked then LAudio.Text:='Audio SÍ'
                        else LAudio.Text:='Audio NO';
-  Sonidos.AudioActivo:=SwAudio.IsChecked;
+  Sistema.SonidoActivo:=SwAudio.IsChecked;
+  GuardarConfig(Query);
 end;
 
 procedure TFPrinc.ChTodoChange(Sender: TObject);
@@ -733,66 +832,76 @@ begin
   ChBLnHz.Enabled:=not ChTodo.IsChecked;
   ChBDgNr.Enabled:=not ChTodo.IsChecked;
   ChBDgIn.Enabled:=not ChTodo.IsChecked;
+  if ChTodo.IsChecked then Bingo.TotalPatronesSel:=1
+  else
+  begin
+    Bingo.TotalPatronesSel:=0;
+    if ChB4Esq.IsChecked then Inc(Bingo.TotalPatronesSel,1);
+    if ChBCdGr.IsChecked then Inc(Bingo.TotalPatronesSel,1);
+    if ChBCdPq.IsChecked then Inc(Bingo.TotalPatronesSel,1);
+    if ChBCrGr.IsChecked then Inc(Bingo.TotalPatronesSel,1);
+    if ChBCrPq.IsChecked then Inc(Bingo.TotalPatronesSel,1);
+    if ChBLnVt.IsChecked then Inc(Bingo.TotalPatronesSel,1);
+    if ChBLnHz.IsChecked then Inc(Bingo.TotalPatronesSel,1);
+    if ChBDgNr.IsChecked then Inc(Bingo.TotalPatronesSel,1);
+    if ChBDgIn.IsChecked then Inc(Bingo.TotalPatronesSel,1);
+  end;
+  BIniciar.Enabled:=(Grid.RowCount>1) and (Bingo.TotalPatronesSel>0);
 end;
 
 procedure TFPrinc.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
   if MessageDlg('¿Desea salir de la aplicación?',TMsgDlgType.mtConfirmation,
       [TMsgDlgBtn.mbYes,TMsgDlgBtn.mbNo],0)=mrYes then
+  begin
     DMod.AbsDB.Connected:=false;
+    Application.Terminate;
+  end;
   CanClose:=not DMod.AbsDB.Connected;
 end;
 
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
-  Sonidos.AudioActivo:=SwAudio.IsChecked;
+  //se carga la configuración:
+  SwAudio.IsChecked:=Sistema.SonidoActivo;
+  if SwAudio.IsChecked then LAudio.Text:='Audio SÍ'
+                       else LAudio.Text:='Audio NO';
+  TrkBarInterv.Value:=Sistema.IntervSonido.ToSingle;
+  LInterv.Text:='Intervalo: '+Sistema.IntervSonido.ToString+' seg.';
+  //lo demás:
   Expander3.IsExpanded:=true;
   Expander2.IsExpanded:=true;
   Expander1.IsExpanded:=true;
-  ExpCartones.IsExpanded:=true;
   Expander3.Height:=90;
   Expander2.Height:=275;
   Expander1.Height:=225;
-  ExpCartones.Height:=135;
   RBManualChange(Self);
   ValInicial;
 end;
 
 procedure TFPrinc.FormShow(Sender: TObject);
 var
-  I,J,X,Y: byte;
+  I: byte;
   CBt: TComponent;
 begin
+  PanelPrincipal.Visible:=true;
+  PanelConfPartida.Visible:=false;
+  PanelCnfBingo.Visible:=false;
+  PanelTablero.Visible:=false;
+  PanelAuto.Visible:=false;
   //se colocan los números de cada botón:
   for I:=1 to 75 do
   begin
     CBt:=FindComponent('CBt'+I.ToString);
     TCornerButton(CBt).Text:=I.ToString;
   end;
-  //se cargan todos los cartones guardados en BD y el listbox con los disponibles:
-  Query.SQL.Text:='select * from Carton order by NumCart';
-  Query.Open;
-  I:=0;
-  SetLength(Cartones,Query.RecordCount);
-  Query.First;
-  while not Query.Eof do
+  CargarTodosCartones(Query);
+  //carga del listbox de cartones disponibles:
+  for I:=Low(Cartones) to High(Cartones) do
   begin
-    //carga del listbox:
-    if Query['NumCart']>=10 then
-      LBDisp.Items.Add(Query.FieldByName('NumCart').AsString)
-    else LBDisp.Items.Add('0'+Query.FieldByName('NumCart').AsString);
-    //carga del array:
-    Cartones[I].NumCarton:=Query.FieldByName('NumCart').AsInteger;
-    J:=0;
-    for X:=1 to 5 do
-      for Y:=1 to 5 do
-      begin
-        J:=J+1;
-        Cartones[I].Numero[X,Y].Num:=Query['N'+J.ToString];
-        Cartones[I].Numero[X,Y].Activo:=J=13;     //se activa el "libre"
-      end;
-    I:=I+1;
-    Query.Next;
+    if Cartones[I].NumCarton>=10 then
+      LBDisp.Items.Add(Cartones[I].NumCarton.ToString)
+    else LBDisp.Items.Add('0'+Cartones[I].NumCarton.ToString);
   end;
   InicializarDatosBingo;
   MensajesSBar;

@@ -2,9 +2,21 @@ unit UtilesBingo;
 
 interface
 
-uses FMX.Media, System.SysUtils;
+uses FMX.Media, System.SysUtils, ABSMain;
 
 type
+  //sonidos usados en el sistema.
+  TSonidos = record
+    const
+    Ganador='Audio\fanfarria.mp3';
+    Punto=  'Audio\xilofono.mp3';
+  end;
+  //Sistema
+  TSistema = record
+    Sonido: TSonidos;
+    SonidoActivo: boolean;
+    IntervSonido: integer;
+  end;
   //registro de los datos generales del juego.
   TBingo = record
     EsNuevo,                   //indica si es nuevo un jugador o ya existente
@@ -15,8 +27,10 @@ type
     TotalCartones,             //el total de cartones en la base de datos
     TotalCartEnJuego,          //el total de cartones en juego
     TotalJugadores,            //el total de jugadores en una partida
-    TotalGanadores: byte;      //el total de ganadores de una partida
-    ModoDeCantado: string;
+    TotalGanadores,            //el total de ganadores de una partida
+    TotalPatronesSel: byte;    //el total de patrones seleccionados
+    ModoDeCantado,             //indica si es manual o automático
+    Patrones: string;          //los patrones seleccionados para cantar bingo
   end;
   //registro de los números
   TNumero = record
@@ -39,17 +53,12 @@ type
     Patron,NumCarton,Jugador: string;
     Indice: byte;
   end;
-  //sonidos usados en el sistema.
-  TSonidos = record
-    AudioActivo: boolean;
-    const
-    Ganador='Audio\fanfarria.mp3';
-    Punto=  'Audio\xilofono.mp3';
-  end;
 
   procedure Sonido(MPlay: TMediaPlayer; Arch: string; Volumen: single);
   procedure MarcaNumeros(Num: byte; Activo: boolean);
   procedure AvisoGanador(Patron: string; Ind: byte);
+  procedure CargarTodosCartones(Qr: TABSQuery);
+  procedure GuardarConfig(Qr: TABSQuery);
   /// los patrones: ////
   procedure CuatroEsquinas(I: byte);
   procedure CuadroGrande(I: byte);
@@ -63,11 +72,11 @@ type
   procedure TodoCarton(I: byte);
 
 var
-  Sonidos: TSonidos;
   Bingo: TBingo;
-  Cartones: array of TCarton;           //<-- todos los cartones de la BD
-  CartJuego: array of TCartJuego;       //<-- los cartones ya escogidos;
-  Ganador: array of TGanador;           //<-- el/los ganador(es) de partida
+  Sistema: TSistema;
+  Cartones: array of TCarton;           //todos los cartones de la BD
+  CartJuego: array of TCartJuego;       //los cartones ya escogidos;
+  Ganador: array of TGanador;           //el(los) ganador(es) de la partida
 
 implementation
 
@@ -104,6 +113,43 @@ begin
   Ganador[Tamano].Patron:=Patron;
   Ganador[Tamano].Indice:=Ind;
   Bingo.EsBingo:=true;
+end;
+
+{Carga todos los cartones de la BD y actualiza los disponibles}
+procedure CargarTodosCartones(Qr: TABSQuery);
+var
+  I,J,X,Y: byte;
+begin
+  Cartones:=nil;
+  //se cargan todos los cartones guardados en BD y el listbox con los disponibles:
+  Qr.SQL.Text:='select * from Carton order by NumCart';
+  Qr.Open;
+  I:=0;
+  SetLength(Cartones,Qr.RecordCount);
+  Qr.First;
+  while not Qr.Eof do
+  begin
+    Cartones[I].NumCarton:=Qr.FieldByName('NumCart').AsInteger;
+    J:=0;
+    for X:=1 to 5 do
+      for Y:=1 to 5 do
+      begin
+        J:=J+1;
+        Cartones[I].Numero[X,Y].Num:=Qr['N'+J.ToString];
+        Cartones[I].Numero[X,Y].Activo:=J=13;     //se activa el "libre"
+      end;
+    I:=I+1;
+    Qr.Next;
+  end;
+end;
+
+{Actualiza la tabla Config con la configuración del sistema}
+procedure GuardarConfig(Qr: TABSQuery);
+begin            //agregar aquí los campos que se vayan incorporando
+  Qr.SQL.Text:='update Config set SonidoActivo=:sac,IntervSonido=:ins';
+  Qr.ParamByName('sac').AsBoolean:=Sistema.SonidoActivo;
+  Qr.ParamByName('ins').AsInteger:=Sistema.IntervSonido;
+  Qr.ExecSQL;
 end;
 
 /// los patrones: ////

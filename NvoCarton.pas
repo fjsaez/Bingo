@@ -78,6 +78,8 @@ implementation
 
 {$R *.fmx}
 
+uses Principal;
+
 {Valida que no se repita ningún número en el cartón a guardar en la BD}
 function CartonEsValido: boolean;
 var
@@ -181,7 +183,7 @@ begin
             Campos:=Campos+',N'+I.ToString;
           end;
           QueryText:='insert into Carton (NumCart'+Campos+') values (:nc'+Valores+')';
-        end
+        end               //nuevo
         else
         begin
           for I:=1 to 25 do
@@ -195,10 +197,10 @@ begin
           end;
           QueryText:='update Carton set '+Valores+' where NumCart=:nc';
         end;
-        showmessage(QueryText);  //prueba
-        Query.SQL.Text:=QueryText;//'insert into Carton (NumCart'+Campos+') values (:nc'+Valores+')';
+        Query.SQL.Text:=QueryText;
         Query.ParamByName('nc').AsInteger:=StrToInt(NBNumC.Text);
         Query.ExecSQL;
+        FPrinc.MensajesSBar;
         ShowMessage(Mensaje);
         ValInicial;
       end
@@ -280,12 +282,11 @@ end;
 
 procedure TFNvoCarton.BGuardarClick(Sender: TObject);
 begin
-//  if RBModificar.IsVisible and RBModificar.IsChecked or
-  //   not RBModificar.IsVisible then GuardarCarton;
   if CartonHallado and RBEliminar.IsChecked then EliminarCarton
   else
     if CartonHallado then GuardarCarton(2)
                      else GuardarCarton(1);
+  CargarTodosCartones(Query);
 end;
 
 procedure TFNvoCarton.FormShow(Sender: TObject);

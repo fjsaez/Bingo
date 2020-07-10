@@ -1236,7 +1236,7 @@ object FNvoCarton: TFNvoCarton
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 27
-    Text = 'Salir'
+    Text = 'Cerrar'
     OnClick = BSalirClick
   end
   object RBModificar: TRadioButton

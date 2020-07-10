@@ -14,4 +14,12 @@ object DMod: TDMod
     Left = 72
     Top = 24
   end
+  object Query: TABSQuery
+    CurrentVersion = '7.80 '
+    DatabaseName = 'DB'
+    InMemory = False
+    ReadOnly = False
+    Left = 152
+    Top = 24
+  end
 end

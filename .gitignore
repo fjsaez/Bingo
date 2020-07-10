@@ -71,5 +71,6 @@ modules/
 # Archivos de texto plano
 *.txt
 
-# Generación de ejecutables
+# Generación de ejecutables y otros
 Win32/Release
+Imagen/Prop

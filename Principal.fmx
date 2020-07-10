@@ -5,7 +5,7 @@ object FPrinc: TFPrinc
   BorderStyle = Single
   Caption = 'Mi Bingo v1.0. Autor: Ing. Francisco J. S'#225'ez S.'
   ClientHeight = 720
-  ClientWidth = 834
+  ClientWidth = 1000
   Fill.Kind = Gradient
   Fill.Gradient.Points = <
     item
@@ -21,36 +21,630 @@ object FPrinc: TFPrinc
   Fill.Gradient.StopPosition.X = 0.499999970197677600
   Fill.Gradient.StopPosition.Y = 0.000000000000000000
   Position = ScreenCenter
+  StyleBook = StyleBook1
   Visible = True
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  ShowFullScreenIcon = True
   OnCreate = FormCreate
   OnCloseQuery = FormCloseQuery
   OnShow = FormShow
   Left = 256
   DesignerMasterStyle = 0
-  object Panel: TPanel
+  object PanelPrincipal: TPanel
+    Align = Client
+    Size.Width = 1000.000000000000000000
+    Size.Height = 698.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 54
+    object ImageViewer2: TImageViewer
+      Position.X = 163.000000000000000000
+      Position.Y = 50.000000000000000000
+      Size.Width = 673.000000000000000000
+      Size.Height = 481.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Viewport.Width = 669.000000000000000000
+      Viewport.Height = 477.000000000000000000
+    end
+    object BCrear: TButton
+      StyledSettings = [Family, FontColor]
+      Position.X = 268.000000000000000000
+      Position.Y = 578.000000000000000000
+      Size.Width = 200.000000000000000000
+      Size.Height = 70.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Crear partida'
+      TextSettings.Font.Size = 22.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      OnClick = BCrearClick
+    end
+    object BConfig: TButton
+      StyledSettings = [Family, FontColor]
+      Position.X = 532.000000000000000000
+      Position.Y = 578.000000000000000000
+      Size.Width = 200.000000000000000000
+      Size.Height = 70.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Configurar juego'
+      TextSettings.Font.Size = 22.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      OnClick = BConfigClick
+    end
+    object BSalirSistema: TButton
+      Position.X = 790.000000000000000000
+      Position.Y = 587.000000000000000000
+      Size.Width = 46.000000000000000000
+      Size.Height = 46.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      OnClick = BSalirSistemaClick
+      object ImageViewer3: TImageViewer
+        Size.Width = 46.000000000000000000
+        Size.Height = 46.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        OnClick = BSalirSistemaClick
+        BackgroundFill.Kind = None
+        Bitmap.PNG = {
+          89504E470D0A1A0A0000000D494844520000002A0000002A0806000000C5C3C9
+          5B000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+          0A7C494441545847CD586B6C54C715FEEEBE6DEF7A6DD74F128CCDC318A88D41
+          2949418136A1502122456A1A2A12851F15AA225435546DD454AA5AA9801AAAFE
+          48A306DA464A890A692055139736A19450A294770C313660621BE3B78D1FEBB5
+          D7EBDDBDBBB7E7CCDEB99EBDDEA4E9AF7292CFF33A73CE3767CECC9D45BB0DF8
+          F2B66F7F2C9997F7C24C67675DACB7D785CF10C32CA5A8EDCF33F679FBF2962D
+          4BFA972E6DD54647F7CEBCFA6AA336B06DDB37039B371F4EEABA7B7A600089A9
+          2940D34CF5EC92CDB05DFE9B8EBD2FA36D18C8ABAA426E612192E3E3F191A347
+          9FD20676EE6CF26EDAB4CAA8A9C1587B3BF458CCD4FEFF8AC3E5C2176A6B113D
+          770E91E3C79BB46B0FAE49E46CFEBA2BB668118C64D254BB37C4959383444707
+          860F1DD2B5D32E97E1DFB205DEAD5BCDE17B482805E3B76FA373FF7E3812BA8E
+          1421198FDF73482512D01C0E30470727718AB69C3B3F0BC3E130AE0D0DA16B6C
+          0CBA69241B22D1A840B6310613E8261BAD646B647232AB8E0AC18F90269A4ACD
+          598D8A5BE47866F972AC78FC71143CFC305A794B6C3ADC6E26C3FD959502CD66
+          9FAA9320B4D089CE79E8212CA1540B2F5982B6E9E90C1D3B5898A3F6772A038F
+          3C0237219BF452E82B376E44454505A58C2610A39BA1FDC409E48F8E9A5AC044
+          49096A366D426E6EAE684F138136D2291819116D965030886A53C720C21CA0C1
+          C141F49C3A85F9D4B60B6FBB83ECB4EED9030787F5D3B67E9CFACBD6ADB3483A
+          7822811D55D6D767E856AD5E0DBFDF6FE970BD9AFA549DF97575080402625CDA
+          2B2F2F47E9DAB518E3B3A2E84A585B2F88F2D653A78A0421B56C191654575BCE
+          6544B9EEA379AABE4A52C24FA4549D3CB73B635CDAAAA4CB3D497726FB54F519
+          2CB34439A2940F2A26F2F351B36A9565501A6578E8321EB97831435F1D97E03E
+          5567F4F2657889ACAA2BEB8B57AEC4382D56D5971165643DF5F43945016D5B0E
+          5DB8AA312EDD44B2B7B111935D5D1973F8A3CBE31960DB8A4EB8B3137DC78FC3
+          638B2C837DE5373408DFD61C224B866CA79E062466289AF3162E9CE3980D8E37
+          356190A2C97AD2A0A113C806DB51C17D3C26F578CEE0850B98B87A55D8B2DBBE
+          8FBE8E515BBA64E6A86DEB736982CFE7CB30224A5A6DD73BEFC048D04A754292
+          B63C45A03295221B36A2DCC7E30E5387E7F0DCDB64C3413ED9AE04DBF77ABDF0
+          51802C2E4494066789326B6B15442648F79B2429C1C6EED203419F0A9353DA6A
+          824322958EA8BC7224B88FC7351A67B01ECF4B4E4E60E4C2798BA0EA23484162
+          0ECC85896A0E73EB05515292DB03CA1F7F717186016964B4E952A653834A06D5
+          0D5B449934F7C971A1AF94634D97854D3B59F66DD039B0F8686644399A06B336
+          079C74F2BCCAB64BF056447BBB2DA72A01AE1BC62C418B2CC1D231C18B63A2D1
+          9E2E4A03AA9BF625610FF9660EFC922B5CBA94A29BCED33911757A3C7356C9D0
+          27C33066A6D25B6E73CE50233A4B96226A8ECB68CA544945A7D26964F3E3743A
+          514AD76201A54027DD10CDBF3D38BBF59CA532473572C244A54803BC3249929D
+          5A8EADAD4F9354C1E49D3C4E704A7D82B423FC99F6A570FDFA6BAFE1C2BE7D18
+          387F9E189A39CA619DEAEBC3C0D9B318BB710391FE7E6B826A4077BA684E8A08
+          A64FB10AA741A7391B514A072779F0E4789153528CFCEA850854CE475E59097C
+          850548BA3D961F15497A0449E197BE1551CED199F1714CD085DCFFC107E2A296
+          22273B73F39048D1653C310A2332012D16A1281149E804FE6590999F0CBAF780
+          F05DC4BAAE63E2DC3FD0F7C601F41E3988BEB7FE40F729F9F1669E05E18F1035
+          83C5A2B99CB344B921253A3448F93829EA72320BDF71898222446E3421D27211
+          531F9FC554D319442E9F46E4A3F7A10D7567906470DFCC8D4B48DCB989D4D800
+          5C9A0E0A9080F7812FC343E781C5224965927C3307299A4B39F55088D2A311A1
+          AB57CCC6ACB091E0D627E9B0398523B7020F61E62F07909F4B27960E032348F5
+          99B70FF06D9706EB921B868BFE04B63C21CE02EF822AEC9B73588A83B859A79E
+          59B3F0BAF81C0D9E7C4FB4ED4616AC5E83E907378A7549A782001149B47C88B1
+          EFD35BF3CC1B8423A2AE5F3F2B16C1603D19CDC89A4751B96A8D69355386FEF9
+          9EE020373373EBD9239734C84A7D7F7B1B1A7F266DC2DB5FB1F3478894CEB79C
+          CAA83259E34E0B42BF7F81F06318DDAD16416B41544E95DC8F926FFF507CA2ED
+          8170C463E87FB7910FBA008BE656B65E469449B2823E1942DFB12362BBA5709D
+          51BDB416DAAE5F205458918EAC4946448EC8AA90636251A41B2A2C47F23B7B51
+          5D533B8724DBEE7BEBB0F8BC0A1E66541D3247E5D673A71830F1C96F7E09D085
+          9CCD60FDBA0D48EE7E05B7E6AF167365C4E4365B444DB2ECACEDBE064477BD84
+          BAB5EB850D0916E1830876BCF22B2B58E69045D4B905F899BFB20C13BD77E910
+          A457CED0E2D374528750F6B5C74432B351362889979457C0D9F0153469C5180F
+          8D21DF8820E04C88B94E332221472E9AFD4B7073ED0E543FB51B0B97D48883C6
+          87280364BBEDA7CF61ECCA4748917971B37149F02F28C7DDEE61682FD382E6AD
+          AF43F787D74464ACADE3C87834ACDCFB6B947EE319EBCA49D2375842A7570E63
+          8C7EFEB6DF6AC3444F071CE161B118DD5F0CFFBC2A542F5A8CA2A2228AAE9B52
+          C06595B2CEC4878FBD86E69FEC463C6120AE834A13542FDBB0122DA73F86F612
+          119DFFD57ADC39D33C67EB44DDE7C4AA970F237FC316414A252AC9DAFB1832F2
+          4C4425A6D6F970864F1FC7D5EF3D8D782C35872497E58F36E0EA497A68CB1CB5
+          C4CC0D215C27A7D77FF00C427FFD23914FFF8450736CCE369AE352B2E93079AF
+          D78350E3EBB8F1FC8EF45EDBFD9AA5E6A294A3AA4954D14A07222D669D5FE51D
+          3FDF85BE7DBBE03392221A76E72AEC11646212FC35CAD50C0C90ADCE3DDF153F
+          55D24ED28510A5EE30B999D753BAC1BBC56D017B9D32FB2E45A0EDC93AE8EFBF
+          09BFD72DEE42494425C760420C59E77F0B08D2E3C4F8D731B47FAB1E23B443E9
+          C369F3A3D4B99241941B961297F63A419EC6F8C8107AF63D8B9EA7EB9138B20F
+          81E10E1405F2100C06C53F2EF0EFFB7CFA7158505080627AAD971515A068FC0E
+          B4A3FBD1BFA3017D2FEE427C74D83AD5AA0FFA3FB34E703AD344B517A9BDE289
+          0770EBCF97C5D592710FCABA79C82838E9D2064F7E10DEAA5AB82BAAE0F00785
+          E1D4540889812E7A39DD44821EDD093A1C2AF8B0D07374F600656B13166FFB12
+          FEFDA74B3247CD15D01FB952EB2EE3929034EB49053ABDE218F1F004A65B2E60
+          F2D49B0837FE4E60F2D4514CB75EA4B13449D6A37399319F21FDD0D335C32F73
+          11629E738741C9CF9F02FE8F95045975124118958E089220438D9075B51044BF
+          59AAFA12FC5455C9CA4048925CA7100A927475D04E2DAC4ABA0B4BE9054E3FA8
+          48C19AA89412BA043B3309489216590965FB242449B158C52EC3EE9309E79507
+          9172E7C295EBD3B503358BDB0A57D4D6DCBFDC839E934D880E8729578D74FEF1
+          E75429E5E7557C26B9343F95F293C9D7A71983CC54329DCBDDE07AC662CD3A97
+          E90569F0950651B17E05AEBCFB09421DED6DDAA1BC9CE762F55FDCEFCAC97123
+          394A29114B7B9351B7FE2824A822EB42CC0693B38BD56756D476B6BACC4D0339
+          080D4531353292A8180D3DAF9D004A7B5D8EEDA381C0B3915462913E3D4DB19A
+          15CB98299FD656FBED3AFFB3D0D6B87C3EDD9D887754C49207AB5338F21F1E86
+          5B5A4B99CC8A0000000049454E44AE426082}
+        ShowScrollBars = False
+        Viewport.Width = 42.000000000000000000
+        Viewport.Height = 42.000000000000000000
+      end
+    end
+  end
+  object PanelConfPartida: TPanel
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 585.000000000000000000
+    Size.Height = 680.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'panelstyle'
+    TabOrder = 56
+    object Grid: TStringGrid
+      CanFocus = True
+      ClipChildren = True
+      PopupMenu = PpMenuJug
+      Position.X = 20.000000000000000000
+      Position.Y = 156.000000000000000000
+      Size.Width = 545.000000000000000000
+      Size.Height = 356.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      RowHeight = 21.000000000000000000
+      RowCount = 0
+      Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
+      Viewport.Width = 541.000000000000000000
+      Viewport.Height = 331.000000000000000000
+      object SColNom: TStringColumn
+        Header = 'Nombre jugador'
+        Size.Width = 300.000000000000000000
+      end
+      object SColCart: TStringColumn
+        Header = 'Cartones'
+        Size.Width = 200.000000000000000000
+      end
+    end
+    object BConsGanador: TButton
+      Action = Action1
+      Enabled = True
+      ImageIndex = -1
+      Position.X = 420.000000000000000000
+      Position.Y = 100.000000000000000000
+      Size.Width = 145.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 47
+      Text = 'Consultar ganadores...'
+      OnClick = BConsGanadorClick
+    end
+    object BIniciar: TButton
+      Enabled = False
+      StyledSettings = [Family, FontColor]
+      Position.X = 420.000000000000000000
+      Position.Y = 12.000000000000000000
+      Size.Width = 145.000000000000000000
+      Size.Height = 73.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Iniciar juego!!!'
+      TextSettings.Font.Size = 15.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      OnClick = BIniciarClick
+    end
+    object GroupBox2: TGroupBox
+      Position.X = 20.000000000000000000
+      Position.Y = 4.000000000000000000
+      Size.Width = 385.000000000000000000
+      Size.Height = 137.000000000000000000
+      Size.PlatformDefault = False
+      Text = ' Configuraci'#243'n de la partida '
+      TabOrder = 46
+      object Expander3: TExpander
+        IsExpanded = False
+        Position.X = 24.000000000000000000
+        Position.Y = 88.000000000000000000
+        ShowCheck = False
+        Size.Width = 340.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Modo de cantado'
+        TabOrder = 6
+        ContentSize = '200'
+        object RBManual: TRadioButton
+          Position.X = 25.000000000000000000
+          Position.Y = 13.000000000000000000
+          TabOrder = 44
+          Text = 'Cantado manual'
+          OnChange = RBManualChange
+        end
+        object RBAutomatico: TRadioButton
+          IsChecked = True
+          Position.X = 169.000000000000000000
+          Position.Y = 13.000000000000000000
+          Size.Width = 145.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 45
+          Text = 'Cantado autom'#225'tico'
+          OnChange = RBManualChange
+        end
+      end
+      object Expander1: TExpander
+        Position.X = 24.000000000000000000
+        Position.Y = 56.000000000000000000
+        ShowCheck = False
+        Size.Width = 340.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Patrones'
+        TabOrder = 4
+        ContentSize = '0'
+        object ChBLnVt: TCheckBox
+          IsChecked = True
+          Position.X = 184.000000000000000000
+          Position.Y = 8.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 6
+          Text = 'L'#237'nea vertical'
+        end
+        object ChBLnHz: TCheckBox
+          IsChecked = True
+          Position.X = 184.000000000000000000
+          Position.Y = 32.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 7
+          Text = 'L'#237'nea horizontal'
+        end
+        object ChBDgNr: TCheckBox
+          IsChecked = True
+          Position.X = 184.000000000000000000
+          Position.Y = 56.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Diagonal normal'
+        end
+        object ChBDgIn: TCheckBox
+          IsChecked = True
+          Position.X = 184.000000000000000000
+          Position.Y = 80.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          Text = 'Diagonal inversa'
+        end
+        object ChTodo: TCheckBox
+          Position.X = 32.000000000000000000
+          Position.Y = 152.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Text = 'Todo el cart'#243'n'
+          OnChange = ChTodoChange
+        end
+        object ChB4Esq: TCheckBox
+          IsChecked = True
+          Position.X = 32.000000000000000000
+          Position.Y = 104.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          Text = 'Cuatro esquinas'
+        end
+        object ChBCdGr: TCheckBox
+          IsChecked = True
+          Position.X = 32.000000000000000000
+          Position.Y = 80.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 5
+          Text = 'Cuadro grande'
+        end
+        object ChBCdPq: TCheckBox
+          IsChecked = True
+          Position.X = 32.000000000000000000
+          Position.Y = 56.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 4
+          Text = 'Cuadro peque'#241'o'
+        end
+        object ChBCrGr: TCheckBox
+          IsChecked = True
+          Position.X = 32.000000000000000000
+          Position.Y = 32.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 9
+          Text = 'Cruz grande'
+        end
+        object ChBCrPq: TCheckBox
+          IsChecked = True
+          Position.X = 32.000000000000000000
+          Position.Y = 8.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 8
+          Text = 'Cruz peque'#241'a'
+        end
+        object Line1: TLine
+          Locked = True
+          LineType = Top
+          Position.X = 51.000000000000000000
+          Position.Y = 137.000000000000000000
+          Size.Width = 235.000000000000000000
+          Size.Height = 4.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+      object Expander2: TExpander
+        IsExpanded = False
+        Position.X = 24.000000000000000000
+        Position.Y = 24.000000000000000000
+        ShowCheck = False
+        Size.Width = 340.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Jugadores'
+        TabOrder = 5
+        ContentSize = '200'
+        object LBDisp: TListBox
+          Enabled = False
+          Position.X = 72.000000000000000000
+          Position.Y = 96.000000000000000000
+          Size.Width = 65.000000000000000000
+          Size.Height = 73.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 29
+          DisableFocusEffect = True
+          DefaultItemStyles.ItemStyle = ''
+          DefaultItemStyles.GroupHeaderStyle = ''
+          DefaultItemStyles.GroupFooterStyle = ''
+          ShowCheckboxes = True
+          Sorted = True
+          Viewport.Width = 61.000000000000000000
+          Viewport.Height = 69.000000000000000000
+        end
+        object SBAsig: TSpeedButton
+          Enabled = False
+          Images = ImageList
+          ImageIndex = 0
+          Position.X = 155.000000000000000000
+          Position.Y = 107.000000000000000000
+          Size.Width = 25.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = SBAsigClick
+        end
+        object SBNoAsig: TSpeedButton
+          Enabled = False
+          Images = ImageList
+          ImageIndex = 1
+          Position.X = 155.000000000000000000
+          Position.Y = 133.000000000000000000
+          Size.Width = 25.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = SBNoAsigClick
+        end
+        object BAgregar: TButton
+          Enabled = False
+          Position.X = 106.000000000000000000
+          Position.Y = 192.000000000000000000
+          Size.Width = 129.000000000000000000
+          Size.Height = 33.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 72
+          Text = 'Agregar jugador'
+          OnClick = BAgregarClick
+        end
+        object LBAsig: TListBox
+          Enabled = False
+          Position.X = 200.000000000000000000
+          Position.Y = 96.000000000000000000
+          Size.Width = 65.000000000000000000
+          Size.Height = 73.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 28
+          DisableFocusEffect = True
+          DefaultItemStyles.ItemStyle = ''
+          DefaultItemStyles.GroupHeaderStyle = ''
+          DefaultItemStyles.GroupFooterStyle = ''
+          ShowCheckboxes = True
+          Sorted = True
+          Viewport.Width = 61.000000000000000000
+          Viewport.Height = 69.000000000000000000
+        end
+        object Label8: TLabel
+          AutoSize = True
+          Position.X = 203.000000000000000000
+          Position.Y = 62.000000000000000000
+          Size.Width = 58.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Cartones asignados:'
+          TabOrder = 30
+        end
+        object Label7: TLabel
+          Position.X = 72.000000000000000000
+          Position.Y = 62.000000000000000000
+          Size.Width = 65.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Cartones disponibles:'
+          TabOrder = 2
+        end
+        object Label6: TLabel
+          AutoSize = True
+          Position.X = 24.000000000000000000
+          Position.Y = 18.000000000000000000
+          Size.Width = 47.000000000000000000
+          Size.Height = 16.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.WordWrap = False
+          Text = 'Nombre:'
+          TabOrder = 1
+        end
+        object ENombre: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 0
+          Position.X = 80.000000000000000000
+          Position.Y = 16.000000000000000000
+          Size.Width = 233.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          OnChangeTracking = ENombreChangeTracking
+          OnEnter = ENombreEnter
+        end
+      end
+    end
+    object GroupBox1: TGroupBox
+      Position.X = 20.000000000000000000
+      Position.Y = 523.000000000000000000
+      Size.Width = 377.000000000000000000
+      Size.Height = 145.000000000000000000
+      Size.PlatformDefault = False
+      Text = ' Informaci'#243'n de la partida '
+      TabOrder = 42
+      object LTotJug: TLabel
+        StyledSettings = [Family, Size, FontColor]
+        Position.X = 24.000000000000000000
+        Position.Y = 19.000000000000000000
+        Size.Width = 185.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Total jugadores: 0'
+        TabOrder = 0
+        TabStop = False
+      end
+      object LTotCartJuego: TLabel
+        StyledSettings = [Family, Size, FontColor]
+        Position.X = 24.000000000000000000
+        Position.Y = 43.000000000000000000
+        Size.Width = 185.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Total cartones en juego: 0'
+        TabOrder = 1
+        TabStop = False
+      end
+      object LModoCantado: TLabel
+        StyledSettings = [Family, Size, FontColor]
+        Position.X = 24.000000000000000000
+        Position.Y = 67.000000000000000000
+        Size.Width = 185.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Modo de cantado: '
+        TabOrder = 3
+        TabStop = False
+      end
+      object LPatrones: TLabel
+        StyledSettings = [Family, Size, FontColor]
+        Position.X = 24.000000000000000000
+        Position.Y = 91.000000000000000000
+        Size.Width = 337.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.VertAlign = Leading
+        Text = 'Patrones: '
+        TabOrder = 2
+        TabStop = False
+      end
+    end
+    object BReiniciarTodo: TButton
+      Position.X = 415.000000000000000000
+      Position.Y = 567.000000000000000000
+      Size.Width = 150.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 33
+      Text = 'Reiniciar todo!'
+      OnClick = BReiniciarTodoClick
+    end
+    object BConsCarton: TButton
+      Action = Action1
+      Enabled = True
+      ImageIndex = -1
+      Position.X = 415.000000000000000000
+      Position.Y = 531.000000000000000000
+      Size.Width = 150.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Cartones en juego...'
+      OnClick = BConsGanadorClick
+    end
+    object BCerrarCnfPart: TButton
+      Position.X = 416.000000000000000000
+      Position.Y = 603.000000000000000000
+      Size.Width = 150.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 48
+      Text = 'Cerrar partida'
+      OnClick = BCerrarCnfPartClick
+    end
+    object BSalir: TButton
+      Position.X = 416.000000000000000000
+      Position.Y = 639.000000000000000000
+      Size.Width = 150.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 49
+      Text = 'Salir'
+      OnClick = BSalirClick
+    end
+  end
+  object PanelTablero: TPanel
     Enabled = False
-    Position.X = 577.000000000000000000
-    Position.Y = 15.000000000000000000
+    Position.X = 745.000000000000000000
+    Position.Y = 8.000000000000000000
     Size.Width = 241.000000000000000000
-    Size.Height = 514.000000000000000000
+    Size.Height = 681.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object CBt1: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 56.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 80.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 76
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -59,16 +653,16 @@ object FPrinc: TFPrinc
     object CBt2: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 84.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 116.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 74
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -77,16 +671,16 @@ object FPrinc: TFPrinc
     object CBt4: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 140.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 188.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 71
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -95,16 +689,16 @@ object FPrinc: TFPrinc
     object CBt3: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 112.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 152.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 72
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -113,16 +707,16 @@ object FPrinc: TFPrinc
     object CBt5: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 168.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 224.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 64
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -131,16 +725,16 @@ object FPrinc: TFPrinc
     object Cbt10: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 308.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 404.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 35
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -149,16 +743,16 @@ object FPrinc: TFPrinc
     object Cbt8: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 252.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 332.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 68
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -167,16 +761,16 @@ object FPrinc: TFPrinc
     object Cbt9: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 280.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 368.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 62
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -185,16 +779,16 @@ object FPrinc: TFPrinc
     object Cbt7: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 224.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 296.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 66
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -203,16 +797,16 @@ object FPrinc: TFPrinc
     object Cbt6: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 196.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 260.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 67
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -221,16 +815,16 @@ object FPrinc: TFPrinc
     object Cbt15: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 448.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 584.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 13
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -239,16 +833,16 @@ object FPrinc: TFPrinc
     object Cbt13: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 392.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 512.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 57
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -257,16 +851,16 @@ object FPrinc: TFPrinc
     object Cbt14: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 420.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 548.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 27
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -275,16 +869,16 @@ object FPrinc: TFPrinc
     object Cbt12: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 364.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 476.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 51
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -293,16 +887,16 @@ object FPrinc: TFPrinc
     object Cbt11: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 36.000000000000000000
-      Position.Y = 336.000000000000000000
+      Position.X = 24.000000000000000000
+      Position.Y = 440.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 53
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -311,16 +905,16 @@ object FPrinc: TFPrinc
     object CBt16: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 56.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 80.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 75
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -329,16 +923,16 @@ object FPrinc: TFPrinc
     object CBt17: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 84.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 116.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 73
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -347,16 +941,16 @@ object FPrinc: TFPrinc
     object CBt19: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 140.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 188.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 69
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -365,16 +959,16 @@ object FPrinc: TFPrinc
     object CBt18: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 112.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 152.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 70
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -383,16 +977,16 @@ object FPrinc: TFPrinc
     object CBt20: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 168.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 224.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 63
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -401,16 +995,16 @@ object FPrinc: TFPrinc
     object CBt25: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 308.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 404.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 29
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -419,16 +1013,16 @@ object FPrinc: TFPrinc
     object CBt23: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 252.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 332.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 65
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -437,16 +1031,16 @@ object FPrinc: TFPrinc
     object CBt24: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 280.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 368.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 55
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -455,16 +1049,16 @@ object FPrinc: TFPrinc
     object CBt22: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 224.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 296.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 59
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -473,16 +1067,16 @@ object FPrinc: TFPrinc
     object CBt21: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 196.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 260.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 61
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -491,16 +1085,16 @@ object FPrinc: TFPrinc
     object CBt30: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 448.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 584.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 6
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -509,16 +1103,16 @@ object FPrinc: TFPrinc
     object CBt28: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 392.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 512.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 48
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -527,16 +1121,16 @@ object FPrinc: TFPrinc
     object CBt29: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 420.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 548.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 8
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -545,16 +1139,16 @@ object FPrinc: TFPrinc
     object CBt27: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 364.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 476.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 18
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -563,16 +1157,16 @@ object FPrinc: TFPrinc
     object CBt26: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 71.000000000000000000
-      Position.Y = 336.000000000000000000
+      Position.X = 64.000000000000000000
+      Position.Y = 440.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 26
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -581,16 +1175,16 @@ object FPrinc: TFPrinc
     object CBt60: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 448.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 584.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -599,16 +1193,16 @@ object FPrinc: TFPrinc
     object CBt56: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 336.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 440.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 17
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -617,16 +1211,16 @@ object FPrinc: TFPrinc
     object CBt57: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 364.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 476.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 9
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -635,16 +1229,16 @@ object FPrinc: TFPrinc
     object CBt59: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 420.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 548.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 4
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -653,16 +1247,16 @@ object FPrinc: TFPrinc
     object CBt58: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 392.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 512.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 20
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -671,16 +1265,16 @@ object FPrinc: TFPrinc
     object CBt51: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 196.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 260.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 50
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -689,16 +1283,16 @@ object FPrinc: TFPrinc
     object CBt52: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 224.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 296.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 46
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -707,16 +1301,16 @@ object FPrinc: TFPrinc
     object CBt54: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 280.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 368.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 28
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -725,16 +1319,16 @@ object FPrinc: TFPrinc
     object CBt53: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 252.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 332.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 52
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -743,16 +1337,16 @@ object FPrinc: TFPrinc
     object CBt55: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 308.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 404.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 16
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -761,16 +1355,16 @@ object FPrinc: TFPrinc
     object CBt50: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 168.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 224.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 47
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -779,16 +1373,16 @@ object FPrinc: TFPrinc
     object CBt48: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 112.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 152.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 56
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -797,16 +1391,16 @@ object FPrinc: TFPrinc
     object CBt49: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 140.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 188.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 54
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -815,16 +1409,16 @@ object FPrinc: TFPrinc
     object CBt47: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 84.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 116.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 58
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -833,16 +1427,16 @@ object FPrinc: TFPrinc
     object CBt46: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 141.000000000000000000
-      Position.Y = 56.000000000000000000
+      Position.X = 144.000000000000000000
+      Position.Y = 80.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 60
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -851,16 +1445,16 @@ object FPrinc: TFPrinc
     object CBt41: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 336.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 440.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 23
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -869,16 +1463,16 @@ object FPrinc: TFPrinc
     object CBt42: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 364.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 476.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 19
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -887,16 +1481,16 @@ object FPrinc: TFPrinc
     object CBt44: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 420.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 548.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 11
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -905,16 +1499,16 @@ object FPrinc: TFPrinc
     object CBt43: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 392.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 512.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 21
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -923,16 +1517,16 @@ object FPrinc: TFPrinc
     object CBt45: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 448.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 584.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 5
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -941,16 +1535,16 @@ object FPrinc: TFPrinc
     object CBt36: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 196.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 260.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 43
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -959,16 +1553,16 @@ object FPrinc: TFPrinc
     object CBt37: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 224.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 296.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 30
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -977,16 +1571,16 @@ object FPrinc: TFPrinc
     object CBt39: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 280.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 368.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 24
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -995,16 +1589,16 @@ object FPrinc: TFPrinc
     object CBt38: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 252.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 332.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 31
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1013,16 +1607,16 @@ object FPrinc: TFPrinc
     object CBt40: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 308.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 404.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 12
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1031,16 +1625,16 @@ object FPrinc: TFPrinc
     object CBt35: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 168.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 224.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 25
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1049,16 +1643,16 @@ object FPrinc: TFPrinc
     object CBt33: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 112.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 152.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 36
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1067,16 +1661,16 @@ object FPrinc: TFPrinc
     object CBt34: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 140.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 188.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 33
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1085,16 +1679,16 @@ object FPrinc: TFPrinc
     object CBt32: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 84.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 116.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 37
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1103,16 +1697,16 @@ object FPrinc: TFPrinc
     object CBt31: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 106.000000000000000000
-      Position.Y = 56.000000000000000000
+      Position.X = 104.000000000000000000
+      Position.Y = 80.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 45
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1121,16 +1715,16 @@ object FPrinc: TFPrinc
     object CBt75: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 448.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 584.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1139,16 +1733,16 @@ object FPrinc: TFPrinc
     object CBt71: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 336.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 440.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 14
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1157,16 +1751,16 @@ object FPrinc: TFPrinc
     object CBt72: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 364.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 476.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 7
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1175,16 +1769,16 @@ object FPrinc: TFPrinc
     object CBt74: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 420.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 548.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1193,16 +1787,16 @@ object FPrinc: TFPrinc
     object CBt73: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 392.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 512.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 15
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1211,16 +1805,16 @@ object FPrinc: TFPrinc
     object CBt66: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 196.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 260.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 40
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1229,16 +1823,16 @@ object FPrinc: TFPrinc
     object CBt67: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 224.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 296.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 34
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1247,16 +1841,16 @@ object FPrinc: TFPrinc
     object CBt69: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 280.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 368.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 22
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1265,16 +1859,16 @@ object FPrinc: TFPrinc
     object CBt68: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 252.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 332.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 39
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1283,16 +1877,16 @@ object FPrinc: TFPrinc
     object CBt70: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 308.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 404.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 10
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1301,16 +1895,16 @@ object FPrinc: TFPrinc
     object CBt65: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 168.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 224.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 32
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1319,16 +1913,16 @@ object FPrinc: TFPrinc
     object CBt63: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 112.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 152.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 41
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1337,16 +1931,16 @@ object FPrinc: TFPrinc
     object CBt64: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 140.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 188.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 38
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1355,16 +1949,16 @@ object FPrinc: TFPrinc
     object CBt62: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 84.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 116.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 42
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1373,16 +1967,16 @@ object FPrinc: TFPrinc
     object CBt61: TCornerButton
       StaysPressed = True
       StyledSettings = [Family]
-      Position.X = 176.000000000000000000
-      Position.Y = 56.000000000000000000
+      Position.X = 184.000000000000000000
+      Position.Y = 80.000000000000000000
       Sides = [Top, Left, Bottom, Right]
-      Size.Width = 28.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Width = 32.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 44
       TabStop = False
       Text = '1'
-      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       XRadius = 3.000000000000000000
       YRadius = 3.000000000000000000
@@ -1459,299 +2053,250 @@ object FPrinc: TFPrinc
       Visible = False
     end
     object ImageViewer1: TImageViewer
-      Position.X = 37.000000000000000000
-      Position.Y = 5.000000000000000000
-      Size.Width = 164.000000000000000000
-      Size.Height = 47.000000000000000000
+      Position.X = 22.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 198.000000000000000000
+      Size.Height = 59.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 78
       TabStop = False
+      BackgroundFill.Color = claNull
       Bitmap.PNG = {
         89504E470D0A1A0A0000000D494844520000014A0000005D0806000000C38D2F
         92000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-        1A7749444154785EED9D095C5465F7C70F0C9BFD510B4805546467403335C357
-        5B4C3397D28F69AFA6A89959119A1BEAAB62022EA4A666666AD6AB6692E5FAA6
-        A5966B8B255A9AA6ECE0426092582A0AC8327FCEE5E0CAC0DCE7B9F7CE9D99FB
-        E53379CEF30166B4E1C739CF39CF794043434343A376ECE8CF5A59B16296E162
-        411994DEA0050D0D0D0D0BC7D109C0C3DD012223DFAA53078D7EC2EE3D8986E3
-        C7D3C1C96513B4699B0D612DEDC1D5D5245DD5D0D0D0503D8585063875B2028E
-        1DF5831BC52F40EBD641D0EDE9881A45AEC6C5B9F3620D0F36DA0483869C0107
-        074D1C353434AC9BB23203AC5FD702FECA7F01A6FC27FE1ED1BB67E1B1C7830C
-        EF2CCA81768FE86845434343C336F8F597729834A119FCF843FA1DDA78878391
-        E4935DE66B22A9A1A161B3A0587EB76FF21D91A53DFD29EC4962BAAD89A48686
-        862D831A885A889A484BB784120B37B827A9611AE5171B43F1813EF73C705D43
-        43C3B2412D444DACE66668B9E483304364D459F2C4933E3D12AEEEFE8E3C89D1
-        D983934F6368B57E1F2D980F14C2D293E160B8EC0E57E72FA1D55BD49F3C06EC
-        1A168063CB24D0795CA055E9E8F1E23770F55AD5EF37FC9FD7ABAB0B4C1BF7B8
-        E0AB85AEFDBF85E21BB776755C9C0CB077F333E45906A92B9E87920B795076E5
-        0AAD18C7CED9059C3C3CA0E584DDB4625BBC7DA227FC597C018A0D45B4620C3B
-        78C0A12178B978C198B0CDB4A65E562CF38131A34E096F64E13FD82719D63A01
-        C23B884FBBCF2E9C0486E56B21302B8B56E425C3DF1F2E35F786B6FB8ED28A72
-        A048DE38D8AB4681BC1B144CA74E3B2413CB3E2F25C1AE43A1E4DD89BF67060C
-        EE7D0DDE8A36AF60D6F61A91673B9D82ADAB3A90A72E4E243C0EA50517C1BDFC
-        120496B2BF97331CFDA140E70676F5EE83B6B37FA555EB62FCE1B670BD52144B
-        DC2EC19540F67FAB0619FEE07CC91D3C1D9B405C5BF30741779374A81C4E1D9F
-        26F4590A42397B4EAC216ACC02D17D92E7260C05FF779793A73CE9C181E09B7A
-        9E3C79112392D5482596DD0725C1FEA3C605A89A41DD4FC1274BCC23443D2392
-        60EF2F75BFC66EED53E0EB758F92675E501C1BE4A77309635DA0705EBACF0BDA
-        261CA315CB646CA5385E7E20974B18EB0285F349C3007839E87D5A312FD867B9
-        6CC944981E136F27E47078E286A599DC9C228904A56580A35D21640DE8462BF2
-        81E9B6189144F0F3F1EB78C028CD149144D67F13061FFCF727F294E38D49FB4D
-        124964F7113D8C9DB69F3CF3703ABA29388E2A8476B93B65154904BF7FF8E51F
-        84E73B33BE49D5A205313CA331F48342C879F47B594512C1EFBF3DE86DE139DF
-        3CDC9A56CD076A62F569C49BC51CB11CEDD4922CF313B2712B9C0990AF8882D1
-        24EE499A83DA52D99A58FAA90B59CA71E04843B24CE3DB9FC47DBE549C9EE029
-        085650712AAD284BE08DCC2AC11CA7EE82DFB673713705526E71AC097CCEDC47
-        0F0ACFFF6A7A535A352FCC42E976E12FB2D401EE9162747971690CAD48074B34
-        590D0A2C6B25BCFBC06FC8329DACF3814214AA148B961D149E530CF8F91FAE39
-        449EFC9CFEA06F95409664D08A79C128135F0F0AB7DA9892D211D6349F681681
-        AC8982A05441301765FE9B56CC03B3502A55BC118BE79B53E1C28249E4991F9E
-        F4BBF03ADBFF1E8C4227CD3C4C9EBCEC3A50489638BEDA73992C79C1E82D2879
-        1D79EA02851B05F3DCEAA1B4623E96258F10A2C874FDB7B4A22E7E0C582DBC3E
-        73C1F49398B3782C59EAA4E9A458B26C97F712F564C9CBB5223631BF7C95F977
-        B44954479172EF414A81FF2FCB85D76B2E308ADC13BA443551A431F0F56174F9
-        7ED6605A510E79DFAD6644CE3D4B4B21B4B3F22D54A6525141860C64CEEEA8DA
-        28D218E67ABD6A8E228DB1DF7F25C4A42ADB0A67B542895B03597D9E20CF36C9
-        3C1F08A3A6CABB5F29BE57A28A9B67C3242623FE51D09FB7AC1FFC6A942CF26C
-        CE9D62B6628D14A484EC84C929FF224F7EAC56289190ED3BE0AF2F1693679B7C
-        B4455CD55C2CF62A7A07A1D084E6ABAF71D95494DA26F8F8CC0848F49E4E9EE5
-        92A9DF0D135394E9C9B56AA144AEC5BC4D96EDA2973105B7B3932B361487A5EC
-        47D645D6A743C89287B53951B0A3055B07871AC9D6EF83E894F6E4C987D50B25
-        A6E0B61E55623BCE9051F2B4E3549DED322F6AEF4B144359515DE7A5D9D97C7E
-        0AFCAFD97CF2AC87D3FAFD302985EF60475D58BD5022E7DEFB882CDB65C39E30
-        B2A44567E67750C6CC70AB8824AB097E4DBE6111899E969F6E1B234BBF17A6A4
-        76244F7A8478203636D61013B7505830056C0FF21B3F873C71A43EFD189485F9
-        93671C43590594E4E443C35399DC3D9B3848A34526FB796B1C9F762526913CF1
-        349813012E9DB791673A9D7AEF8623E9D29DDDC6E1192907DA92270DCF0CD805
-        078E7722CF74DA071D8283DBF98E9E662DE80621A7B792273DD5032EEC9D9CC0
-        C1BD1138B8B8087645711194165E83F2EB57A1A23202E41DA4510D3E5F8BC5D2
-        4F9C42B0BA2D67E1A66AC0851BB8EA5CC1CDF10170B177019D9D031455144149
-        7909FC559A0F658672EE411A75D13163284C0C94EE3D31272E1AE2E3E3AB1227
-        A5849255B0F23F5B04D767CCE312CCDCB5CBA1D150B646746B114AE4F9CEC9F0
-        C587D2A529787A68FF6FE27F93F30AE5B9AD53C07F8FF411128AD565373F683D
-        E3675A319DDFDFE90AF5734F328BE6B1A0E1D072EC26F2A4637AEA13901CB283
-        3CE940710C2E6A0B531FDA492BA613FD4B7B2868784E16D1DC02AE64F1532D94
-        8A264E05EE6E6489A3D1E00982C0A2D0B2F2C7EAF564D9365B0F844A7A7CD05C
-        7B9415DFAD264B1A329C02A0F4035721A2631149A4D5A4BDC2D7E3F749BF4F5C
-        C33F0AB41C22F969E604C945D2232D4C10A335811798441259F8C811E1EB47E6
-        BC2708AE94C87182874928CDF5C3C1933E1BAEC9B7496E692C5EE344163F8E0E
-        642848E69C4E92ED4BA2400902F9EE9FB4220DBEEFE408DF1705B82EE44CB9F7
-        1AD833A1BBB93F3D4810C895C1EC03BEEFA657B318413023CE2448269818A5C6
-        A7493B289A2DA2D499AFD489332835F8507A7086D4E8F3C40F0BA98934FF1764
-        13A86A5080CF3CBB4010C3BBC1B56301C3647B0D33529F922CB5ED9B33195605
-        E591273DFD5B2408821996F61CADF0713C780B59D2C016519AB1CBB8F829F97B
-        A66C011C9C312DE10879ECD82BFC3B53AA56A0735DA681DF845DE4C98B77AFB8
-        9B29F9A93623E0847ED0CD34BFE578697FA06FE764C876B2D8699011204491C3
-        9A2DA3157999157C00BA9D8E228F8FE119D2CDFF349FE231F27FFEEA984F670D
-        2CF824842C76740A5EDA99B36DAA2429F7F9DEF3C1B3BF799AAE83466E00FD68
-        7E01AB8B11E9FC23DC0252BA554679D26E4998C21BBE6B2122773679EC5C09CC
-        248B1F8B13CA8AB232B234A4A065975FC862C35EA7DCC99CF27DABC862072339
-        8F1E33C9B35EFE09E29BBD8922395FCF56D49282FEDE7361485E0279EC481555
-        5A9C5016A66A57EA4A497A6E30D7E00CA552EFF3BB66714793B93DF97FF02C81
-        D149ADC862038B2AE614C96AFA7925409FB37CB365A58A2A2D4E285D0F9E204B
-        432A780667282594797BBF208B8D8C562F43A3E76C43280BDDF2C962038B2A6A
-        61B8CF726897CE37DDFCCD24FEFB772C4A2871727960A674FB0E1AB7609D5DA9
-        54AB987B29FBD523E9CE81D022722379D6CDFAAC68AE4A7797ECD7C9520F3141
-        3BB95A87AEBAF1EFB35A9450F24C2E77F47E902C8D9AC0D9952F8F15DF88AE53
-        A08F32736D2457DAEDBB48992B8DD5C0818BECCDE558E11EED275DDFA594F044
-        B9F88BE3EB9C59E4B1A1A850BA175C224B1C787F385E1CC6C3435BBE274BC318
-        89BBC40FCE506228C6E5E3DF91251EEC95B425F02C352BE6A8708BE1FE8C20B2
-        C4F355DEE764B1A1A850E259EDEC36BE70A2FFE3753E7EEB150EBF760815AE74
-        E0BD3F9CE7E8A3AD217676A512A9370E9D60011BBA95EA9554033B72E630A7DD
-        184DAA9D5581EC0DEF456E17C96243F1D43BF8B7DFA1DD969D753EDAEFDC0B1D
-        920E734F0E42FEF6F1264BA32EF0D4CEC0D74DAF82EBECE56F0F624DBB2FB934
-        22CB36D899B7812CF10CA8F72659EA8655D0794F2859D41E252B6DF6AAF7922D
-        35828333567F66DA75B776321F673D16CB3EEABFEDDCDFC9B20D6E547EB08085
-        925E4DA5BF0F5F0EFA394792259E84E33DC8128FD50B65BA9EFFF4892D327FA5
-        69551AB98FFD57145E254B1C359DAD968BCC7551F06BB45EB647CEF669F44CB5
-        C3BA3F59FF6FE98EFAC94D9FE671CC15F0BC62F6D4DDEA85D237F90FB26C0B7F
-        CF6CB2D8C014FCF9117557C1CD3DE1DC18054E1E64C90B9E3DD7FF3C1F3A141F
-        91EDE1B76B9A70056F5DB0A6973D3D07906519E08060164A2B3F58B16AA13CDB
-        AC1959B645AF8EBF41CA81D6C244731EBE3E18068B961D24AF66E44EBD590B39
-        F5BCE4FF7F8F2229D5B8B7BAC02B78F1DA0B637C9832982C7108697733CB48BB
-        AB69A06B40967258B550FAE4E440664FF1D714583A1E0DAF097F4E892C17FEE4
-        E1A30DF5C8AA19B94FE6B00A51E83879ABDD99733A2A2692D5845ED80BA91F0F
-        27EF4EFE2A61ABEAB24667E6C4A79E0F59CA61F5A9B77ED73790F98C7217A5AB
-        89975E6C0FFDBB9C228F0D4CC19F1D62BCB02367EA9DFB753459E250627F529F
-        F72D59CAE272B2E689E2C515B63398DACBD58B2CE5B07AA144F4BB774366AFC7
-        C8B32DD62FEFC09D82EF3EA28709B1358BA59C63D6CA4BD87EF8F1423039F97D
-        01DFA5683C188B628B2A8AC9B27EFAF9B05D3FCDD38C6F134289E877EE82ECC1
-        ECED01968C14372F2EFDBCE63B60E4BC75A9BC449D3FFC65057C4327784959DA
-        9BAC5B9494DB8E50222C956F9E5E4A9B114A2478FD26B8B0762E79B6C5F0E7F8
-        5270A4A6C1190E36F50EAAC2A0EC9D7CF7505E5A42968652D8DCDBBC68E6BB64
-        D9162B17768000CE141C07678C9C7067CB909C471875CE2E64A90B4737655A8F
-        8CA173BAF7DFC559A7CE7F2BB960890E792610D99C50E291C8D44935570EAD9D
-        640952F0B55FDF393843CE3D4A9D73ED157763B0B614994AAB89BBC9320F35FD
-        02A9676F3B42B9E5EC38B2C4C153E1B7C1C409C0652BDB5DC4D640D48064B2D8
-        B97D70869C11A5F7B30BC91287126D3B295ED25E872A069DF3BDD70D3BDB9050
-        FE5198439672282E9438C9E7D0A3ED991E524D01C2A8326DD2CBE4D9168B6785
-        4390773A796C60CB504454550A2EF7C91CD6569F938BE52DDC05C4FCA4E831C9
-        DBF11FBA8EAC5B7838B36D07F05482CD454E91F2A7ED14154A14BA169917A05D
-        520AD303BF366DD6344904D3792BFB80534BE7E4BE7664B1B3716F18BC1AFD3D
-        2CFAB4E66AB854B0B6FA94E4C91F75E075B34A8BA5B1E77B43BF9E2C71E05E1F
-        EF505BA5B9527E852CE55054280BDCF9FBDBFCA62F1104333D82EF7CAA14E3DB
-        2C99E861FC29F8275FB581E2D207C85317EE37F8E60F9A0A8A654AC7FFC02197
-        CAACA7F221B770D6F68B83B558B12B6F135996016B14EC58F9C18AC5EE51FAAE
-        DB01D913F82E4A3FD6A33D59B6C7DB31E1D0B303BF58CA8DAE3EDBB95E258F17
-        06447C00ED1656663D950F144EBC12F78FBE738C3ECE3D319ABE525A588B1552
-        DC29A3145BCFBEC5DC0FE9E5C27EA2C762851269B6702DA40D66BFA1ADE26FBE
-        EB252C9D2F3F09E73EB523370FC7B15FA57B740ADFB5AD3C34EEF6B6D187E7C0
-        3570D6817168472DD53327BB7B8B3CA6C0D388AD345FDEF8882CF14C6BCD7EFE
-        DFA28512F14BDCC9BC67C97A878F3511FD0AFBE829A5604D67DD8ACD7B82A636
-        7CCAD8F6501DDDDCC9BA971E9EECF7030DCFB08C9994ACF774F3F45022162F94
-        C895D66C970ED9FA3E2532726838F47D92FFD48E9CB0167430FDCE5A68BE361E
-        631C9DD6862CF13C34ED07B2EEE5D9666F310B02AB0029C98874F6D4B9DE25BE
-        43025621940F6D36FEE6A98BECD897C8B25D36ACE41F9C21270DDB76214B3C21
-        D95BC8520F6ED7D9266D9B1259F33455AB3DAAFC2788BDADADB717DBBCCE6AAC
-        422811D6F4BBFC9AED8CA7AA0D290667C805164B78AAC9A7277892657ED239EE
-        283725B2EEECD18B2CF16054B9343B823C75313CA33159E2C1289B7738B1D508
-        256BEB51D9D5EB64690CEA7E922CF551E0607C6FAE2E824A32E0CC0AF6A29F94
-        381DDD4A96781CDDEB4E1F07F92FE4DA8FDBE7F72159EA6166DA335C05A7FA97
-        F82365AB114A56EC9DD82A85D6C8274BFEA5DA14BCDD02BE56A6C0DF5743FE57
-        A65DD22517D98B7A70B52DD5B63F793BAE97F8AEE9E589DEA466F5D9D7E1B760
-        BEED93F7C38F93C58ED508256B055B779F33591A889A5370DE666EEF9DE615CA
-        E02CF6C66E317FF7A5E17CD7F462F43639C5FCB7026C3E3F05B6FBB09DF7AF86
-        F51EF0BBB10AA1CCFD308EB9821D308FEDE8973513F9823A1BD1755D5F218B1D
-        C7518550F04D1C79CA811791F150112EEE24DAFDE98164B191A9DF6D56B1DC9C
-        3B05123DA793C7CE9A40699AE9AD42284B17AC204B1C520DD9B03696CCE11F9C
-        2107CD7A2770479548936D13216FE328F2E4076F4FE449B9F1EFEC37E87DF24C
-        6355D079B2D841B13447257C59F65048F4E61749A9A249C4E285F27CC21808CC
-        64EB0193E2ECB9B522C5E00C39C0238252E073609EB067283799B3FE25DC9EC8
-        C3B58027C91247ABD43E64B18395F07E50086B73F88E0B9BCAF4D427608FDF72
-        F2F8902A9A442C5E289BC72490C5809C5367AD80B1112964A98B142F69040EF7
-        0C7953E2DAC0EFADFF936FC82F469361A33790278EF8907D5C15F0DBF95FB3F9
-        30225DBE36AB0DD95384225272883453BD1E4EEB47963458AC50167C3C0B1CED
-        F8CE6A371EF23C591A35F1CE8C47A17BB8FA4EED04C4FC28490A8E604A8CFB96
-        67C64B9762E26920FC9E3CE97635D703D99BED91EEF643C8E2E79FA00C21BA7C
-        2DAD39ADF0B3ED5C9C20909FFB4DE76A01BA1DFCE5302358DAEB8415154AA9CE
-        56670D7C069ABC3A9E3C36707FB2699465CDE13307DBD7AAF3D48EAECB08B2A4
-        21F046669560564681C76775A45571E0D144FC7AA94E03E12F83D0517CC546EC
-        AB0C4D656F42AF898BC1C98260A2C0259C608BEEC71F6E277CFD9AE6132513C8
-        6AD6044AB33D733BC22892D8D858434C9CE965F8DC6513A0C5A899E48923F5E9
-        C7A02CECAE68C06080D22BC61BBF0DA5E55076F11F61DA0F8AAD1467B4933A76
-        80B6074D6BB02E3ED007AEC42492279E067322C0A5F336F24CA753EFDD7024BD
-        0379A633ACE741F858C209DFCB56FD0CE3E6B5244F1ADA071D8283DBF9EEC7C6
-        C84DCE238A2854781AC6CED1111CDD1F04076767B077A907868A0A282D2C84D2
-        4B0560282912EEE891227ABC9BACA76743F3E7A5B935144549CE294118C5E1F1
-        49579D2BB8393E00F574F781839D0E8ACB8BE07A7931E4DFC887F2CA0F9C2529
-        E7EBE898310C26064AF79E9813170DF1F1F155339B94144AB5506A7025AB6E6C
-        5D2891174626C1B61F42C9E307A354297A36B1A2CC5B2C5123295EDD2120E620
-        79D28051A0351394DA1DE68648FB6F562D9456D11E2496F460BE1E335B64D3C7
-        D2CEAEC47B77A42070469264FB956A01FF3E528B2432248FA3F0A972FC53BA4A
-        2E92B7639342E99BCADF63668B4C892C274B1A12377D47161F52B50CA905B9FE
-        3EFDBC12A06FCE64F2AC07DF94A7E01D3DFB806753B039A14C7F599DD3512C81
-        975E6C0F039E96AE0A5E516E208B1FBC7EC11A22CBEC70791BE187355B06BDCE
-        8C21CFF2F14BE9020BF547C8930F9B12CAE4A7BB82EFAA2FC9D36061DD07D255
-        C1870EEC4C9634602496DC88AF9DC69C643C3C129A0DFB843CF918D9621544E4
-        CE26CF720948E9060BF487C993179B114A6C070ADC2D6F786E2B48518491ABE5
-        2830F630A478AA6FAA795D64B6790D5ABCFA3979F2D3DF7B2E6C0157C91AD295
-        065B9EE6EB7F264F7E9884D23B6A115996035E71AB211DC39FE34BC1DDEA1790
-        253D01D37F82F4B061E4A99F338F4D029F919F91A72CD87318946259BF58BA64
-        BF0EB343BE274F1998234A4B1A2871719DFA8691CA89FB03C66FEA938A950B3B
-        40800A1BD1ABF18DDAA2FA7D4B7C6DF81ABD074973B69995B9FA9FE099E4F1AA
-        8F2EF1F561143CDA8FBD558F1566A1B484811228E6D82FD930229A5694A7FEE4
-        31E0D8922DE5AFE75C419638E6C576274B5E923952F081BD4DEF63E501F72DD3
-        830791A71E527DFAA8AA5A1F19FA51557499AABEE81205B24772B42C276E4C85
-        5928ED1DD53D5022B5CF7392A5DB287428782CD8352C009D07DBEBD8B349BCE0
-        297DDCF0CD41A964990EBEC631AF2937EBD077CC7621724B77367FFF6C7514E9
-        3F791FADA88BB9213FC12B39EFAA26BAC4BD4814C8D742CD9B15320B659B1FD5
-        79BF0A469139FF7D0FFCBF3C402BFCA0D0A1E09983AE8F881BA23B7A683159CA
-        B030AEBDE8EB6ECD3545DD77D17941A492EA77543C25C7E7CB786A86AAA24863
-        E0B5B7284E55C51EE9663A9A0A8A74D3A4C785E7577A2FD218CC4289644F5066
-        469D29A040A6CD9A2644914D46F0DDB856132C51254FDA5DCDCEC47078AAAD69
-        62D9BFCB2918F50ADB40071EF0BA5B53FA2B3192BC91569F3CF3D176EE0941B0
-        52C227CA2E98194E0170BAD73CE1F95ABC607945509CE98882D5FCF013B24799
-        F8FDFB664C13447A49F8315A55074C67BD6FE7DC7B53A1E2FD55920CAA100B8A
-        6341A307A1F9D891F0E0C071B42A1FE5171BC38D83BDE0EAFC25B4621C1449A7
-        4E3B98D3EEBBE9313809F6FD6AFCACF5B0674FC1C78BC49F0B979A27FB7E0BF9
-        FF78DC3CA288E28815EE4EED9C607E1CDB005A253831AF0B94E69FE71E7081C2
-        8B37463A356A02AD549A5EF382937FAE1BAE730FB8406174BEE40E4D9DBDE1AD
-        87F9E676CA05D7508C9AC88C8D82CBBBF693271FF62E4EE0E8DB185AAE9176DE
-        9CA9A058969E0C07C365F71A05130512D3748C24A512C96A3EDB78043E4CFC1B
-        CACA6F55B5DDEFAF806D9F2A53BCB125D256F687E23FF3A0ECF23FB4621C5DFD
-        06E0D2D81342DEF81FADD816F34FF482BCE23FA1C850FB1DF976951FEE0E1EE0
-        55AF098C0A651B46AC347708E5CC597186D1E3DE015757F9DB4AAC856AC1BC1B
-        390452434343790A0B0DB074F12498F1565CD5F4200F7767387592AD15C55641
-        31C4D169773F3491D4D0B00E5013511B114128A3A2A6DA1D3BEA272C68686868
-        6800A026A236A27DB3EA6D281B086565D24D73D1D0D0D0B054500B5113ABB963
-        53F2D3CFC20C03079D254F434343C336F962BD0F0C1D7CEAA63EDED147E9EC30
-        15B2B3B4145C4343C376410D442DBC9D7BCADC1B37261A5AB599077EFED9B4A2
-        A1A1A1611BA048FE7EEC3FF0EF7F47DCA18DF70825B261C3E7863FCEBF6D888C
-        CAB47370A8F15334343434AC06DC935CB12CC0D0D473AADD80012FDE237AB5AA
-        606C6C6C05C0AAB2273A5FD4B579C4DE5EEBB3D4D0D0B016B04FF2D82F1515DF
-        1FF0280718E1101F1F6FF448B749CAB762C58AD2FCFC7C87F272692F97D2D0D0
-        D030173A9D0E1A356A54161919E9484B1A1A1A1A1A6C00FC3F28FD9C1997DB4B
-        7E0000000049454E44AE426082}
-      BitmapScale = 0.500000000000000000
+        1A7849444154785EED9D095C9455F7C70F0C9BFD510BC805176467443335C357
+        5B4C3397D28F69AFE69A9915A9B9A1BE2A26B8919A9A99A959AF9A4996EB9B96
+        5AAE2D9668699A02B2B9109824968A02B2CC9FF3707065649E7BEFF3CC3333CF
+        97CFE439F703CC68C38F73EE39F75CD0D1D1D1D1B9374EF4E73D59B66C86E942
+        6E31145DA7051D1D1D1D1BC7D50DC0C7DB052223DFAA5207CD7EC2CE5DF1A6A3
+        4753C0CD6303346F9101E14D9CC1D3D3225DD5D1D1D1D13C7979263871BC148E
+        1C0E80EB052F40B36621D0F1E9FE958A5CA58BB3E7C4981EACB501FA0E380D2E
+        2EBA38EAE8E8D837C5C52658BBA611FC95F3024CFCCFB4BB44EFAE85C71E0F31
+        BDB320135A3E62A0151D1D1D1DC7E0D75F4A60FCD806F0E30F29B769E36D0E46
+        924FB69FAB8BA48E8E8EC38262F9DD9E09B74596CEF4A7B42789E9B62E923A3A
+        3A8E0C6A206A216A222DDD144A2CDCE09EA48E65945CA80D05FBBADFF5C0751D
+        1D1DDB06B51035B1821BA1E5A20FC24D91C3CE90279F9429917065E777E409C6
+        E00C6E7EB5A1E9DA3DB4603D50088B8E4780E992375C99BB88566F527DC24870
+        AA990BAE4D12C0E0739E56C5D1F9C56FE0CAD5F2DF6FF83FAF6B070F983CFA71
+        C9D70A1D7A7D0B05D76FEEEA78B89960F7C667C8B30D92973D0F85E7B3A1F8F2
+        655A318F93BB07B8F9F84093B13B69C5B178FB5817F8B3E03C1498F269C51C4E
+        F0804B4DF0F5F08591E11B694DBB2C5BE20723879F90DEC8D27FB04F32BC591C
+        44B4969F769F993F1E4C4B5743707A3AAD284B6A60205C6C580F5AEC394C2BEA
+        8122797D7FD74A05F24E5030DDDA6E132696DD5F4A801D071A93773B817553A1
+        5FB7ABF056947505F35EAF1179B6ED09D8BCA23579DAE258DCE350947B01BC4B
+        2E427011FB7B39D53510720D5EE054ED3E6831F3575AB52FC61C6C01D7CA44B1
+        D0EB225C0E66FFB7AA911A08EE17BDA1AE6B1D886D61FD20E84E120E94C089A3
+        93A53E4B492867CE8A310D1B394F769FE4D9B10321F0DDA5E4A94F4A6830F827
+        9F234F59E4886405A2C4B253DF04D87BD8BC0055D0B7D309F864917584A84BFF
+        04D8FD4BD5AFB163AB24F87ACDA3E4591714C71A39295CC25815289C17EFF385
+        16714768C5361955268E971EC8E212C6AA40E17CD2D41B5E0E799F56AC0BF659
+        2E59340EA6444F739272383C71C3D24C6E4D9144424EA682AB531EA4F7EE482B
+        CA81E9B61C9144F0F3F1EB78C028CD129144D67E130E1FFCF727F2D4E38DF17B
+        2D124964E721238C9ABC973CEB702AAA3EB80ECF839659DB15154904BF7FC4A5
+        1FA4E73B3DA64EF9A20D3138B536F4843CC87CF47B454512C1EFBF35E46DE939
+        DF3CD88C56AD076A62C569C41BC51CB91C6EDB842CEB13B67E339C0E52AE8882
+        D124EE495A837BA5B295B1F8530FB2D463DFA19A6459C6B73FC9FB7C519C1A5B
+        5712AC9082645A5197E0EB69E582395ADB05BF2D67636F08A4D2E25819F89C59
+        8FEE979EFFD594FAB46A5D9885D2EBFC5F646903DC23C5E8F2C2E2685A11074B
+        3459010A2C6B25BC539F6FC8B29CF473C15214AA160B96EC979E530EF8F91FAE
+        3A409EF29CFAA047B94016A6D28A75C128135F0F0AB7D69898D40656351C6715
+        81AC8CDC9064493017A4FD9B56AC03B350AA55BC914BDD3727C1F979E3C9B33E
+        3CE977DE35B6FF3D18858E9F7E903C65D9B12F8F2C797CB5EB1259CA82D15B48
+        E21AF2B4050A370AE6D9950369C57A2C491C22459129C66F69455BFC18B4527A
+        7DD682E9273173E128B2B449FDF13164392EEFC51BC95296ABF96C627EE90AF3
+        EF688BA8882295DE831441E02F4BA5D76B2D308ADCD5789166A24873E0EBC3E8
+        F2FDF47EB4A21ECABE5BAD88927B96B642E376EAB750594A6929190A9036B38D
+        66A3487358EBF56A398A34C7DEC0E5109DAC6E2B9CDD0A256E0DA4777F823CC7
+        24ED5C300C9FA4EC7EA5FC5E89726E9C0D134CEAB447C178CEB67EF02B50B3C8
+        B3316BA2D58A3522480ADB0E1392FE459EF2D8AD5022615BB7C15F5F2C24CF31
+        F96893BCAAB95C9C35F40E42A1699CA3BDC6654B516B9BE0E3D34320BEDE14F2
+        6C9734E34E1897A44E4FAE5D0B257235FA6DB21C17A38229B8939352B1A13C6C
+        653FB22AD23F1D409632ACCE1C06DB1AB1757068910CE31E884A6A459E72D8BD
+        50620AEEE85125B6E30C18AE4C3B4EF9D92EEBA2F5BE443914E757755E9A9D8D
+        E726C2FF1ACC25CF7E3865DC0BE393F80E765485DD0B2572F6BD8FC8725CD6ED
+        0A274B2C062BBF8352A747D845245941E86BCA0D8B88AF6BFBE9B639D28DBB61
+        62721BF2C423C503313131A6E8D8F9D28225607B50C09859E4C923F9E9C7A038
+        3C903CF3988A4BA13033076A9E48E3EED9C4411A8DD2D8CF5BE3F8B4CBD1F1E4
+        C9A7C6ACFEE0D16E0B7996D3B6DB4E389422EEEC360ECF48DAD7823C313CD37B
+        07EC3BDA963CCB69157200F66FE53B7A9A3EAF23849DDA4C9E782A065C38BBB9
+        818B772D70F1F090ECD2827C28CABB0A25D7AE40695904C83B48A3027CBE460B
+        C54F9C42B0BAAD64E1A67CC08517781A3CC1CBF501F070F60083930BE497E643
+        614921FC559403C5A612EE411A55D12675208C0B16F79E98151B05D3A64D2B4F
+        9CD4124A56C1CAF96C015C9B3A874B30B3562F855A03D91AD1ED452891E7DB25
+        C2171F8A4B53F0F4D0DEDFE4FF26E715CAB39B2742E02EF111128AD525AF0068
+        36F5675AB19CDFDFE900D5B38E338BE69190C1D064D406F2C43125F909480CDB
+        469E38501C43F35BC0A487B6D38AE544FDD20A726B9E55443437812759FC5408
+        A5AA8953AEB71759F2A8D56FAC24B028B4ACFCB1722D598ECDE67D8D851E1FB4
+        D61E65E9772BC91243AA5B10147DE02945742C2289341DBF5BFA7AFC3E29F7C9
+        6BF847815642243F4D1B2B5C247D4E864B62B42AF83C934822F31F39247DFDD0
+        CCF724C115891227789884D25A3F1C3CE9B3E9AA729BE4B6C6C2556E64F1E3EA
+        42868AA4CD6A2B6C5F12054A12C877FFA41531F8BF93297D5F14E0AA5032E5DE
+        6D62CF84EEE4FE941049209787B20FF8BE93AE0DA225C1EC7F3A4E986062943A
+        EDA4D841D16C11A5C17AA54E9C41A9C387DA83334463CC963F2CA4324E06BEA0
+        98405580027CFAD9799218DE09AE1D091AA4D86B989AFC94B0D4B647E6045811
+        924D9E787A358A930433FCE473B4C2C7D1D04D6489812DA2B4629771C153CAF7
+        4C390238386372DC21F2D87156F977A6A856A0B3ED2743C0D81DE4294BBDAEB1
+        3752F213CD87C03163DF1B697E9331627FA06FE578D856B2D8A9911A24459183
+        1A2CA115659911BA0F3A9E1A461E1F8353C5CDFFB49EE231F27F81DA984F670F
+        CCFB248C2C760C2A5EDA99B965929094FB5CB7B950B797759AAE4386AE03E308
+        7E01AB8A2129FC23DC82923A96457962B7242CE10DFFD5D03F6B2679EC5C0E4E
+        238B1F9B13CAD2E262B27444D0A4FD2F64B1E16C50EF644EC99E1564B183919C
+        4FE7E9E4D92FFF84F0CDDE44919C6B642B6A89A057BDD930203B8E3C76444595
+        36279479C9FA95BA2249C90AE51A9CA156EA7D6EC70CEE6832AB0BFF0F9E2D30
+        22A129596C6051C59A2259414FDF38E87E866FB6ACA8A8D2E684D273FF31B274
+        44C13338432DA1CCDEFD05596CA4367D196A3DE7184299E79543161B5854D10A
+        83FD9642CB14BEE9E66F26F0DFBF6353428993CB83D3C4ED3BE8DC847576A55A
+        AD62DE45EC578FA4B80743A3C8F5E4D9376BD3A3B82ADDED335E274B3B44876C
+        E76A1DBAE2C5BFCF6A5342C933B9DCB5DE8364E95406CEAE7C7994FC4674830A
+        7D9469AB23B9D26EFF05EA5C69AC05F65D606F2EC70AF78800717D9722E18972
+        F117C7D79933C8634355A1F4CEBD48963CF0FE70BC388C8787367D4F968E39E2
+        77C81F9CA1C6508C4B47BF234B3ED82BE948E0596A56AC51E196C3FDA92164C9
+        E7ABECCFC9624355A1C4B3DA19CDFDE158AFC7AB7CFCD635027E6DDD58BAD281
+        F7FE709EA38F8E86DCD9956AA4DE387482056CE856AB57520B6CCB9CC59C7663
+        34A9755604B337BCE77B5D208B0DD553EFD0DF7E87969BB657F968B57D37B44E
+        38C83D3908F9DBAF1E593A5581A776FABC6E7915DCE0AC7C7B106BDA7DD1A316
+        598EC1F6EC7564C9A777B537C9D236AC82CE7B42C9A6F6285969BE5BBB976C69
+        111C9CB1F233CBAEBB7552F838EB9118F651FF2D66FF4E966370BDEC83052C94
+        74AD2FFE3E7C25E8E91E49967CE28E76264B3E762F942946FED3278EC8DCE596
+        5569943EF65F9A77852C795476B65A29D2D60C835FA38C8A3D32B74EA667BA37
+        ACFB93D5FF1677D44F69BA378C65AE806717B0A7EE762F94FE897F90E55804D6
+        CD208B0D4CC19F1F527515DCDA13CECD91EBE64396B2E0D973E3CF73A175C121
+        C51E013B264B57F056056B7AD9A56E6FB26C031C10CC4251D9072B762D94671A
+        3420CBB1E8DAE63748DAD74C9A68CEC3D7FBC361C192FDE4558ED2A9376B21A7
+        9AAFF2FFEF5124458D7BAB0ABC8217AFBD30C78749FDC89287947637B08DB4BB
+        821A861A64A9875D0BA55F6626A475917F4D81ADE353F3AAF4E7C4C812E94F1E
+        3E5A578DACCA51FA640EAB10351EAD6CB53B6D561BD544B282C6E77743F2C783
+        C9BB9DBF0AD9AABAACD19935F1ABE647967AD87DEA6DDCF10DA43DA3DE45E95A
+        E2A5175B41AFF627C8630353F06707982FEC28997A677D1D45963CD4D89F3466
+        7F4B96BA781CAF7CA27841A9E30CA6F6F5F4254B3DEC5E2811E3CE9D90D6F531
+        F21C8BB54B5B73A7E03B0F19616C4CE562A9E498B59242B61F7EBC104C497E9F
+        C777291A0FE6A2D8FCD202B2EC9F9E7E6CD74FF334E33B845022C6ED3B20A31F
+        7B7B802D23E2E6C5C59F577E078C92B72E95146AF387BF38976FE8042F498BBB
+        917593C212C7114A84A5F2CDD34BE930428984AEDD00E757CF26CFB118FC1C5F
+        0A8E543638C3C5A1DE41E598D4BD93EF2E4A8A0AC9D2510B877B9BE74F7F972C
+        C762F9FCD610C49982E3E08CA1636F6F1952F208A3C1DD832C6DE1EAA54EEB91
+        390C6E77FFBBB81BB4F96FA5142CD121CF042287134A3C12993CBEF2CAA1BD93
+        2820055FFDF5ED833394DCA334B8DFBBE26E0ED696224B693A6E2759D6A1B25F
+        20D59C1D4728379D194D963C782AFC0E983801786C66BB8BD81E18D63B912C76
+        6E1D9CA1644459EFD9F964C9438DB69D245FB1D7A1CAC1E07EF775C3EE0E2494
+        7FE46592A51EAA0B254EF239F0682BA687A8294018559E1CFF32798EC5C21911
+        10522F853C36B065A8FFB0F2145CE99339ACAD3EC7172A5BB80B8AFE49D56392
+        B71238700D5937F17167DB0EE0A9045B8BCC7CF54FDBA92A9428748DD2CE43CB
+        8424A6077EEDC919938508A6FB66F601A7B6CEF13D2DC96267FDEE707835EA7B
+        58F069E5D57051B0B6FA14662B1F75E075B36A8BA5B9E77BC3B8962C79E05E1F
+        EF505BB5B95C72992CF550552873BDF9FBDB02A62C920433A53FDFF95411E3DB
+        6C99A841FC29F8275F358782A207C8D316DED7F9E60F5A0A8A65529BFFC0018F
+        B2ACA7ECA1B470DEEB17076BB16247F606B26C03D628D8B5EC83159BDDA3F45F
+        B30D32C6F25D947EA4732BB21C8FB7A323A04B6B7EB1541A4375B673BD6A1E2F
+        0CEAFF01B49C5F96F5943D5038F14ADC3F7ACC32FB38FBC408FA4AB1B0162B44
+        DC29A3169BCFBCC5DC0FE9EBC17EA2C766851269307F359CECC77E435BE9DF7C
+        D74BD83A5F7E12C17D6A47691E8E65BF4AF7F044BE6B5B79A8DDF16DB38FBA7D
+        56C11917C6A11DF7A89EB939DD5DE4B1049E466CB5F9F2FA4764C9677233F6F3
+        FF362D944840FC76E63D4BD63B7CEC89A857D8474FA9056B3AEB5560DD1334F7
+        C2AF986D0FD5D5CB9BACBBE95C97FD7EA0C1A9B6319392F59E6E9E1E4AC4E685
+        12B9DC8CEDD22147DFA744860E8C801E4FF29FDA5112D6820EA6DFE9F3ADD7C6
+        638EC3939B93259F8726FF40D6DD3CDBE02D6641601520351992C29E3A57BBC8
+        7748C02E84F2A18DE6DF3C559111F312598ECBBAE5FC833394A4668BF664C927
+        2C631359DAC1EB1ADBA46D4B226B9EA66AAD4795FF84B0B7B575F3659BD75981
+        5D0825C29A7E975C759CF154F742C4E00CA5C062094F35F9D4D8BA64599F148E
+        3BCA2D89ACDBF974254B3E18552ECEE84F9EB6189C5A9B2CF96094CD3B9CD86E
+        8492B5F5A8F8CA35B274FA763A4E96F6C87531BF3757152185A9707A197BD14F
+        246E873793251F57EFAAD3C7BE81F3B9F6E3F6047C489676987EF219AE8253F5
+        8BFC91B2DD08252BCE6E6C95427BE49345FFD26C0ADE721E5F2B53F0EF2B21E7
+        2BCB2EE9528A8C059DB9DA96EEB53F792B9E17F9AEE9E589DE44B3F2CCEBF05B
+        28DFF6C9FB1147C962C76E8492B5826DB8CF9D2C1D44CB29386F3377BDEDD615
+        CAD074F6C66E397FF7C5117CD7F462F43621C9FAB7026C3C3711B6FAB19DF7AF
+        80F51EF03BB10BA1CCFA3096B9821D3487EDE8973D13F982361BD10D1D5E218B
+        1DD7E17990FB4D2C79EA811791F1501A21EF24DAFD29C164B19166DC6955B1DC
+        983511E2EB4E218F9D55C1629AE9ED42288BE62D234B1EA2866CD81B8B66F10F
+        CE508206DDE2B8A34AA4CE967190BD7E3879CA83B727F2A4DCF8770EE8FB3E79
+        96B122E41C59ECA0585AA312BE246320C4D7E3174951D12462F342792E6E2404
+        A7B1F58089387B6EAF88189CA104784450047EFBE6487B864A9336E35FD2ED89
+        3C5C0D7A922C79344DEE4E163B5809EF0979B03A93EFB8B0A54C497E0276052C
+        258F0F51D12462F342D9303A8E2C06949C3A6B078CEA9F4496B648F2152370B8
+        67C89B12DF0BFCDEC63FF986FC6234193E621D79F29816B687AB027E2BFF6B30
+        1786A428D766B52E63A254444A0C1333D5EBE1933DC91283CD0A65EEC733C0D5
+        89EFAC76ED01CF93A55319EF4C7D143A4568EFD44E50F48F425270045362DCB7
+        3C3D465C8A89A781F07BF2A4DB155C0B666FB6473A390F208B9F7F4252A5E8F2
+        B5930D69859F2D67632581FC3C600A570BD0ADE02F87A9A162AF13565528459D
+        AD4EEFF30CD479750C796CE0FE64FD61B63587CF1A6C5DADCD533B86F643C812
+        43F0F5B472C12C8B028FCE6843ABF2C0A389F8F5A24E03E12F83C6C3F98A8DD8
+        57D93899BD09BD322E84264A82890217778C2DBA1F73B0A5F4F5AB1A8E132690
+        15AC0A16B33D732BD228929898185374ACE565F8AC2563A1D1F0E9E4C923F9E9
+        C7A038FC8E68C06482A2CBE61BBF4D4525507CE11F69DA0F8AAD8833DA096D5A
+        438BFD96355817ECEB0E97A3E3C9934F8D59FDC1A3DD16F22CA76DB79D7028A5
+        35799633A8CB7EF858E084EF252B7E86D1739A90278656210760FF56BEFBB131
+        7253F288220A159E867172750557EF07C1C5DD1D9C3DAA81A9B4148AF2F2A0E8
+        622E980AF3A53B7A44448F7792FEF44C68F8BC985B435194949C1284511C1E9F
+        F434788297EB0350CD701FB83819A0A0241FAE951440CEF51C2829FBC059924A
+        BE8E36A983605CB0B8F7C4ACD82898366D5AF9CC263585522B14993CC9AA1A47
+        174AE485A109B0E587C6E4F18351AA889E4DAC28F3164BB448926F27088ADE4F
+        9E18300AB46742923BC1EC30B1FF6615426917ED41724909E5EB317344367C2C
+        767625DEBB2382E0A909C2F62BB502FE7D448B2432209BA3F0A97102933A0817
+        C95B7148A1F44FE6EF317344264696902586F80DDF91C587A89621ADA0D4DFA7
+        A76F1CF4C89C409EFDE09FF414BC63641FF06C090E2794292F6B733A8A2DF0D2
+        8BADA0F7D3E2AAE0A52526B2F8C1EB17EC21B2CC8850B6117E508325D0F5F448
+        F26C9F80A4F630DF78883CE57028A14C7CBA03F8AFF8923C1D16D67C20AE0A3E
+        B04F3BB2C4809158622DBE761A6B92FAF0506830E813F2946368A315D03F6B26
+        79B64B50524798673C489EB2388C50623B50F04E65C3734741441146A996A3E0
+        98839054577B53CDAB22ADF96BD0E8D5CFC9539E5EF566C326F014D690AE36D8
+        F234D7F83379CAC32494F5862D20CB76C02B6E75C431F839BE14DCAB7A2E59E2
+        099AF213A4840F224FFB9C7E6C3CF80DFD8C3C75C19EC39024DBFAC5D23EE375
+        9819F63D79EAC01C51DAD240890B6BB4378C5449BC1F307F539F2896CF6F0D41
+        1A6C44AFC07FD826CDEF5BE26BC3D758AFAF98B3CDACCC36FE04CF248ED17C74
+        89AF0FA3E01101ECAD7AAC300BA52D0C944031C77EC99AFDA368457DAA4F1809
+        AE4DD852FE6AEEA564C9634E4C27B29425912305EFD3CDF23E561E70DF3225B4
+        2F79DA21D9AFBBA6AAF5918D3F2A8F2E93B5175DA240764E8C52E4C48DA5300B
+        A5B3ABB6074A24777F4E58BA8D428782C78253CD5C30F8B0BD8E5D1BE40B9EDA
+        C70DDFEC9B4C96E5E06B1CF99A7AB30EFD476E9522B71477EBF7CF5644918113
+        F6D08AB6981DF613BC92F9AE66A24BDC8B44817CADB175B34266A16CFEA336EF
+        57C12832F3BFEF41E097FB68851F143A143C6BD0E111794374470C2C204B1DE6
+        C7B6927DDDADB5A6A8FB2F3827895442F536AAA7E4F87CA94F4DD55414690EBC
+        F616C5A9BCD8236EA6A3A5A048D74F785C7A7EB5F722CDC12C9448C6587566D4
+        59020AE4C91993A528B2CE10BE1BD72A8325AAE449BB2BD81E1F014FB5B04C2C
+        7BB53F01C35F611BE8C0035E776B497F254692D74F5627CF7AB4987D4C12ACA4
+        88718A0B66AA5B109CEA3A477ABE462FD85E1114673AA260353CF884E251267E
+        FF1EA99325915E14718456B501D359EF5B39FBDE24287D7F85904115724171CC
+        ADF520341C35141EEC339A5695A3E4426DB8BEBF2B5C99BB8856CC8322E9D676
+        1B73DA7D279DFB25C09E5FCD9FB51EF4EC09F87881FC73E1A279B2C7B790F38F
+        CF8D238A288E58E16EDBD20DE6C6B20DA055836373DA4351CE39EE011728BC78
+        63A45BAD3AD054A3E9352F38F9E79AE91AF7800B1446F78BDE50DFBD1EBCF530
+        DFDC4EA5E01A8A51196931C3E0D28EBDE42987B3871BB8FAD78626ABC4CE9BB3
+        1414CBA2E31160BAE45DA960A240629A8E91A42891ACE0B3F587E0C3F8BFA1B8
+        E46655DBFBFE52D8F2A93AC51B47E2E4F25E50F06736145FFA8756CC63A85E03
+        3C6AD785B037FE472B8EC5DC635D21BBE04FC837DDFB8E7CA7B20F6F171FF0AD
+        56078637661B46AC36B709E5F419B1A611A3DF014F4FE5DB4AEC850AC1BC1325
+        04524747477DF2F24CB078E17898FA566CF9F4201F6F7738719CAD15C5514131
+        C4D169773E7491D4D1B10F5013511B114928870D9BE474E47080B4A0A3A3A3A3
+        03809A88DA88F68DAAB7A9B80F14178B9BE6A2A3A3A363ABA016A2265670DBA6
+        E4A79F859BFAF43D439E8E8E8E8E63F2C55A3F18D8EFC40D7DBCAD8FD2DD6512
+        64A4EB29B88E8E8EE3821A885A782B7795B9D7AF8F37356D3E07020233684547
+        4747C7314091FCFDC87FE0DFFFEE7F9B36DE2594C8BA759F9B4E9D7DDBF4E6A8
+        342717974A3F45474747C76EC03DC9F7DF0B32F9379CE4D4BBF78B7789DE3D55
+        302626A6146079F113EDFE31347FC4D959EFB3D4D1D1B117B04FF2C82FA5A5DF
+        EFBBBF04E0359769D3A6993DD26D91F22D5BB6AC282727C7A5A444ECE5523A3A
+        3A3AD6C2603040AD5AB58A2323235D694947474747870D80FF07288D9C197E94
+        4A230000000049454E44AE426082}
+      BitmapScale = 0.600000023841857900
       ShowBackground = True
       ShowScrollBars = False
-      Viewport.Width = 160.000000000000000000
-      Viewport.Height = 43.000000000000000000
+      Viewport.Width = 194.000000000000000000
+      Viewport.Height = 55.000000000000000000
     end
     object LCantadas: TLabel
-      StyledSettings = [Family, FontColor]
-      Position.X = 44.000000000000000000
-      Position.Y = 483.000000000000000000
-      Size.Width = 153.000000000000000000
-      Size.Height = 17.000000000000000000
+      StyledSettings = [Family]
+      Position.X = 24.000000000000000000
+      Position.Y = 632.000000000000000000
+      Size.Width = 193.000000000000000000
+      Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.Font.Size = 24.000000000000000000
       TextSettings.Font.StyleExt = {00090000000000000004000000}
+      TextSettings.FontColor = claBlue
       TextSettings.HorzAlign = Center
       Text = 'Cantadas: 0'
       TabOrder = 49
     end
-  end
-  object BIniciar: TButton
-    Enabled = False
-    StyledSettings = [Family, FontColor]
-    Position.X = 417.000000000000000000
-    Position.Y = 15.000000000000000000
-    Size.Width = 145.000000000000000000
-    Size.Height = 73.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 1
-    Text = 'Iniciar juego!!!'
-    TextSettings.Font.Size = 15.000000000000000000
-    TextSettings.Font.StyleExt = {00070000000000000004000000}
-    OnClick = BIniciarClick
-  end
-  object Grid: TStringGrid
-    CanFocus = True
-    ClipChildren = True
-    PopupMenu = PpMenuJug
-    Position.X = 17.000000000000000000
-    Position.Y = 160.000000000000000000
-    Size.Width = 545.000000000000000000
-    Size.Height = 369.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 2
-    RowHeight = 21.000000000000000000
-    RowCount = 0
-    Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
-    Viewport.Width = 541.000000000000000000
-    Viewport.Height = 344.000000000000000000
-    object SColNom: TStringColumn
-      Header = 'Nombre jugador'
-      Size.Width = 300.000000000000000000
-    end
-    object SColCart: TStringColumn
-      Header = 'Cartones'
-      Size.Width = 200.000000000000000000
-    end
-  end
-  object BConsCarton: TButton
-    Action = Action1
-    Enabled = True
-    ImageIndex = -1
-    Position.X = 17.000000000000000000
-    Position.Y = 587.000000000000000000
-    Size.Width = 150.000000000000000000
-    Size.Height = 25.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 3
-    Text = 'Ver cart'#243'n en juego...'
-    OnClick = BConsGanadorClick
   end
   object PpMenuJug: TPopupMenu
     Left = 384
@@ -1771,64 +2316,41 @@ object FPrinc: TFPrinc
   object EStBar: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     Align = Bottom
-    TabOrder = 4
+    TabOrder = 1
     TabStop = False
     CanFocus = False
     ReadOnly = True
     Position.Y = 698.000000000000000000
-    Size.Width = 834.000000000000000000
+    Size.Width = 1000.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
   end
   object PanelAuto: TPanel
     Enabled = False
-    Position.X = 577.000000000000000000
-    Position.Y = 543.000000000000000000
-    Size.Width = 241.000000000000000000
-    Size.Height = 145.000000000000000000
+    Position.X = 605.000000000000000000
+    Position.Y = 207.000000000000000000
+    Size.Width = 128.000000000000000000
+    Size.Height = 306.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 28
+    TabOrder = 25
     object Circle1: TCircle
       Fill.Color = claWhite
-      Position.X = 76.000000000000000000
-      Position.Y = 4.000000000000000000
-      Size.Width = 90.000000000000000000
-      Size.Height = 90.000000000000000000
+      Position.X = 14.000000000000000000
+      Position.Y = 32.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 100.000000000000000000
       Size.PlatformDefault = False
       object TxNumero: TText
-        Position.X = 15.000000000000000000
-        Position.Y = 14.000000000000000000
-        Size.Width = 60.000000000000000000
-        Size.Height = 60.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 11.000000000000000000
+        Size.Width = 80.000000000000000000
+        Size.Height = 80.000000000000000000
         Size.PlatformDefault = False
         Text = '0'
-        TextSettings.Font.Size = 48.000000000000000000
+        TextSettings.Font.Size = 56.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claRed
       end
-    end
-    object TrackBar: TTrackBar
-      CanParentFocus = True
-      Max = 15.000000000000000000
-      Min = 1.000000000000000000
-      Orientation = Horizontal
-      Position.X = 22.000000000000000000
-      Position.Y = 99.000000000000000000
-      Size.Width = 100.000000000000000000
-      Size.Height = 19.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 1
-      Value = 2.000000000000000000
-      OnChange = TrackBarChange
-    end
-    object LIntervalo: TLabel
-      Position.X = 22.000000000000000000
-      Position.Y = 121.000000000000000000
-      Size.Width = 101.000000000000000000
-      Size.Height = 17.000000000000000000
-      Size.PlatformDefault = False
-      Text = 'Intervalo: 2 seg.'
-      TabOrder = 2
     end
     object CirclePlay: TCircle
       Fill.Bitmap.Bitmap.PNG = {
@@ -1860,8 +2382,8 @@ object FPrinc: TFPrinc
         000049454E44AE426082}
       Fill.Bitmap.WrapMode = Tile
       Fill.Kind = Bitmap
-      Position.X = 160.000000000000000000
-      Position.Y = 88.000000000000000000
+      Position.X = 39.000000000000000000
+      Position.Y = 156.000000000000000000
       Size.Width = 50.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
@@ -1869,8 +2391,8 @@ object FPrinc: TFPrinc
     end
     object LLetra: TLabel
       StyledSettings = [Family, FontColor]
-      Position.X = 109.000000000000000000
-      Position.Y = 3.000000000000000000
+      Position.X = 52.000000000000000000
+      Position.Y = 31.000000000000000000
       Size.Width = 25.000000000000000000
       Size.Height = 29.000000000000000000
       Size.PlatformDefault = False
@@ -1878,7 +2400,22 @@ object FPrinc: TFPrinc
       TextSettings.Font.StyleExt = {00090000000000000004000000}
       TextSettings.HorzAlign = Center
       Text = 'X'
-      TabOrder = 3
+      TabOrder = 1
+    end
+    object LInterv: TLabel
+      StyledSettings = [Family]
+      Position.X = 11.000000000000000000
+      Position.Y = 232.000000000000000000
+      Size.Width = 106.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00090000000000000004000000}
+      TextSettings.FontColor = claBlue
+      TextSettings.HorzAlign = Center
+      TextSettings.VertAlign = Leading
+      Text = 'Intervalo: 0 seg.'
+      TabOrder = 48
     end
   end
   object Timer: TTimer
@@ -1888,416 +2425,124 @@ object FPrinc: TFPrinc
     Left = 384
     Top = 352
   end
-  object BReiniciarTodo: TButton
-    Position.X = 17.000000000000000000
-    Position.Y = 623.000000000000000000
-    Size.Width = 150.000000000000000000
-    Size.Height = 25.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 35
-    Text = 'Reiniciar todo!'
-    OnClick = BReiniciarTodoClick
-  end
-  object GroupBox1: TGroupBox
-    Position.X = 185.000000000000000000
-    Position.Y = 543.000000000000000000
-    Size.Width = 377.000000000000000000
-    Size.Height = 145.000000000000000000
-    Size.PlatformDefault = False
-    Text = ' Informaci'#243'n de la partida '
-    TabOrder = 44
-    object LTotJug: TLabel
-      StyledSettings = [Family, Size, FontColor]
-      Position.X = 24.000000000000000000
-      Position.Y = 32.000000000000000000
-      Size.Width = 185.000000000000000000
-      Size.Height = 17.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      Text = 'Total jugadores: 0'
-      TabOrder = 0
-      TabStop = False
-    end
-    object LTotCartJuego: TLabel
-      StyledSettings = [Family, Size, FontColor]
-      Position.X = 24.000000000000000000
-      Position.Y = 56.000000000000000000
-      Size.Width = 193.000000000000000000
-      Size.Height = 17.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      Text = 'Total cartones en juego: 0'
-      TabOrder = 1
-      TabStop = False
-    end
-    object LModoCantado: TLabel
-      StyledSettings = [Family, Size, FontColor]
-      Position.X = 24.000000000000000000
-      Position.Y = 80.000000000000000000
-      Size.Width = 185.000000000000000000
-      Size.Height = 17.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      Text = 'Modo de cantado: '
-      TabOrder = 2
-      TabStop = False
-    end
-  end
-  object GroupBox2: TGroupBox
-    Position.X = 17.000000000000000000
-    Position.Y = 7.000000000000000000
-    Size.Width = 385.000000000000000000
-    Size.Height = 137.000000000000000000
-    Size.PlatformDefault = False
-    Text = ' Configuraci'#243'n de la partida '
-    TabOrder = 45
-    object Expander3: TExpander
-      IsExpanded = False
-      Position.X = 24.000000000000000000
-      Position.Y = 88.000000000000000000
-      ShowCheck = False
-      Size.Width = 340.000000000000000000
-      Size.Height = 25.000000000000000000
-      Size.PlatformDefault = False
-      Text = 'Modo de cantado'
-      TabOrder = 6
-      ContentSize = '200'
-      object RBManual: TRadioButton
-        Position.X = 25.000000000000000000
-        Position.Y = 13.000000000000000000
-        TabOrder = 44
-        Text = 'Cantado manual'
-        OnChange = RBManualChange
-      end
-      object RBAutomatico: TRadioButton
-        IsChecked = True
-        Position.X = 169.000000000000000000
-        Position.Y = 13.000000000000000000
-        Size.Width = 145.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 45
-        Text = 'Cantado autom'#225'tico'
-        OnChange = RBManualChange
-      end
-    end
-    object Expander1: TExpander
-      IsExpanded = False
-      Position.X = 24.000000000000000000
-      Position.Y = 56.000000000000000000
-      ShowCheck = False
-      Size.Width = 340.000000000000000000
-      Size.Height = 25.000000000000000000
-      Size.PlatformDefault = False
-      Text = 'Patrones'
-      TabOrder = 4
-      ContentSize = '200'
-      object ChBLnVt: TCheckBox
-        IsChecked = True
-        Position.X = 184.000000000000000000
-        Position.Y = 8.000000000000000000
-        Size.Width = 120.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 6
-        Text = 'L'#237'nea vertical'
-      end
-      object ChBLnHz: TCheckBox
-        IsChecked = True
-        Position.X = 184.000000000000000000
-        Position.Y = 32.000000000000000000
-        Size.Width = 120.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 7
-        Text = 'L'#237'nea horizontal'
-      end
-      object ChBDgNr: TCheckBox
-        IsChecked = True
-        Position.X = 184.000000000000000000
-        Position.Y = 56.000000000000000000
-        Size.Width = 120.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        Text = 'Diagonal normal'
-      end
-      object ChBDgIn: TCheckBox
-        IsChecked = True
-        Position.X = 184.000000000000000000
-        Position.Y = 80.000000000000000000
-        Size.Width = 120.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 3
-        Text = 'Diagonal inversa'
-      end
-      object ChTodo: TCheckBox
-        Position.X = 32.000000000000000000
-        Position.Y = 152.000000000000000000
-        Size.Width = 120.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 1
-        Text = 'Todo el cart'#243'n'
-        OnChange = ChTodoChange
-      end
-      object ChB4Esq: TCheckBox
-        IsChecked = True
-        Position.X = 32.000000000000000000
-        Position.Y = 104.000000000000000000
-        Size.Width = 120.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 2
-        Text = 'Cuatro esquinas'
-      end
-      object ChBCdGr: TCheckBox
-        IsChecked = True
-        Position.X = 32.000000000000000000
-        Position.Y = 80.000000000000000000
-        Size.Width = 120.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 5
-        Text = 'Cuadro grande'
-      end
-      object ChBCdPq: TCheckBox
-        IsChecked = True
-        Position.X = 32.000000000000000000
-        Position.Y = 56.000000000000000000
-        Size.Width = 120.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 4
-        Text = 'Cuadro peque'#241'o'
-      end
-      object ChBCrGr: TCheckBox
-        IsChecked = True
-        Position.X = 32.000000000000000000
-        Position.Y = 32.000000000000000000
-        Size.Width = 120.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 9
-        Text = 'Cruz grande'
-      end
-      object ChBCrPq: TCheckBox
-        IsChecked = True
-        Position.X = 32.000000000000000000
-        Position.Y = 8.000000000000000000
-        Size.Width = 120.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 8
-        Text = 'Cruz peque'#241'a'
-      end
-      object Line1: TLine
-        Locked = True
-        LineType = Top
-        Position.X = 51.000000000000000000
-        Position.Y = 137.000000000000000000
-        Size.Width = 235.000000000000000000
-        Size.Height = 4.000000000000000000
-        Size.PlatformDefault = False
-      end
-    end
-    object Expander2: TExpander
-      IsExpanded = False
-      Position.X = 24.000000000000000000
-      Position.Y = 24.000000000000000000
-      ShowCheck = False
-      Size.Width = 340.000000000000000000
-      Size.Height = 25.000000000000000000
-      Size.PlatformDefault = False
-      Text = 'Jugadores'
-      TabOrder = 5
-      ContentSize = '200'
-      object LBDisp: TListBox
-        Enabled = False
-        Position.X = 72.000000000000000000
-        Position.Y = 96.000000000000000000
-        Size.Width = 65.000000000000000000
-        Size.Height = 73.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 29
-        DisableFocusEffect = True
-        DefaultItemStyles.ItemStyle = ''
-        DefaultItemStyles.GroupHeaderStyle = ''
-        DefaultItemStyles.GroupFooterStyle = ''
-        ShowCheckboxes = True
-        Sorted = True
-        Viewport.Width = 61.000000000000000000
-        Viewport.Height = 69.000000000000000000
-      end
-      object SBAsig: TSpeedButton
-        Enabled = False
-        Images = ImageList
-        ImageIndex = 0
-        Position.X = 155.000000000000000000
-        Position.Y = 107.000000000000000000
-        Size.Width = 25.000000000000000000
-        Size.Height = 25.000000000000000000
-        Size.PlatformDefault = False
-        OnClick = SBAsigClick
-      end
-      object SBNoAsig: TSpeedButton
-        Enabled = False
-        Images = ImageList
-        ImageIndex = 1
-        Position.X = 155.000000000000000000
-        Position.Y = 133.000000000000000000
-        Size.Width = 25.000000000000000000
-        Size.Height = 25.000000000000000000
-        Size.PlatformDefault = False
-        OnClick = SBNoAsigClick
-      end
-      object BAgregar: TButton
-        Enabled = False
-        Position.X = 106.000000000000000000
-        Position.Y = 192.000000000000000000
-        Size.Width = 129.000000000000000000
-        Size.Height = 33.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 66
-        Text = 'Agregar jugador'
-        OnClick = BAgregarClick
-      end
-      object LBAsig: TListBox
-        Enabled = False
-        Position.X = 200.000000000000000000
-        Position.Y = 96.000000000000000000
-        Size.Width = 65.000000000000000000
-        Size.Height = 73.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 28
-        DisableFocusEffect = True
-        DefaultItemStyles.ItemStyle = ''
-        DefaultItemStyles.GroupHeaderStyle = ''
-        DefaultItemStyles.GroupFooterStyle = ''
-        ShowCheckboxes = True
-        Sorted = True
-        Viewport.Width = 61.000000000000000000
-        Viewport.Height = 69.000000000000000000
-      end
-      object Label8: TLabel
-        AutoSize = True
-        Position.X = 203.000000000000000000
-        Position.Y = 62.000000000000000000
-        Size.Width = 58.000000000000000000
-        Size.Height = 32.000000000000000000
-        Size.PlatformDefault = False
-        Text = 'Cartones asignados:'
-        TabOrder = 30
-      end
-      object Label7: TLabel
-        Position.X = 72.000000000000000000
-        Position.Y = 62.000000000000000000
-        Size.Width = 65.000000000000000000
-        Size.Height = 32.000000000000000000
-        Size.PlatformDefault = False
-        Text = 'Cartones disponibles:'
-        TabOrder = 2
-      end
-      object Label6: TLabel
-        AutoSize = True
-        Position.X = 24.000000000000000000
-        Position.Y = 18.000000000000000000
-        Size.Width = 47.000000000000000000
-        Size.Height = 16.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.WordWrap = False
-        Text = 'Nombre:'
-        TabOrder = 1
-      end
-      object ENombre: TEdit
-        Touch.InteractiveGestures = [LongTap, DoubleTap]
-        TabOrder = 0
-        Position.X = 80.000000000000000000
-        Position.Y = 16.000000000000000000
-        Size.Width = 233.000000000000000000
-        Size.Height = 22.000000000000000000
-        Size.PlatformDefault = False
-        OnChangeTracking = ENombreChangeTracking
-        OnEnter = ENombreEnter
-      end
-    end
-  end
-  object BConsGanador: TButton
-    Action = Action1
-    Enabled = False
-    ImageIndex = -1
-    Position.X = 417.000000000000000000
-    Position.Y = 103.000000000000000000
-    Size.Width = 145.000000000000000000
-    Size.Height = 41.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 46
-    Text = 'Consultar ganadores...'
-    OnClick = BConsGanadorClick
-  end
   object MPlayer: TMediaPlayer
     Left = 448
     Top = 352
-  end
-  object SwAudio: TSwitch
-    IsChecked = True
-    Position.X = 17.000000000000000000
-    Position.Y = 660.000000000000000000
-    Size.Width = 80.000000000000000000
-    Size.Height = 25.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 54
-    OnClick = SwAudioClick
-  end
-  object LAudio: TLabel
-    StyledSettings = [Family, Size, FontColor]
-    Position.X = 104.000000000000000000
-    Position.Y = 663.000000000000000000
-    Size.Width = 63.000000000000000000
-    Size.Height = 17.000000000000000000
-    Size.PlatformDefault = False
-    TextSettings.Font.StyleExt = {00070000000000000004000000}
-    Text = 'Audio S'#205
-    TabOrder = 55
   end
   object MPlayer2: TMediaPlayer
     Left = 448
     Top = 408
   end
-  object ExpCartones: TExpander
-    Position.X = 17.000000000000000000
-    Position.Y = 552.000000000000000000
-    ShowCheck = False
-    Size.Width = 150.000000000000000000
-    Size.Height = 137.000000000000000000
+  object PanelCnfBingo: TPanel
+    Position.X = 248.000000000000000000
+    Position.Y = 164.000000000000000000
+    Size.Width = 505.000000000000000000
+    Size.Height = 393.000000000000000000
     Size.PlatformDefault = False
-    Text = 'Cartones'
-    TabOrder = 63
-    ContentSize = '112'
-    object BAgrCarton: TButton
-      Action = Action2
-      Enabled = True
-      ImageIndex = -1
-      Position.X = 18.000000000000000000
-      Position.Y = 8.000000000000000000
-      Size.Width = 115.000000000000000000
-      Size.Height = 57.000000000000000000
+    Visible = False
+    TabOrder = 55
+    object BCerrarConf: TButton
+      Position.X = 204.000000000000000000
+      Position.Y = 328.000000000000000000
+      Size.Width = 97.000000000000000000
+      Size.Height = 33.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 1
-      Text = 'Agregar/Modificar/Eliminar...'
-      TextSettings.WordWrap = True
+      TabOrder = 57
+      Text = 'Cerrar'
+      OnClick = BCerrarConfClick
     end
-    object BElmCarton: TButton
-      Position.X = 18.000000000000000000
-      Position.Y = 72.000000000000000000
-      Size.Width = 115.000000000000000000
-      Size.Height = 22.000000000000000000
+    object GroupBox3: TGroupBox
+      Position.X = 23.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 460.000000000000000000
+      Size.Height = 81.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 0
-      Text = 'Eliminar todo...'
-      OnClick = BElmCartonClick
+      Text = ' Audio '
+      TabOrder = 58
+      object LAudio: TLabel
+        StyledSettings = [Family, Size, FontColor]
+        Position.X = 136.000000000000000000
+        Position.Y = 31.000000000000000000
+        Size.Width = 63.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Audio S'#205
+        TabOrder = 54
+      end
+      object SwAudio: TSwitch
+        IsChecked = True
+        Position.X = 41.000000000000000000
+        Position.Y = 28.000000000000000000
+        Size.Width = 80.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 53
+        OnClick = SwAudioClick
+      end
+      object TrkBarInterv: TTrackBar
+        CanParentFocus = True
+        Max = 15.000000000000000000
+        Min = 1.000000000000000000
+        Orientation = Horizontal
+        Position.X = 238.000000000000000000
+        Position.Y = 22.000000000000000000
+        Size.Width = 179.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Value = 2.000000000000000000
+        OnChange = TrkBarIntervChange
+      end
+      object LIntervalo: TLabel
+        Position.X = 238.000000000000000000
+        Position.Y = 44.000000000000000000
+        Size.Width = 179.000000000000000000
+        Size.Height = 16.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Intervalo entre cada bola: 2 seg.'
+        TabOrder = 2
+      end
     end
+    object GroupBox4: TGroupBox
+      Position.X = 23.000000000000000000
+      Position.Y = 112.000000000000000000
+      Size.Width = 460.000000000000000000
+      Size.Height = 121.000000000000000000
+      Size.PlatformDefault = False
+      Text = ' Cartones '
+      TabOrder = 59
+      object BElmCarton: TButton
+        Position.X = 246.000000000000000000
+        Position.Y = 30.000000000000000000
+        Size.Width = 180.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Eliminar todos los cartones'
+        OnClick = BElmCartonClick
+      end
+      object BAgrCarton: TButton
+        Action = Action2
+        Enabled = True
+        ImageIndex = -1
+        Position.X = 38.000000000000000000
+        Position.Y = 30.000000000000000000
+        Size.Width = 180.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Agregar/modificar/eliminar cartones...'
+        TextSettings.WordWrap = True
+      end
+    end
+  end
+  object StyleBook1: TStyleBook
+    Styles = <
+      item
+      end>
+    Left = 648
+    Top = 40
   end
   object ActLst: TActionList
     Left = 448
@@ -2368,6 +2613,122 @@ object FPrinc: TFPrinc
               'ngo\Imagen\flecha_izq.png'
           end>
         Name = 'flecha_izq'
+      end
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              0C30494441546843DD58696C5DC515FEEE5BFCBC3FDBD84E0C24D8598C496A67
+              69D81291AA801295D20A54202DADE04795B628AA54688B00A952D586D052F547
+              5B15D282A0AA4A2884AA1082D81A201124240413429CE0C436C6B1E3255E9E77
+              BFF5F63B73EF5CCFBB7612FAA7A13DC9F766EECC9973BE336766EE5CE37F5D2C
+              B79C21F659FACE87900C29CD941924A915EA037293454591505E5EC86D3EAF92
+              292ECE048787272B4F9F9E22E194DBAC242B804F48BCE0F6DBBF962E28B87FAA
+              ADAD3EDED979D600FC53623E7F96BECFDA965B5B9B8E2E59D2640D0C3C38F5F8
+              E33B6A8029B76B3A002A877A366CB8397FFDFAA7904A8527BABB911C1BA3C68C
+              2465C96C0EFD722E1D7F5BD6B36DA3A0BA1AF9A5A5480C0E2686B66FFFF6E2DD
+              BB9FD799F0D8F503C5C98D1BDF8AAC5BB7C2AEADC5604B0B52F1B8DB7B7E2510
+              0AE182BA3A4CEEDB87F19D3B1BCB5F7CF1CBE5C088F4A90018B1D55650503971
+              595D67DE0D5F0DC5172E849D4E4BD7E746B81F916C6D45F7134FA416F6F65EBC
+              607CBC8FE4ED80DB8F702613EA3FF46168E8D021A439F39954EA73850497737C
+              6202B18E8E90707569C30B2069DBC1A4AB9C4E243E77C82493B002010847E1EA
+              D29E0E80E9B064F364B87444F96CE81B19C147BDBD681F1C44CA353E1BC62727
+              1566EB1308B10EDA68A2ADFED1D159754C287E2E57E12CA203B012B61D500A99
+              CC8CE84D1C27A1A9254BB0F4A69B5072CD3568E22995F0E9C8F3613A3C357FBE
+              C261B7CDD449124778C2E45D751516DF782346162F46339788A9E387887014AE
+              2C5410EA878D811391484D4B3CDE5274EDB50813B349275338FFFAEB515555C5
+              D3D5528873BFB4BCFA2A8A07065C2D60B8A202B5EBD6213F3F5F3D4F90583375
+              4AFA79D6B9128B4651E3EAD80C4426AEA7A7072777EDC23C3EFB45964F80769A
+              366FC6EA4864D1E278FC1392CF987B2020E939D3121A62FB9C356B3CF2013148
+              0881F90D0D59BAD52B57A2B0B0D0D3917A0DDB4C9D79F5F5282A2A52FDDADEDC
+              B97351B97A3506652F1ABA1A7A090957E12CE255F85670029025446513492273
+              D965B8A4A6C623A53320F55C8E33F54DF21A85246BEA1484C359FDDAD67CBEB4
+              D23CF3C5A7A92F10118EC2553D50BC8A9548585E06B8DE4C0C1717A376C50ACF
+              917626C8E14BA6FFC0812C7DB35F43DA4C9D818307116110A6AEAE2F5AB60C43
+              9C04535F6740205C85B3485606548A7C4B28CD749630FD797C91984EA40C937C
+              E78E1D186D6FCF1A23D6A53F0B62DBD019696B43D7CE9DC8F1654220BE8A972F
+              57BEBD310C8286CE9C8140383C7D0A7180C61467FFC2050B66101247438D8DE8
+              E1EC8B9E7664A708DA103B26A44DFAB49E8CE9D9BF1FC37C718A2DBFED8B781B
+              98F42D3BBD0784AB7016F12A5498DEC446EAF26928373737CBB82A393BED2FBC
+              003BC9994911692E9D0CC13293A10D5F00D226FD015747C6C8D84F6823409F62
+              5743EC472211E472E23C2E0C809D2A00E1AA4853BC8ADEC412A517354946793E
+              6BF21AE2E4342F56A9B11192E19221021A192703FA68D49036E9B7D82F103D19
+              971E1D46FFFE773DE2A68F28274F38081709C00A9C6509F1EAE604C0C13ACDE0
+              FA2C2C2FCF32AC8D0F34BE974DC6662960DDF66540829136DDAFF48D72B0F1A0
+              B2E90F427CDBDC671E1FCBCDC019025057095BA27407047912448CE5A321299D
+              ECECF0C898C4A46EDBD3C4BD20084FC785042D014C9E6CE77262DDB5AF03C9A1
+              6FE12037E3D24B2F65369C7D205C15698A0AE0E74E654606823939336645901A
+              1D813D35E62C1D1F29819981E9209801B75FCFBE5E7299C9316739FAFC048341
+              54F2F82EE1526AE38975F84F5B9D4DCCFFC2594405B09411E92524BB40EF018B
+              CE25002DDAB0CC84262F643C42DE1272C89B90A082D24F04B53EA1ED287FAE7D
+              2D523FFAE493D8BF650BBADF7D970C9D3D205C85B3E878ECD8A18ED1B1AE2E74
+              EFDD8BC163C7307EEA94EAF31B4E0543B4952171E7543111B479BACC16009755
+              901E72F222C8AB284771CD0214CD9F87823915C82D2D413A9CE3F93191E6E551
+              8B7C994900C2D569312AB2AEA453F6C0D4D01086F9A239B567CFF462A368A3C1
+              FC0224337CC90C0FC01E1F86151FE7AC923CCF87A058A20BFF29C4F3991F81A7
+              116F3F8AE17DAFA1EBE947D1B96D2BBA9EFB0BDF07F413C9DE6BCA1F31E94EA2
+              88150AEA0C78B4A6D707453A4549CB646F0FD7FBA8AA6BA3227246274BCA307E
+              AC11E3470E60ECC3BD186BDC8DF1836F62FCFD3760F57664911748DBD4B1F790
+              FCF4636406BB11B252E0842A44565D8D1CEE37118F3CCB347D0B072D56C83985
+              4CC90A4096108C00786947ECD007EEC3B488F1E88DB77193071581B0811C62EA
+              9F8FA2389F270837A120CAFAD4F38FCAA9EC4074E94610E24FD10DB7A8BD2659
+              33457CCB1ED11220B76C8D5933E034C93CC8FEED79FD15F5EC377EC9CA2B3071
+              E5F52A5E4D461123C1E491B731780FEFFABB9F26B6A97AEAE85E159C40F4F4EC
+              8F5F711DE6AFB8C2B59A2DBDFF7A4571D0C9D74BC894990108132939480677BD
+              F43C2CB92EF8449651D5C6FB305E39CF23A3B32041D89F1E41ECB1FB89076077
+              3479C4BD40598E555C8C8AEFFE545D55FC131448C471EAE51D72F0288858BC02
+              9D7309E90C087919981A8DA16BFB36B56CB4485D5073691DAC4DBF42ACB4CAC9
+              844B52CD348330A1FB54B0D48D95CE45FAFB0FA2A6B66E0679B1DDF5DC53EA9A
+              A178106A42CFB507F412126535C0C5893FFE06E08B6636470D6BBE84F4DD8FE0
+              F8BC956AAC9E61BD5CBC00DC208444F345CB31B9E977A85FBD56D9D010513E48
+              BCF591DF7A93E8769D3B009581A0D32483349243FD38FED0033CC79D8D663A95
+              CD57BF72152EB96F2BF6ADBF0F1F942DC5684EBE22ACC893B4101F0BE7E3FD92
+              25D873DD8F31F79E3F60E98A2FAAF17E111F271EBA1FC9D820FBB37908B7EC29
+              649BFC3CCB711700571E05DEB9706D3D3ADEFE48CDA49E3D35933916963DF87B
+              547EE30EEF684CF38EA291E2AD513038388896E3CD183ED98AC0489F0A385558
+              8EC20BAB51B37011CACACA185C984B29E495BA2E2756DFF62771F867772391B4
+              91E0B533C1434881F5395F5A86236F7E88EB803503C0FEDBF84A98B984822A26
+              276229759D443EFEC58F30BAE765E5C8CC82CE84A0B4B4142B575D8EB55FBF15
+              577FEB07B872C3F7B0FA869BD1B09C779A9212A5A3F5CDB112C4E85B2FA179F3
+              3DF42959F6F96719083957095366DD039EC8282D52E74C1FFDC91D88BDF83766
+              C6F914D42434113FA45DCB6C3A321991480E623BFE8A63F7DE491264E1F7EB96
+              1603F02FA1590230469BDA6E5DBEA25A7FB9095D5B3621D74EABD4FB49993097
+              8894FAE52690B76F3E2FF1DDB4D5B6F987EA93D371E2144A8CBA64C02F590188
+              AE0E400E037956F0D733364E73C69A6FAB47EA8D67501809ABB35C1334490B84
+              A840D7E56F49515EEAECB7B6A3E59B0DE8674665AF9CCDA7543E5300A2E40D96
+              D25F27C85F653AD1DF8B935BEEC2C9EF3420B96D0B8AFA5A515654806834AAFE
+              68257F1F2A2E2E566BBF9C5F5773CA4A5036F429AC671FC6A93B97A3EBD79B90
+              18E873EC19F615FCFE89A0BB3F4D512DFA143AC85368E92DAB70FC1F07D5CB26
+              EB1CD77529094EA677449AC8298E22525D87705535028551E524331643B2BB9D
+              37D18F91E4C75092278A093961F839307DEACCF64C2CDA7039DEF9FB7B5877D6
+              53882474F47A6664B6BD9248BBF5B48114EFB882C4C830268EECC7E8AE6730B2
+              E3CF0AA3BB9EC544D301F639E4458FE741D67881F6C34F872CBFC24549165B47
+              BC264EB86D73D3C9AB4FFEC9601584698C50CE34014213179833EA9DDF846A77
+              4B535F433E15CC20F40469F25277170B0B7E8FB0D97970036872F492790BAAD3
+              E1D24A7E31F1439A0D9E41A3D448690809979826EF05A1612C030D4D5E4D8261
+              57E0F7298114CC8D22C3B7B9959F9B12AEC259B8ABB058B3F600D54D8B16BD52
+              565F577BF1921C9C7CBD11937D23DC0BB6B3BE19360F16AF943DA2C18307F2FA
+              9004CA4D444A39FEF596134F6A26052E299D3DA9674D825B97D209D4426E6514
+              556B97E283974F20D6DAD27CED64FA2B6B8176DAB7B50FBCCA207B0AF236C61B
+              BEF070282F2F8CF400D3137758B85AAA30EB14B1A0EB4ADC07353D3EF1DADC8A
+              F93C5B5D825625F210EB9DC4587F7FB26A20766F4D068FADE7A784F479BEA96B
+              BD0654748602B7F71716DD35612717A6262638B7D3E23971E54CCF66BB5FE73F
+              16A6D2CACD4DE52613AD55F1F45692DFC653E834892BD35993C71609821F80A8
+              64662F60679899CCD2F96F0B6750ED4FAECA8129A08FE42734799159C949202C
+              ACEDE799BC965B1DC2B25A3DE2FF2702FC1B904E19D7EA3F09FC000000004945
+              4E44AE426082}
+            FileName = 
+              'D:\Users\Francisco S'#225'ez\Documents\Embarcadero\Studio\Projects\Bi' +
+              'ngo\Imagen\salir.png'
+          end>
+        Name = 'salir'
       end>
     Destination = <
       item
@@ -2384,6 +2745,14 @@ object FPrinc: TFPrinc
             Name = 'flecha_izq'
             SourceRect.Right = 10.000000000000000000
             SourceRect.Bottom = 10.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'salir'
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
           end>
       end>
     Left = 448

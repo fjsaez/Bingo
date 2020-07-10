@@ -750,7 +750,7 @@ object FConsCarton: TFConsCarton
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 5
-    Text = 'Salir'
+    Text = 'Cerrar'
     OnClick = BSalirClick
   end
   object Label1: TLabel

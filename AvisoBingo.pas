@@ -37,7 +37,7 @@ uses Principal,UtilesBingo;
 
 procedure TFAvisoBingo.BTerminarClick(Sender: TObject);
 begin
-  FPrinc.Panel.Enabled:=false;
+  FPrinc.PanelTablero.Enabled:=false;
   FPrinc.PanelAuto.Enabled:=false;
   Close;
 end;
@@ -56,7 +56,7 @@ end;
 
 procedure TFAvisoBingo.FormShow(Sender: TObject);
 begin
-  if Sonidos.AudioActivo then Sonido(MPlayer,Sonidos.Ganador,0.7);
+  if Sistema.SonidoActivo then Sonido(MPlayer,Sistema.Sonido.Ganador,0.7);
 end;
 
 end.
